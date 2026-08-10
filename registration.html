@@ -1838,8 +1838,14 @@ footer a:hover{color:#fff!important}
 
 
 
-/* the brand is a link: top of page here, home from the other pages */
-.hdr .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+/* the brand is a link: top of page here, home from the other pages.
+   ".hdr .nm{margin-right:auto}" was the spacer that pushed the nav right. Once
+   the name moved inside this anchor that auto margin only pushed within the
+   link, so the brand and AGENDA collided. The spacer belongs on the link. */
+.hdr .brand{display:flex;align-items:center;gap:14px;text-decoration:none;
+  margin-right:auto;min-width:0}
+.hdr .brand .nm{margin-right:0}
+.hdr .col{flex-wrap:wrap;row-gap:10px}
 .hdr .brand .nm{color:#0E1320}
 .hdr .brand:hover .nm{color:var(--blue)}
 /* back to top, appears once you are past the first screen */
