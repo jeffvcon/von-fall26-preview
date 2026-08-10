@@ -1891,8 +1891,15 @@ footer a:hover{color:#fff!important}
   border-color:#0E1320!important}
 .ebird .btn.solid:hover,.ebird .eb-in .btn.solid:hover{background:var(--blue)!important;
   color:#fff!important;border-color:var(--blue)!important}
-@media (max-width:760px){.ebclk .u{min-width:60px;padding:8px 10px}
-  .eb-in{flex-direction:column;align-items:flex-start}}
+@media (max-width:760px){
+  .ebclk .u{min-width:60px;padding:8px 10px}
+  .eb-in{flex-direction:column;align-items:flex-start;gap:16px}
+  /* the row uses flex:1 1 340px on the label. Once the container is a COLUMN
+     that 340px basis becomes a HEIGHT, which left a huge empty yellow block on
+     phones. Reset it. */
+  .ebird .eb-lab{flex:0 0 auto}
+  .eb-right{width:100%;justify-content:space-between}
+}
 
 /* ==========================================================================
    JEFF'S FRAMING - What to Expect

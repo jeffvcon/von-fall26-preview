@@ -1889,8 +1889,15 @@ footer a:hover{color:#fff!important}
   border-color:#0E1320!important}
 .ebird .btn.solid:hover,.ebird .eb-in .btn.solid:hover{background:var(--blue)!important;
   color:#fff!important;border-color:var(--blue)!important}
-@media (max-width:760px){.ebclk .u{min-width:60px;padding:8px 10px}
-  .eb-in{flex-direction:column;align-items:flex-start}}
+@media (max-width:760px){
+  .ebclk .u{min-width:60px;padding:8px 10px}
+  .eb-in{flex-direction:column;align-items:flex-start;gap:16px}
+  /* the row uses flex:1 1 340px on the label. Once the container is a COLUMN
+     that 340px basis becomes a HEIGHT, which left a huge empty yellow block on
+     phones. Reset it. */
+  .ebird .eb-lab{flex:0 0 auto}
+  .eb-right{width:100%;justify-content:space-between}
+}
 
 /* ==========================================================================
    JEFF'S FRAMING - What to Expect
@@ -1970,6 +1977,8 @@ footer a:hover{color:#fff!important}
 .tix .t.best .flag{position:absolute;top:-1px;right:16px;background:var(--blue);color:#fff;
   font-size:15px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px}
 
+.ebnote{margin:14px 0 0;font-size:19px;line-height:1.55;color:#0E1320;max-width:60ch}
+.ebnote b{color:var(--blue)!important}
 .vipnote{margin:24px 0 0;font-size:17.5px;line-height:1.6;color:#0E1320;max-width:72ch}
 .vipnote b{color:var(--blue)!important}
 
@@ -2067,6 +2076,7 @@ footer a:hover{color:#fff!important}
   <div class="col">
     <div class="eyebrow"><span class="mono">Tickets</span></div>
     <h2 class="sec">Three ways in.</h2>
+    <p class="ebnote"><b>Every price below is the early-bird rate, available through August 28, 2026.</b> After that, prices go up.</p>
     <div class="tix novcase">
       <div class="t">
         <h3>Pre-Conference</h3>
@@ -2079,12 +2089,12 @@ footer a:hover{color:#fff!important}
         </ul>
         <div class="sp"></div>
         <div class="prow">
-          <span class="pn">Standard</span>
+          <span class="pn">Early Bird</span>
           <b class="pv">$700</b>
           <span class="pt">$754.25 with sales tax</span>
         </div>
         <div class="prow vipr">
-          <span class="pn">VIP</span>
+          <span class="pn">VIP Early Bird</span>
           <b class="pv">$775</b>
           <span class="pt">$835.06 with sales tax</span>
         </div>
@@ -2101,12 +2111,12 @@ footer a:hover{color:#fff!important}
         </ul>
         <div class="sp"></div>
         <div class="prow">
-          <span class="pn">Standard</span>
+          <span class="pn">Early Bird</span>
           <b class="pv">$1,300</b>
           <span class="pt">$1,400.75 with sales tax</span>
         </div>
         <div class="prow vipr">
-          <span class="pn">VIP</span>
+          <span class="pn">VIP Early Bird</span>
           <b class="pv">$1,375</b>
           <span class="pt">$1,481.56 with sales tax</span>
         </div>
@@ -2124,19 +2134,19 @@ footer a:hover{color:#fff!important}
         </ul>
         <div class="sp"></div>
         <div class="prow">
-          <span class="pn">Standard</span>
+          <span class="pn">Early Bird</span>
           <b class="pv">$1,900</b>
           <span class="pt">$2,047.25 with sales tax</span>
         </div>
         <div class="prow vipr">
-          <span class="pn">VIP</span>
+          <span class="pn">VIP Early Bird</span>
           <b class="pv">$1,975</b>
           <span class="pt">$2,128.06 with sales tax</span>
         </div>
       </div>
     </div>
 
-    <p class="vipnote"><b>VIP</b> adds the VIP &amp; Speaker Dinner on Tuesday October 13 at 6:30 PM. Lunch is not included with any ticket. <b>Every price on this page is the early-bird rate and ends August 28, 2026.</b></p>
+    <p class="vipnote"><b>VIP Early Bird</b> adds the VIP &amp; Speaker Dinner on Tuesday October 13 at 6:30 PM. Lunch is not included with any ticket.</p>
     <div class="cta" style="margin-top:28px"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator">Register on Eventbrite &middot; see prices</a></div>
     <p class="regnote">Ticket prices are held on Eventbrite so there is one place to change them.</p>
   </div>
