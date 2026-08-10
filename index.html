@@ -2518,8 +2518,17 @@ footer a:hover{color:#fff!important}
 
 <script>
 (function(){
-  var b=document.getElementById("totop");
-  if(b) addEventListener("scroll",function(){ b.classList.toggle("on", scrollY>700); },{passive:true});
+  var b=document.getElementById("totop"), h=document.getElementById("top");
+  if(!b||!h) return;
+  // IntersectionObserver, not a scroll handler: it does not care which element
+  // is doing the scrolling, and it costs nothing per frame.
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(e){ b.classList.toggle("on", !e[0].isIntersecting); }).observe(h);
+  } else {
+    addEventListener("scroll",function(){
+      b.classList.toggle("on",(window.scrollY||document.documentElement.scrollTop)>700);
+    },{passive:true});
+  }
 })();
 </script>
 <script>
