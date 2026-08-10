@@ -1950,11 +1950,28 @@ footer a:hover{color:#fff!important}
 .tix .t .inc li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;
   background:var(--blue);margin-top:.55em}
 .tix .t.vip .inc li::before{background:#0E1320}
-/* the shared amber label #8A5A00 measures 5.93 on white - AA, not AAA.
-   Darkened for this page so the whole page clears 7.0. */
-.tix .t .lim{margin:16px 0 0;font-size:16px;font-weight:700;color:#6B4600;
-  letter-spacing:.02em}
 .tix .t .sp{flex:1;min-height:14px}
+
+/* prices. Base price is the headline because $700 vs $775 is scannable and
+   $754.25 vs $835.06 is not. The all-in figure sits under it so nobody meets a
+   surprise at the Eventbrite checkout. */
+.prow{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;
+  padding:13px 0 0;border-top:1px solid var(--rule);margin-top:13px}
+.prow .pn{grid-row:1;font-size:16px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:#3A4157}
+.prow .pv{grid-row:1;justify-self:end;font-size:31px;font-weight:800;
+  letter-spacing:-.035em;color:var(--blue)!important;font-variant-numeric:tabular-nums}
+.prow .pt{grid-column:1/-1;grid-row:2;font-size:15.5px;color:#3A4157;margin-top:3px}
+.prow.vipr .pv{color:#0E1320!important}
+.prow.vipr .pn{color:#0E1320}
+
+/* the three-day card is the one to take */
+.tix .t.best{border-color:var(--blue);border-width:3px;border-top-width:7px;position:relative}
+.tix .t.best .flag{position:absolute;top:-1px;right:16px;background:var(--blue);color:#fff;
+  font-size:15px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px}
+
+.vipnote{margin:24px 0 0;font-size:17.5px;line-height:1.6;color:#0E1320;max-width:72ch}
+.vipnote b{color:var(--blue)!important}
 
 /* who registers - compact constituency band on the conversion page */
 .delegates{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
@@ -2052,37 +2069,74 @@ footer a:hover{color:#fff!important}
     <h2 class="sec">Three ways in.</h2>
     <div class="tix novcase">
       <div class="t">
-        <h3>Full Conference</h3>
-        <p class="when">Three days &middot; Oct 13&ndash;15</p>
-        <ul class="inc">
-          <li>Pre-Conference day (October 13)</li>
-          <li>Main sessions (October 14&ndash;15)</li>
-          <li>Community and working sessions</li>
-          <li>Networking throughout the event</li>
-        </ul>
-        <div class="sp"></div>
-      </div>
-      <div class="t">
         <h3>Pre-Conference</h3>
-        <p class="when">One day &middot; Oct 13</p>
+        <p class="when">Tuesday, October 13</p>
         <p class="colo">Two co-located events. One ticket covers both.</p>
         <ul class="inc">
           <li>The 2026 vCon Summit</li>
           <li>2026 VoiceAI LIVE!</li>
+          <li>9:00 AM to 4:00 PM</li>
         </ul>
         <div class="sp"></div>
+        <div class="prow">
+          <span class="pn">Standard</span>
+          <b class="pv">$700</b>
+          <span class="pt">$754.25 with sales tax</span>
+        </div>
+        <div class="prow vipr">
+          <span class="pn">VIP</span>
+          <b class="pv">$775</b>
+          <span class="pt">$835.06 with sales tax</span>
+        </div>
       </div>
-      <div class="t vip">
-        <h3>VIP / Speaker Access</h3>
-        <p class="when">Three days &middot; Oct 13&ndash;15</p>
+
+      <div class="t">
+        <h3>Main Conference</h3>
+        <p class="when">Wednesday 14 &amp; Thursday 15</p>
+        <p class="colo">The two days of the industry gathering.</p>
         <ul class="inc">
-          <li>Full conference access (3 days)</li>
-          <li>Access to the Speaker / VIP Dinner on October 13</li>
+          <li>All main conference sessions</li>
+          <li>Welcome Reception on the 14th</li>
+          <li>Networking throughout</li>
         </ul>
         <div class="sp"></div>
-        <p class="lim">Limited</p>
+        <div class="prow">
+          <span class="pn">Standard</span>
+          <b class="pv">$1,300</b>
+          <span class="pt">$1,400.75 with sales tax</span>
+        </div>
+        <div class="prow vipr">
+          <span class="pn">VIP</span>
+          <b class="pv">$1,375</b>
+          <span class="pt">$1,481.56 with sales tax</span>
+        </div>
+      </div>
+
+      <div class="t best">
+        <span class="flag">Everything</span>
+        <h3>All Three Days</h3>
+        <p class="when">October 13 to 15</p>
+        <p class="colo">Pre-Conference and the full industry gathering.</p>
+        <ul class="inc">
+          <li>The 2026 vCon Summit and 2026 VoiceAI LIVE!</li>
+          <li>All main conference sessions</li>
+          <li>Welcome Reception on the 14th</li>
+        </ul>
+        <div class="sp"></div>
+        <div class="prow">
+          <span class="pn">Standard</span>
+          <b class="pv">$1,900</b>
+          <span class="pt">$2,047.25 with sales tax</span>
+        </div>
+        <div class="prow vipr">
+          <span class="pn">VIP</span>
+          <b class="pv">$1,975</b>
+          <span class="pt">$2,128.06 with sales tax</span>
+        </div>
       </div>
     </div>
+
+    <p class="vipnote"><b>VIP</b> adds the VIP &amp; Speaker Dinner on Tuesday October 13 at 6:30 PM. Lunch is not included with any ticket. <b>Every price on this page is the early-bird rate and ends August 28, 2026.</b></p>
     <div class="cta" style="margin-top:28px"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator">Register on Eventbrite &middot; see prices</a></div>
     <p class="regnote">Ticket prices are held on Eventbrite so there is one place to change them.</p>
   </div>
