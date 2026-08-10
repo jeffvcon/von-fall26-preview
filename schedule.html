@@ -1957,14 +1957,14 @@ footer a:hover{color:#fff!important}
 .facerail::-webkit-scrollbar{height:9px}
 .facerail::-webkit-scrollbar-track{background:var(--rule);border-radius:5px}
 .facerail::-webkit-scrollbar-thumb{background:var(--blue);border-radius:5px}
-.face{flex:0 0 138px;scroll-snap-align:start;text-decoration:none;text-align:center}
+.face{flex:0 0 138px;scroll-snap-align:start;text-align:center}
 .face img{width:116px;height:116px;border-radius:50%;object-fit:cover;
   border:3px solid var(--blue);display:block;margin:0 auto 11px}
 .spkstrip .facerail .face b{display:block;font-size:16px;line-height:1.25;
   font-weight:700;color:#0E1320!important}
 .spkstrip .facerail .face span{display:block;font-size:16px;line-height:1.3;
   color:#3A4157;margin-top:3px}
-.face:hover img{border-color:var(--hover)}
+
 .railnote{margin:2px 0 0;font-size:16px;color:#3A4157}
 /* nothing below 16px, including speaker roles and companies */
 #speakers .pcard span,#speakers .pcard em{font-size:16px}
@@ -2107,6 +2107,13 @@ footer a:hover{color:#fff!important}
 .trackname{margin:26px 0 6px;font-size:17px;font-weight:800;letter-spacing:.05em;
   text-transform:uppercase;color:var(--purple)}
 .trackname.live{color:var(--green)}
+/* the vCon Summit is a Foundation event and carries its colour. VoiceAI LIVE!
+   is not, so it stays green. Jeff confirmed this split. */
+.fdn{display:inline-block;margin-left:10px;background:var(--purple);color:#fff;
+  font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:none;padding:3px 10px;border-radius:2px}
+/* training happens once, on the 13th */
+.onlyday{margin:16px 0 0;font-size:17.5px;line-height:1.6;color:#0E1320}
+.onlyday b{color:var(--purple)!important}
 .schednote{margin:20px 0 0;font-size:18px;line-height:1.6;color:#0E1320;max-width:64ch}
 .schednote b{color:var(--blue)!important}
 .speakerask{background:#fff;border:2px solid var(--rule);border-left:7px solid var(--blue);
@@ -2157,8 +2164,9 @@ footer a:hover{color:#fff!important}
 <div class="strip blue pad dayblock" id="oct13">
   <div class="col">
     <div class="d2head oct13"><span class="d2n">Oct 13</span><h3 class="ch">Pre-Conference Day &mdash; two co-located events</h3></div>
+    <p class="onlyday novcase"><b>October 13 is the only day with training.</b> The Introduction to vCons Primer runs once, on the 13th.</p>
 
-    <p class="trackname novcase">Track A &middot; The 2026 vCon Summit</p>
+    <p class="trackname novcase">Track A &middot; The 2026 vCon Summit <span class="fdn">A vCon Foundation event</span></p>
     <div class="srow"><span class="tm">Morning</span><div><b>Introduction to vCons Primer</b><p>Taught by Thomas McCarthy-Howe, CTO, vConic. He may invite friends to contribute to the morning.</p></div></div>
     <div class="srow"><span class="tm">Lunch</span><div><b>Members lunch</b><p>For members of The vCon Foundation. Included with membership.</p></div></div>
     <div class="srow"><span class="tm">Afternoon</span><div><b>vCon Issues of the Day</b><p>Update from IETF 126 and a deep dive into what is going on inside the world of vCons. Members of The vCon Foundation are encouraged to share updates on what they are doing with vCons.</p></div></div>
