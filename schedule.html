@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register - Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site</div><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Schedule - Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site</div><style>
 /* ==========================================================================
    FALL '26 // WIX CUT
    Everything here is buildable in the classic Wix Editor they already have.
@@ -1988,94 +1988,60 @@ footer a:hover{color:#fff!important}
 </style>
 <style>
 /* ==========================================================================
-   /registration - page-specific
-   Built from the same stylesheet as the home page so the two cannot drift.
+   /schedule - page specific
+   The home page carries the AGENDA, the shape of each day. This page carries
+   the SCHEDULE, session by session. Sessions that are not confirmed say so
+   rather than being dressed up.
    ========================================================================== */
-.reghead{padding-top:clamp(30px,4vw,56px);padding-bottom:clamp(26px,3.4vw,44px)}
-.reghead h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.04em;
+.schedhead{padding-top:clamp(30px,4vw,56px);padding-bottom:clamp(22px,3vw,38px)}
+.schedhead h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.04em;
   font-weight:800;margin:10px 0 0;color:var(--blue)}
-.reghead .where{margin:16px 0 0;font-size:clamp(18px,2vw,21px);line-height:1.5;
-  font-weight:600;color:#0E1320;max-width:44ch}
-.reghead .where b{font-weight:800;color:var(--blue)}
+.schedhead .where{margin:16px 0 0;font-size:clamp(18px,2vw,21px);line-height:1.5;
+  font-weight:600;color:#0E1320;max-width:46ch}
+.schedhead .where b{font-weight:800;color:var(--blue)}
 
-/* ticket tiers */
-.tix{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px;align-items:stretch}
-@media (max-width:900px){.tix{grid-template-columns:1fr}}
-.tix .t{background:#fff;border:2px solid var(--rule);border-top:7px solid var(--blue);
-  padding:26px 24px 28px;display:flex;flex-direction:column}
-/* VIP is INK, not purple. Purple is reserved for the vCon Foundation. */
-.tix .t.vip{border-top-color:#0E1320}
-.tix .t h3{margin:0;font-size:25px;font-weight:800;letter-spacing:-.025em;
-  line-height:1.15;color:var(--blue)}
-.tix .t.vip h3{color:#0E1320}
-.tix .t .colo{margin:12px 0 0;font-size:16.5px;line-height:1.45;font-weight:600;color:#3A4157}
-.tix .t .when{margin:9px 0 0;font-size:17px;font-weight:700;letter-spacing:.03em;
-  text-transform:uppercase;color:#3A4157}
-.tix .t .inc{margin:18px 0 0;padding:0;list-style:none}
-.tix .t .inc li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:17.5px;
-  line-height:1.45;display:flex;gap:11px;align-items:flex-start;color:#0E1320}
-.tix .t .inc li:last-child{border-bottom:0}
-.tix .t .inc li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;
-  background:var(--blue);margin-top:.55em}
-.tix .t.vip .inc li::before{background:#0E1320}
-.tix .t .sp{flex:1;min-height:14px}
-
-/* prices. Base price is the headline because $700 vs $775 is scannable and
-   $754.25 vs $835.06 is not. The all-in figure sits under it so nobody meets a
-   surprise at the Eventbrite checkout. */
-.prow{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;
-  padding:13px 0 0;border-top:1px solid var(--rule);margin-top:13px}
-.prow .pn{grid-row:1;font-size:16px;font-weight:700;letter-spacing:.05em;
-  text-transform:uppercase;color:#3A4157}
-.prow .pv{grid-row:1;justify-self:end;font-size:31px;font-weight:800;
-  letter-spacing:-.035em;color:var(--blue)!important;font-variant-numeric:tabular-nums}
-.prow .pt{grid-column:1/-1;grid-row:2;font-size:15.5px;color:#3A4157;margin-top:3px}
-.paft{grid-column:1/-1;grid-row:3;font-size:15.5px;line-height:1.4;color:#3A4157;margin-top:5px}
-.paft b{color:#6B4600!important;font-weight:700}
-.prow.vipr .pv{color:#0E1320!important}
-.prow.vipr .pn{color:#0E1320}
-
-/* the three-day card is the one to take */
-.tix .t.best{border-color:var(--blue);border-width:3px;border-top-width:7px;position:relative}
-.tix .t.best .flag{position:absolute;top:-1px;right:16px;background:var(--blue);color:#fff;
-  font-size:15px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px}
-
-.ebnote{margin:14px 0 0;font-size:19px;line-height:1.55;color:#0E1320;max-width:60ch}
-.ebnote b{color:var(--blue)!important}
-.vipnote{margin:24px 0 0;font-size:17.5px;line-height:1.6;color:#0E1320;max-width:72ch}
-.vipnote b{color:var(--blue)!important}
-
-/* who registers - compact constituency band on the conversion page */
-.delegates{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.delegates span{font-size:17px;font-weight:700;padding:11px 17px;background:#fff;
-  border:2px solid var(--blue);color:var(--blue);border-radius:2px;line-height:1.2}
-@media (max-width:620px){.delegates span{font-size:16px;padding:9px 13px}}
-
-.regnote{margin-top:24px;font-size:18px;line-height:1.6;color:#3A4157;max-width:60ch}
-.backlink{display:inline-block;margin-top:8px;font-size:17px;font-weight:700;
-  color:var(--blue);text-decoration:underline;text-underline-offset:4px}
-.backlink:hover{color:var(--hover)}
+.dayblock{padding-top:clamp(26px,3.4vw,44px)}
+.tba{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:#6B4600;background:#FFF3D6;padding:4px 10px;border-radius:2px}
+.srow{display:grid;grid-template-columns:150px 1fr;gap:8px 22px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:620px){.srow{grid-template-columns:1fr;gap:5px}}
+.srow .tm{font-size:16.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--blue);font-variant-numeric:tabular-nums}
+.srow.fixed .tm{color:#0E1320}
+.srow b{font-size:19px;font-weight:800;letter-spacing:-.02em;color:#0E1320!important;display:block}
+.srow p{margin:5px 0 0;font-size:17px;line-height:1.5;color:#3A4157}
+.trackname{margin:26px 0 6px;font-size:17px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--purple)}
+.trackname.live{color:var(--green)}
+.schednote{margin:20px 0 0;font-size:18px;line-height:1.6;color:#0E1320;max-width:64ch}
+.schednote b{color:var(--blue)!important}
+.speakerask{background:#fff;border:2px solid var(--rule);border-left:7px solid var(--blue);
+  padding:22px 24px;margin-top:30px}
+.speakerask b{display:block;font-size:20px;color:var(--blue)!important;margin-bottom:7px}
+.speakerask p{margin:0;font-size:17.5px;line-height:1.6;color:#0E1320}
 </style>
 
 <a class="skiplink" href="#main">Skip to main content</a>
 <header class="strip hdr">
   <div class="col">
     <img src="data:image/png;base64,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" alt="VON Evolution"><span class="nm">Voice and Conversations on the Net</span>
-    <nav><a href="index.html#program">Program</a><a href="index.html#speakers">Speakers</a><a href="index.html#sponsors">Sponsors</a><a href="index.html">Home</a></nav>
-    <a class="btn solid" href="#tickets">Ticket prices</a>
+    <nav><a href="index.html#program">Agenda</a><a href="index.html#speakers">Speakers</a><a href="index.html#sponsors">Sponsors</a><a href="index.html">Home</a></nav>
+    <a class="btn solid" href="registration.html">Register</a>
   </div>
 </header>
 
 <main id="main">
 
-<div class="strip ice reghead">
+<div class="strip ice schedhead">
   <div class="col">
-    <div class="eyebrow"><span class="mono">Registration</span></div>
-    <h1>Register</h1>
+    <div class="eyebrow"><span class="mono">Schedule</span></div>
+    <h1>Schedule</h1>
     <p class="where"><b>Fall '26 Voice and Conversations on the Net</b><br>October 13&ndash;15, 2026 &middot; Sandy Springs Performing Arts Center &middot; Atlanta, Georgia</p>
-    <div class="knows" style="margin-top:28px">
-      <p>People who know, just know. They register in advance to secure their seat in the room.</p>
+    <div class="knows" style="margin-top:26px">
+      <p>The schedule is revealed close to the show. It carries the freshest topics and reflects the moment the industry is in.</p>
     </div>
+    <p class="schednote"><b>Session times below are confirmed. Sessions marked to be announced are still being curated</b> and are published here as they are confirmed, week by week.</p>
   </div>
 </div>
 
@@ -2089,177 +2055,54 @@ footer a:hover{color:#fff!important}
           <div class="u"><span class="n" id="ebh">--</span><span class="x">Hrs</span></div>
           <div class="u"><span class="n" id="ebm">--</span><span class="x">Min</span></div>
       </div>
-        <a class="btn solid" href="#tickets">See ticket prices</a>
+        <a class="btn solid" href="registration.html">Ticket prices</a>
       </div>
     </div>
   </div>
 </div>
 
-<div class="strip ice pad" id="members">
+<div class="strip blue pad dayblock" id="oct13">
   <div class="col">
-    <div class="eyebrow"><span class="mono" style="color:var(--purple)">Members</span></div>
-    <h2 class="sec novcase" style="color:var(--purple)!important">The vCon Foundation gets in first.</h2>
-    <p class="lede" style="margin-top:14px;max-width:54ch">Membership is the cheapest way into the room, and it is the reason the pre-conference day exists.</p>
+    <div class="d2head oct13"><span class="d2n">Oct 13</span><h3 class="ch">Pre-Conference Day &mdash; two co-located events</h3></div>
 
-    <div class="offer">
-      <div class="obox">
-        <span class="on">Individual members</span>
-        <b>October 13 free</b>
-        <p>Attend the 2026 vCon Summit and 2026 VoiceAI LIVE! at no cost. The members lunch is included.</p>
-      </div>
-      <div class="obox">
-        <span class="on">Corporate members</span>
-        <b>Send up to five</b>
-        <p>Five individuals from your company on October 13, at no cost.</p>
-      </div>
-      <div class="obox hot">
-        <span class="on">All members</span>
-        <b>50% off Oct 14&ndash;15</b>
-        <p>Half price on the two days of the main conference.</p>
-      </div>
-    </div>
+    <p class="trackname novcase">Track A &middot; The 2026 vCon Summit</p>
+    <div class="srow"><span class="tm">Morning</span><div><b>Introduction to vCons Primer</b><p>Taught by Thomas Howe, CTO, vConic. He may invite friends to contribute to the morning.</p></div></div>
+    <div class="srow"><span class="tm">Lunch</span><div><b>Members lunch</b><p>For members of The vCon Foundation. Included with membership.</p></div></div>
+    <div class="srow"><span class="tm">Afternoon</span><div><b>vCon Issues of the Day</b><p>Update from IETF 126 and a deep dive into what is going on inside the world of vCons. Members of The vCon Foundation are encouraged to share updates on what they are doing with vCons.</p></div></div>
 
-    <div class="codebox novcase">
-      <b>Members: you need a registration code.</b>
-      <p>If you do not already have your code, email <a href="mailto:lauren@pulverstudios.com">lauren@pulverstudios.com</a> and Lauren will send it to you.</p>
-    </div>
+    <p class="trackname live novcase">Track B &middot; 2026 VoiceAI LIVE!</p>
+    <div class="srow"><span class="tm">Demos</span><div><b>Back-to-back live demonstrations</b><p>A day of live VoiceAI demonstrations brought to you by the companies driving the VoiceAI industry forward.</p></div></div>
+    <div class="srow"><span class="tm">Q&amp;A</span><div><b>Moderated Q&amp;A</b><p>Following the demos, a moderated Q&amp;A.</p></div></div>
+    <div class="srow"><span class="tm">Pitch</span><div><b>The only place to pitch</b><p>The one opportunity at the conference for a Voice AI company to pitch. Then stay in the room. See what your competitors have built, watch the demos live, ask your questions. Listen and learn.</p></div></div>
 
-    <div class="nextup">
-      <div>
-        <span class="mono" style="color:var(--blue)">Next for members</span>
-        <b>vCon Policy Summit</b>
-        <span class="wh">Washington, DC &middot; December 3, 2026</span>
-      </div>
-      <a class="btn solid novcase" href="https://www.thevconfoundation.com">Join The vCon Foundation</a>
-    </div>
+    <div class="srow fixed"><span class="tm">6:30 PM</span><div><b>VIP &amp; Speaker Dinner</b><p>Speakers and VIP guests come together for the Speaker Dinner, continuing a tradition that has opened every conference curated by Jeff Pulver. Included with any VIP ticket.</p></div></div>
   </div>
 </div>
 
-<div class="strip blue pad" id="tickets">
+<div class="strip ice pad dayblock" id="oct14">
   <div class="col">
-    <div class="eyebrow"><span class="mono">Tickets</span></div>
-    <h2 class="sec">Three ways in.</h2>
-    <p class="ebnote"><b>Every price below is the early-bird rate, available through August 28, 2026.</b> On August 29 prices rise by 25 percent.</p>
-    <div class="tix novcase">
-      <div class="t">
-        <h3>Pre-Conference</h3>
-        <p class="when">Tuesday, October 13</p>
-        <p class="colo">Two co-located events. One ticket covers both.</p>
-        <ul class="inc">
-          <li>The 2026 vCon Summit</li>
-          <li>2026 VoiceAI LIVE!</li>
-          <li>9:00 AM to 4:00 PM</li>
-        </ul>
-        <div class="sp"></div>
-        <div class="prow">
-          <span class="pn">Early Bird</span>
-          <b class="pv">$700</b>
-          <span class="pt">$754.25 with sales tax</span><span class="paft">$875 from August 29 &middot; <b>save $175</b></span>
-        </div>
-        <div class="prow vipr">
-          <span class="pn">VIP Early Bird</span>
-          <b class="pv">$775</b>
-          <span class="pt">$835.06 with sales tax</span><span class="paft">$970 from August 29 &middot; <b>save $195</b></span>
-        </div>
-      </div>
-
-      <div class="t">
-        <h3>Main Conference</h3>
-        <p class="when">Wednesday 14 &amp; Thursday 15</p>
-        <p class="colo">The two days of the industry gathering.</p>
-        <ul class="inc">
-          <li>All main conference sessions</li>
-          <li>Welcome Reception on the 14th</li>
-          <li>Networking throughout</li>
-        </ul>
-        <div class="sp"></div>
-        <div class="prow">
-          <span class="pn">Early Bird</span>
-          <b class="pv">$1,300</b>
-          <span class="pt">$1,400.75 with sales tax</span><span class="paft">$1,625 from August 29 &middot; <b>save $325</b></span>
-        </div>
-        <div class="prow vipr">
-          <span class="pn">VIP Early Bird</span>
-          <b class="pv">$1,375</b>
-          <span class="pt">$1,481.56 with sales tax</span><span class="paft">$1,720 from August 29 &middot; <b>save $345</b></span>
-        </div>
-      </div>
-
-      <div class="t best">
-        <span class="flag">Everything</span>
-        <h3>All Three Days</h3>
-        <p class="when">October 13 to 15</p>
-        <p class="colo">Pre-Conference and the full industry gathering.</p>
-        <ul class="inc">
-          <li>The 2026 vCon Summit and 2026 VoiceAI LIVE!</li>
-          <li>All main conference sessions</li>
-          <li>Welcome Reception on the 14th</li>
-        </ul>
-        <div class="sp"></div>
-        <div class="prow">
-          <span class="pn">Early Bird</span>
-          <b class="pv">$1,900</b>
-          <span class="pt">$2,047.25 with sales tax</span><span class="paft">$2,375 from August 29 &middot; <b>save $475</b></span>
-        </div>
-        <div class="prow vipr">
-          <span class="pn">VIP Early Bird</span>
-          <b class="pv">$1,975</b>
-          <span class="pt">$2,128.06 with sales tax</span><span class="paft">$2,470 from August 29 &middot; <b>save $495</b></span>
-        </div>
-      </div>
-    </div>
-
-    <p class="vipnote novcase"><b>VIP Early Bird</b> adds the VIP &amp; Speaker Dinner on Tuesday October 13 at 6:30 PM. Lunch is not included with a ticket, with one exception: on October 13 there is a members lunch for members of The vCon Foundation.</p>
-    <div class="cta" style="margin-top:28px"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator">Register on Eventbrite &middot; see prices</a></div>
-    <p class="regnote">Ticket prices are held on Eventbrite so there is one place to change them.</p>
+    <div class="d2head"><span class="d2n">Oct 14</span><h3 class="ch">Voice and Conversations on the Net</h3></div>
+    <div class="srow fixed"><span class="tm">8:15 AM</span><div><b>Registration opens</b></div></div>
+    <div class="srow fixed"><span class="tm">9:00 AM</span><div><b>Conference starts promptly</b></div></div>
+    <div class="srow"><span class="tm">9:00 AM &ndash; 12:30 PM</span><div><b>Morning sessions</b><p><span class="tba">To be announced</span></p></div></div>
+    <div class="srow fixed"><span class="tm">12:30 &ndash; 2:00 PM</span><div><b>Lunch</b><p>Lunch is not included. There are many choices in the area.</p></div></div>
+    <div class="srow"><span class="tm">2:00 &ndash; 5:30 PM</span><div><b>Afternoon sessions</b><p><span class="tba">To be announced</span></p></div></div>
+    <div class="srow fixed"><span class="tm">5:30 &ndash; 7:00 PM</span><div><b>Welcome Reception</b></div></div>
   </div>
 </div>
 
-<div class="strip ice pad" id="delegates">
+<div class="strip blue pad dayblock" id="oct15">
   <div class="col">
-    <div class="eyebrow"><span class="mono">The room</span></div>
-    <h2 class="sec">One room for the evolving voice layer.</h2>
-    <p class="lede" style="margin-top:14px;max-width:54ch">A C-level gathering. The people who set the direction and sign the deals, in one building for three days.</p>
-    <div class="delegates">
-      <span>Carriers</span>
-      <span>Voice AI companies</span>
-      <span>Enterprise builders</span>
-      <span>Investors</span>
-      <span>Startups</span>
-      <span>Policy</span>
-    </div>
-    <p class="unbound">These groups do not otherwise share a room. <strong>Unbounded opportunities.</strong></p>
-  </div>
-</div>
+    <div class="d2head"><span class="d2n">Oct 15</span><h3 class="ch">Voice and Conversations on the Net</h3></div>
+    <div class="srow fixed"><span class="tm">8:30 AM</span><div><b>Registration opens</b></div></div>
+    <div class="srow fixed"><span class="tm">9:00 AM</span><div><b>Conference resumes</b></div></div>
+    <div class="srow"><span class="tm">9:00 AM &ndash; 12:30 PM</span><div><b>Morning sessions</b><p><span class="tba">To be announced</span></p></div></div>
+    <div class="srow fixed"><span class="tm">12:30 &ndash; 2:00 PM</span><div><b>Lunch</b><p>Lunch is not included. There are many choices in the area.</p></div></div>
+    <div class="srow"><span class="tm">2:00 &ndash; 5:00 PM</span><div><b>Afternoon sessions</b><p><span class="tba">To be announced</span></p></div></div>
 
-<div class="strip ice pad">
-  <div class="col">
-    <div class="reportbox">
-      <div>
-        <h3 class="ch">The Pulver vCon Report</h3>
-        <p>Jeff's Substack on what is happening in the world of vCons. Observations. Subscriber supported.</p>
-      </div>
-      <div class="subform substk">
-        <a class="btn solid" href="https://thejeffpulver.substack.com">Subscribe on Substack</a>
-        <p class="subnote">Over 5,000 subscribers.</p>
-      </div>
-    </div>
-
-    <!-- FUTURE: when the VON Substack exists, replace this form with a link,
-         exactly like the .reportbox .substk block above:
-           <div class="subform substk">
-             <a class="btn solid" href="https://VON-SUBSTACK-URL">Subscribe on Substack</a>
-           </div>
-         Until then this stays a Wix-managed form. Decided 9 Aug 2026. -->
-    <div class="mailbox" style="margin-top:26px">
-      <div>
-        <h3 class="ch">Event mailing list</h3>
-        <p>Programme updates, speaker announcements and the full schedule when it goes live.</p>
-      </div>
-      <form class="subform" onsubmit="return false">
-        <label for="evtemail">Email address</label>
-        <div class="subrow"><input id="evtemail" type="email" placeholder="you@company.com" autocomplete="email"><button type="submit" class="btn solid">Join the list</button></div>
-      </form>
+    <div class="speakerask novcase">
+      <b>Speaking at Fall '26?</b>
+      <p>Your session time appears on this page as soon as it is set. For anything to do with your slot, contact <a href="mailto:lauren@pulverstudios.com">lauren@pulverstudios.com</a>.</p>
     </div>
   </div>
 </div>
@@ -2268,14 +2111,14 @@ footer a:hover{color:#fff!important}
   <div class="col">
     <h2 class="sec">Join us in Atlanta, Georgia. Help shape what comes next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
-    <div class="row"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator">Register on Eventbrite</a><a class="btn" href="index.html">Back to the event</a></div>
+    <div class="row"><a class="btn solid" href="registration.html">Register</a><a class="btn" href="index.html">Back to the event</a></div>
   </div>
 </div>
 
 </main>
 <footer>
   <div class="col">
-    <div style="display:flex;gap:16px;flex-wrap:wrap"><a href="index.html#program">Program</a><a href="index.html#speakers">Speakers</a><a href="index.html#sponsors">Sponsors</a><a href="index.html">Home</a></div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap"><a href="index.html#program">Agenda</a><a href="index.html#speakers">Speakers</a><a href="index.html#sponsors">Sponsors</a><a href="registration.html">Register</a><a href="index.html">Home</a></div>
     <span class="mono">&copy;2026 VON Evolution &middot; Atlanta</span>
   </div>
 </footer>
@@ -2283,20 +2126,18 @@ footer a:hover{color:#fff!important}
 <script>
 (function(){
   "use strict";
-  /* Early-bird countdown. Assumes the cut-off is end of day Eastern on Aug 28.
-     If Eventbrite says otherwise, change this one line. */
   var END = new Date("2026-08-28T23:59:59-04:00").getTime();
-  var E = {d:document.getElementById("ebd"),h:document.getElementById("ebh"),m:document.getElementById("ebm")};
-  if (!E.d || !E.h || !E.m) return;
+  var B = {d:document.getElementById("ebd"),h:document.getElementById("ebh"),m:document.getElementById("ebm")};
+  if (!B.d || !B.h || !B.m) return;
   function pad(n){ return n<10 ? "0"+n : String(n); }
-  (function tick(){
+  (function beat(){
     var left = END - Date.now();
-    if (left <= 0){ E.d.textContent="0"; E.h.textContent="00"; E.m.textContent="00"; return; }
+    if (left <= 0){ B.d.textContent="0"; B.h.textContent="00"; B.m.textContent="00"; return; }
     var sec = Math.floor(left/1000);
-    E.d.textContent = Math.floor(sec/86400);
-    E.h.textContent = pad(Math.floor(sec/3600)%24);
-    E.m.textContent = pad(Math.floor(sec/60)%60);
-    setTimeout(tick, 1000);
+    B.d.textContent = Math.floor(sec/86400);
+    B.h.textContent = pad(Math.floor(sec/3600)%24);
+    B.m.textContent = pad(Math.floor(sec/60)%60);
+    setTimeout(beat, 1000);
   })();
 })();
 </script>
