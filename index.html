@@ -1821,6 +1821,10 @@ footer a:hover{color:#fff!important}
 
 
 
+
+/* event names in the hero date card are bold. Done in CSS, not <b>, because the
+   global "every bold goes blue" rule would repaint them on the dark card. */
+.hero .dcard .d span{font-weight:700}
 /* register bars carry the deadline, not just the button */
 .regstrip .col{display:flex;align-items:center;justify-content:center;gap:10px 20px;flex-wrap:wrap}
 .regstrip .ebtag{font-size:17.5px;font-weight:600;color:#fff!important;letter-spacing:.01em}
