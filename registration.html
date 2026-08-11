@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:type" content="website"><meta property="og:title" content="Register | Voice and Conversations on the Net"><meta property="og:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Register | Voice and Conversations on the Net"><meta name="twitter:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><title>Register | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 08:22 ET &middot; build 4ba72be</span></div><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:type" content="website"><meta property="og:title" content="Register | Voice and Conversations on the Net"><meta property="og:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Register | Voice and Conversations on the Net"><meta name="twitter:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><title>Register | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 08:24 ET &middot; build 3df6e36</span></div><style>
 /* ==========================================================================
    FALL '26 // WIX CUT
    Everything here is buildable in the classic Wix Editor they already have.
@@ -2198,6 +2198,12 @@ footer a:hover{color:#fff!important}
   .spo-silver .logo.silver{flex:0 1 calc(50% - 11px)!important;min-width:0!important}
   .spo-silver .logo.silver img{max-height:64px!important}
 }
+
+/* One countdown at a time. #cdWrap (doors open) is hidden until the early-bird
+   deadline passes, then the script below swaps them. */
+#cdWrap{display:none}
+body.past-earlybird #cdWrap{display:block}
+body.past-earlybird .ebird{display:none!important}
 </style>
 <style>
 /* ==========================================================================
