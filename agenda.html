@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:type" content="website"><meta property="og:title" content="Agenda | Voice and Conversations on the Net"><meta property="og:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Agenda | Voice and Conversations on the Net"><meta name="twitter:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><title>Agenda | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 07:00 ET &middot; build 9da113a</span></div><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:type" content="website"><meta property="og:title" content="Agenda | Voice and Conversations on the Net"><meta property="og:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Agenda | Voice and Conversations on the Net"><meta name="twitter:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><title>Agenda | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 07:02 ET &middot; build 3b2b542</span></div><style>
 /* ==========================================================================
    FALL '26 // WIX CUT
    Everything here is buildable in the classic Wix Editor they already have.
@@ -685,7 +685,11 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 :root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
 
 /* doors-open banner is blue, not black */
-#cdWrap{background:var(--blue)!important}
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:11px 0}
+#cdWrap .clk{display:none}
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
 .cd .lab b{color:#fff!important;opacity:.92}
 .cd .u .n{color:#fff!important}
@@ -748,6 +752,10 @@ h2.sec{color:var(--blue)!important}
 /* community photos in colour */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
 @media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
 .gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
 
 /* speakers: colour photos, blue names, company in blue */
@@ -1530,7 +1538,11 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 :root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
 
 /* doors-open banner is blue, not black */
-#cdWrap{background:var(--blue)!important}
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:11px 0}
+#cdWrap .clk{display:none}
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
 .cd .lab b{color:#fff!important;opacity:.92}
 .cd .u .n{color:#fff!important}
@@ -1593,6 +1605,10 @@ h2.sec{color:var(--blue)!important}
 /* community photos in colour */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
 @media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
 .gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
 
 /* speakers: colour photos, blue names, company in blue */
@@ -1895,7 +1911,14 @@ footer a:hover{color:#fff!important}
 .curator .nostop a{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .curator .nostop a:hover{color:var(--hover)!important}
 
-.curator .passion{font-size:clamp(19px,2.1vw,22px);font-weight:700;line-height:1.45;color:#0E1320}
+/* Six competing type voices in one block meant nothing receded. One lead, the
+   rest plain. Reviewer's fix, and he was right. */
+.curator .passion{font-size:clamp(20px,2.2vw,23px);font-weight:800;line-height:1.36;
+  letter-spacing:-.015em;color:#0E1320}
+.curator p:not(.passion),.curator p:not(.passion) strong{font-size:19px!important;
+  font-weight:500!important;line-height:1.62!important;letter-spacing:0!important;
+  color:#3A4157!important;margin-top:11px!important}
+.curator .promise{font-weight:700!important;color:#0E1320!important}
 .curator .wiki{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .curator .wiki:hover{color:var(--hover)!important}
 
@@ -1917,6 +1940,12 @@ footer a:hover{color:#fff!important}
 .strip.hero .herourge{font-size:clamp(19px,2.1vw,22px);font-weight:700}
 @media (max-width:820px){
   .col{padding:0 26px}
+  /* the hero was 1,024px on a phone. One thesis line, one chip. */
+  .strip.hero .herothesis{font-size:clamp(20px,5.2vw,24px)}
+  .strip.hero .herothesis br:first-of-type,
+  .strip.hero .herothesis br:first-of-type + br{display:none}
+  .strip.hero .tags .tag:nth-child(2){display:none}
+  .strip.hero .curated span{display:none}
   .strip.hero h1.t{font-size:clamp(34px,8.4vw,52px)}
   .strip.hero .sub{font-size:clamp(19px,4.8vw,23px);max-width:none}
   .strip.hero .herothesis{font-size:clamp(20px,5.2vw,25px)}
