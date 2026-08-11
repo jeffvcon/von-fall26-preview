@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."><meta property="og:type" content="website"><meta property="og:title" content="Voice and Conversations on the Net | October 13-15, 2026 | Atlanta"><meta property="og:description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Voice and Conversations on the Net | October 13-15, 2026 | Atlanta"><meta name="twitter:description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 07:03 ET &middot; build 0c8dc41</span></div><title>Voice and Conversations on the Net | October 13-15, 2026 | Atlanta</title>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."><meta property="og:type" content="website"><meta property="og:title" content="Voice and Conversations on the Net | October 13-15, 2026 | Atlanta"><meta property="og:description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Voice and Conversations on the Net | October 13-15, 2026 | Atlanta"><meta name="twitter:description" content="The AI Communication Industry Conference, curated and hosted by Jeff Pulver. Carriers, voice AI, enterprise builders, investors and policy, together in Atlanta."></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">11 Aug 2026, 07:09 ET &middot; build 3ac6c31</span></div><title>Voice and Conversations on the Net | October 13-15, 2026 | Atlanta</title>
 
 <style>
 /* ==========================================================================
@@ -157,7 +157,8 @@ body.showwix .note{display:block}
 .curated b{font-weight:800;letter-spacing:.06em}
 .curator{display:flex;gap:clamp(20px,3.4vw,44px);align-items:center}
 .curator img{width:clamp(110px,15vw,170px);height:clamp(110px,15vw,170px);border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--blue)}
-@media (max-width:680px){.curator{flex-direction:column;align-items:flex-start}}
+@media (max-width:680px){.curator{flex-direction:column;align-items:flex-start}
+  .curator img{width:110px!important;height:110px!important;border-width:3px!important}}
 .hook{margin:0 0 20px;font-size:clamp(15px,1.7vw,18.5px);line-height:1.45;font-weight:700;color:#fff;max-width:34ch;border-left:3px solid rgba(255,255,255,.55);padding-left:14px}
 .hook span{display:block;font-weight:500;color:var(--sky);margin-top:4px}
 .tracks{display:grid;grid-template-columns:1fr auto 1fr;gap:0 clamp(14px,2vw,26px);align-items:start;margin-top:26px}
@@ -689,7 +690,7 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 /* doors-open banner is blue, not black */
 #cdWrap{background:var(--blue)!important;padding:0}
 /* one clock on the page. This is a marker, not a timer. */
-#cdWrap .cd{min-height:0;height:auto;padding:11px 0}
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
 #cdWrap .clk{display:none}
 #cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
@@ -1542,7 +1543,7 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 /* doors-open banner is blue, not black */
 #cdWrap{background:var(--blue)!important;padding:0}
 /* one clock on the page. This is a marker, not a timer. */
-#cdWrap .cd{min-height:0;height:auto;padding:11px 0}
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
 #cdWrap .clk{display:none}
 #cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
@@ -1942,10 +1943,16 @@ footer a:hover{color:#fff!important}
 .strip.hero .herourge{font-size:clamp(19px,2.1vw,22px);font-weight:700}
 @media (max-width:820px){
   .col{padding:0 26px}
+  /* the header was taking 142px of the fold. Mark only, one row. */
+  .hdr .col{height:56px;min-height:56px;flex-wrap:nowrap;gap:10px;padding-top:0;padding-bottom:0}
+  .hdr .brand .nm{display:none}
+  .hdr .brand img{height:30px}
+  .hdr .btn.solid{padding:8px 14px;font-size:16px}
   /* the hero was 1,024px on a phone. One thesis line, one chip. */
   .strip.hero .herothesis{font-size:clamp(20px,5.2vw,24px)}
-  .strip.hero .herothesis br:first-of-type,
-  .strip.hero .herothesis br:first-of-type + br{display:none}
+  /* hide whole sentences, not the line breaks between them. Hiding the <br>s
+     ran the text together with no space and looked like a rendering fault. */
+  .strip.hero .herothesis span:not(:last-child){display:none}
   .strip.hero .tags .tag:nth-child(2){display:none}
   .strip.hero .curated span{display:none}
   .strip.hero h1.t{font-size:clamp(34px,8.4vw,52px)}
@@ -1974,6 +1981,7 @@ footer a:hover{color:#fff!important}
 .herothesis{margin:18px 0 0;font-weight:800;letter-spacing:-.03em;
   line-height:1.16;font-size:clamp(21px,2.7vw,30px);color:#0E1320}
 .hero .herothesis{color:var(--blue)!important}
+.hero .herothesis span{display:block}
 .hero .herothesis b{font-weight:800;color:var(--blue)!important}
 @media (max-width:820px){.herothesis{font-size:clamp(20px,5.4vw,26px)}}
 
@@ -2159,7 +2167,7 @@ footer a:hover{color:#fff!important}
         </div>
         <h1 class="t">Voice and Conversations on the Net</h1>
         <p class="sub">The AI Communication Industry Conference</p>
-        <p class="herothesis blueall">Voice becomes memory.<br>Messaging becomes action.<br>vCons make conversations usable for AI.</p>
+        <p class="herothesis blueall"><span>Voice becomes memory.</span><span>Messaging becomes action.</span><span>vCons make conversations usable for AI.</span></p>
         <p class="curated novcase">Curated and hosted by <b>Jeff Pulver</b><span>Producing the conversations of this industry since 1996</span></p>
         <div class="cta">
           <a class="btn solid" href="registration.html">Register &middot; ticket prices</a>
@@ -2296,37 +2304,6 @@ footer a:hover{color:#fff!important}
       <a class="btn solid novcase" href="https://www.thevconfoundation.com">Join The vCon Foundation</a>
     </div>
 
-    <div class="codebox novcase">
-      <b>Members: you need a registration code.</b>
-      <p>If you do not already have your code, email <a href="mailto:lauren@pulverstudios.com">lauren@pulverstudios.com</a> and Lauren will send it to you.</p>
-    </div>
-
-    <!-- FUTURE: when the VON Substack exists, replace this form with a link,
-         exactly like the .reportbox .substk block above:
-           <div class="subform substk">
-             <a class="btn solid" href="https://VON-SUBSTACK-URL">Subscribe on Substack</a>
-           </div>
-         Until then this stays a Wix-managed form. Decided 9 Aug 2026. -->
-    <div class="mailbox">
-      <div>
-        <h3 class="ch">Event mailing list</h3>
-        <p>Program updates, speaker announcements and the full schedule when it goes live.</p>
-      </div>
-      <form class="subform" onsubmit="return false">
-        <label for="evtemail">Email address</label>
-        <div class="subrow"><input id="evtemail" type="email" placeholder="you@company.com" autocomplete="email"><button type="submit" class="btn solid">Join the list</button></div>
-      </form>
-    </div>
-
-    <div class="reportbox">
-      <div>
-        <h3 class="ch">The Pulver vCon Report</h3>
-        <p>Jeff's Substack on what is happening in the world of vCons. Observations. Subscriber supported.</p>
-      </div>
-      <div class="subform substk">
-        <a class="btn solid" href="https://thejeffpulver.substack.com">Subscribe on Substack</a>
-        <p class="subnote">Over 5,000 subscribers.</p>
-      </div>
     </div>
   </div>
 </div>
@@ -2410,7 +2387,7 @@ footer a:hover{color:#fff!important}
   <div class="col">
     <h2 class="sec">Join us in Atlanta, Georgia. Help shape what comes next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
-    <div class="row"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator">Register on Eventbrite</a><a class="btn" href="https://www.vonevolution.com/sponsor">Sponsor</a></div>
+    <div class="row"><a class="btn solid" href="registration.html">Register</a><a class="btn" href="https://www.vonevolution.com/sponsor">Sponsor</a></div>
   </div>
 </div>
 
