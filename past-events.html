@@ -1019,6 +1019,17 @@ footer a:hover{color:#fff!important}
   color:var(--blue);font-variant-numeric:tabular-nums}
 .anote{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--ink2,#47506B)}
 .anote b{color:var(--blue)}
+
+.unbroken{margin-top:8px}
+.tl{list-style:none;margin:22px 0 0;padding:0;border-left:3px solid var(--blue)}
+.tl li{position:relative;padding:0 0 22px 26px}
+.tl li::before{content:"";position:absolute;left:-9px;top:7px;width:15px;height:15px;
+  border-radius:50%;background:var(--blue);border:3px solid #FAFAF8}
+.tl li b{display:block;font-size:19px;font-weight:800;color:var(--blue)!important;
+  letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.tl li span{display:block;margin-top:4px;font-size:18px;line-height:1.55;color:#0E1320}
+.tlnote{margin:6px 0 0;font-size:19px;font-weight:700;line-height:1.5;color:#0E1320;max-width:52ch}
+@media (max-width:620px){.tl li span{font-size:17px}}
 </style>
 <style>
 /* venue photo as an actual photograph, not a background wash */
@@ -2231,6 +2242,21 @@ footer a:hover{color:#fff!important}
     <div class="eyebrow"><span class="mono">Past Events</span></div>
     <h1>Past Events</h1>
     <p class="where">Fourteen events since 2023, under three brands.</p>
+    <p class="where" style="margin-top:14px">The fourteen below are the recent ones. The work has been continuous since September 1996.</p>
+    <div class="unbroken">
+      <h2 class="sec" style="font-size:clamp(24px,2.8vw,34px);margin-top:34px">Thirty years, unbroken</h2>
+      <ol class="tl">
+        <li><b>1996</b><span>It starts. September 1996.</span></li>
+        <li><b>1997&ndash;2008</b><span>Voice on the Net. The VoIP industry conference. More than 5,000 people twice a year in the US, sold-out floors in San Jose and Boston with over 350 exhibitors, and VON Europe in Sweden, Finland, Norway and the UK.</span></li>
+        <li><b>2009&ndash;2016</b><span>#140conf. The industry conference for Twitter, covering social media, staged around the world.</span></li>
+        <li><b>2015</b><span>How We Communicate.</span></li>
+        <li><b>2016&ndash;2018</b><span>Monage. Messaging on the Net.</span></li>
+        <li><b>2018&ndash;2020</b><span>Breakfast networking events, run regularly, until the pandemic.</span></li>
+        <li><b>2023</b><span>The VON brand is brought back to life.</span></li>
+        <li><b>2026</b><span>Voice and Conversations on the Net. Atlanta, October 13 to 15.</span></li>
+      </ol>
+      <p class="tlnote">Different names, different topics, one thread. Curating rooms and building community, without a break.</p>
+    </div>
   </div>
 </div>
 
