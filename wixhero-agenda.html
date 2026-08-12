@@ -2347,18 +2347,23 @@ footer .mono a:hover{color:var(--sky)!important}
   "use strict";
   function pad(n){return n<10?"0"+n:String(n);}
   function run(ids,target){
+    // Pages carry different subsets of these cells: home and speakers have all
+    // four, registration and agenda have days/hours/minutes and no seconds.
+    // Requiring all four made the whole clock bail on those two pages and show
+    // dashes for ever. Update whichever cells exist.
     var d=document.getElementById(ids[0]),h=document.getElementById(ids[1]),
         m=document.getElementById(ids[2]),s=document.getElementById(ids[3]);
-    if(!d||!h||!m||!s) return;            // this page does not carry that clock
+    if(!d&&!h&&!m&&!s) return;            // this page carries no such clock
+    function put(el,v){ if(el) el.textContent=v; }
     (function tick(){
       var left=target-Date.now();
-      if(left<=0){d.textContent="0";h.textContent="00";m.textContent="00";s.textContent="00";return;}
+      if(left<=0){put(d,"0");put(h,"00");put(m,"00");put(s,"00");return;}
       var sec=Math.floor(left/1000);
-      d.textContent=Math.floor(sec/86400);
-      h.textContent=pad(Math.floor(sec/3600)%24);
-      m.textContent=pad(Math.floor(sec/60)%60);
-      s.textContent=pad(sec%60);
-      setTimeout(tick,1000);
+      put(d,Math.floor(sec/86400));
+      put(h,pad(Math.floor(sec/3600)%24));
+      put(m,pad(Math.floor(sec/60)%60));
+      put(s,pad(sec%60));
+      setTimeout(tick, s ? 1000 : 15000);  // no seconds cell, no need to tick fast
     })();
   }
   var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
