@@ -2368,6 +2368,29 @@ footer .mono a:hover{color:var(--sky)!important}
   color:var(--blue);text-decoration:underline;text-underline-offset:4px}
 .backlink:hover{color:var(--hover)}
 
+/* 2. the event name is always bold and blue, wherever it appears */
+.evt,.evname{color:var(--blue)!important;font-weight:700!important}
+/* 3. the paragraph beside Jeff's photo matches the others */
+.curator .prose p,.curatorwrap .prose p{max-width:none!important}
+/* 4. speaker names, titles and companies all blue */
+.pcard b,.pcard span,.pcard em{color:var(--blue)!important}
+/* 5. presenting sponsor fills its space */
+.sponsorbar img,.presenting img{max-height:96px!important;height:auto!important;width:auto!important}
+/* 7. silver sponsor logos all the same size */
+.silver img,.sponsors .tier2 img,.sponsorgrid img{height:64px!important;width:auto!important;
+  object-fit:contain!important;max-width:200px!important}
+/* 9. Atlanta and Georgia stay on one line */
+.finale h2 .nowrap,.nowrap{white-space:nowrap}
+/* 10. the smaller line in the final box is bold */
+.finale .lede,.strip.navy.finale .lede{font-weight:700!important}
+/* 13. The vCon Foundation reads purple on the ticket page */
+.reghead .eyebrow,.members .eyebrow,.eyebrow.vcf{color:var(--purple)!important}
+/* 15. the VIP rows reach the edge of their card */
+.tcard .row,.tcard .priceline{margin-left:0!important;margin-right:0!important;width:100%!important}
+/* 16. the Everything badge is not shouting */
+.tcard .badge,.badge.everything{font-size:13px!important;padding:4px 10px!important;
+  letter-spacing:.04em!important}
+
 </style></head><body>
 
 
@@ -2535,7 +2558,7 @@ footer .mono a:hover{color:var(--sky)!important}
 
 <div class="strip navy pad finale">
   <div class="col">
-    <h2 class="sec">Join us in Atlanta, Georgia. Help shape what comes next.</h2>
+    <h2 class="sec">Join us in <span class="nowrap">Atlanta, Georgia.</span> Help shape what comes next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
     <div class="row"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator" target="_top">Register on Eventbrite</a><a class="btn" href="https://www.vonevolution.com" target="_top">Back to the event</a></div>
   </div>
