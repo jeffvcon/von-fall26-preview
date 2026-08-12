@@ -1,0 +1,2336 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;padding:0}
+
+/* ==========================================================================
+   FALL '26 // WIX CUT
+   Everything here is buildable in the classic Wix Editor they already have.
+   Constraints honoured deliberately:
+     - 980px content column (Wix classic default site width)
+     - full-bleed strips with the column inside - the native Wix structure
+     - every card grid is uniform, because a CMS repeater repeats ONE design
+     - motion lives only inside Embed HTML blocks, never on native elements
+   Brand blue #1438F1 sampled from the live vonevolution.com.
+   ========================================================================== */
+:root{
+  --blue:#1438F1; --blue-lift:#3A57FF; --blue-deep:#0B1E7A;
+  --navy:#061034; --sky:#AFC0FF; --ice:#EEF1FE; --white:#FFF; --rule:#D3DBF8;
+  --display:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --col:980px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{margin:0;background:var(--ice);color:var(--navy);font-family:var(--display);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.05}
+a{color:inherit}
+
+/* a Wix "strip": full-bleed band, fixed-width column inside */
+.strip{position:relative;width:100%}
+.col{max-width:var(--col);margin:0 auto;padding:0 20px}
+.pad{padding:clamp(38px,5vw,72px) 0}
+.blue{background:var(--blue);color:var(--white)}
+.ice{background:var(--ice);color:var(--navy)}
+.navy{background:var(--navy);color:var(--white)}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.blue .mono{color:var(--sky)} .ice .mono{color:var(--blue)}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:currentColor;opacity:.3}
+h2.sec{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.04em}
+.lede{font-size:16.5px;line-height:1.6;max-width:62ch;margin:14px 0 0}
+.blue .lede{color:var(--sky)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:13px 20px;border-radius:2px;text-decoration:none;border:1.5px solid var(--white);color:var(--white);transition:.15s}
+.btn.solid{background:var(--white);color:var(--blue)}
+.btn:hover{opacity:.85}
+.ice .btn{border-color:var(--blue);color:var(--blue)}
+.ice .btn.solid{background:var(--blue);color:var(--white)}
+
+/* ---------- header ---------- */
+.hdr{background:var(--blue);border-bottom:1px solid var(--blue-deep);position:sticky;top:0;z-index:50}
+.hdr .col{display:flex;align-items:center;gap:18px;height:58px}
+.hdr img{height:25px;width:auto}
+.hdr .nm{padding-left:12px;border-left:1px solid rgba(255,255,255,.35);font-weight:800;font-size:14px;color:#fff;margin-right:auto}
+.hdr nav{display:flex;gap:18px}
+.hdr nav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);text-decoration:none}
+.hdr nav a:hover{color:#fff}
+@media (max-width:760px){.hdr nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero .col{position:relative;z-index:2;padding-top:clamp(34px,4.6vw,58px);padding-bottom:clamp(28px,3.6vw,44px)}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.14;filter:grayscale(1)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,56,241,.76),var(--blue))}
+.hgrid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:start}
+@media (max-width:820px){.hgrid{grid-template-columns:1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;padding:6px 10px;border:1px solid rgba(255,255,255,.45);border-radius:2px}
+.tag.fill{background:#fff;color:var(--blue);border-color:#fff;font-weight:700}
+h1.t{font-size:clamp(32px,5.4vw,58px);letter-spacing:-.045em;line-height:.98;max-width:15ch}
+h1.t small{display:block;font-size:.36em;color:var(--sky);letter-spacing:.02em;margin-bottom:.7em;font-weight:800}
+.sub{margin:16px 0 0;font-size:17px;color:var(--sky);max-width:32ch}
+.cta{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.dcard{border:1px solid rgba(255,255,255,.42);border-radius:3px;background:rgba(6,16,52,.3);padding:16px 18px 14px;min-width:212px}
+.dcard .m{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--sky);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.28)}
+.dcard .d{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.dcard .d b{font-size:26px;letter-spacing:-.05em;min-width:58px;font-variant-numeric:tabular-nums}
+.dcard .d span{font-size:12.5px;line-height:1.4;color:var(--sky)}
+.dcard .f{padding-top:11px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);line-height:1.6}
+
+/* ---------- embed placeholders (real iframes in Wix) ---------- */
+.embed{position:relative;width:100%;overflow:hidden;background:var(--blue)}
+.embed canvas{display:block;width:100%;height:100%}
+
+#cdWrap{height:104px;background:var(--blue);display:flex;align-items:center}
+.cd{max-width:var(--col);margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:26px;width:100%;flex-wrap:wrap}
+.cd .lab{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--sky);line-height:1.6}
+.cd .lab b{display:block;color:#fff;font-size:12px}
+.cd .clk{display:flex;gap:14px}
+.cd .u{text-align:center;min-width:52px}
+.cd .u .n{font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff;font-variant-numeric:tabular-nums;display:block}
+.cd .u .x{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sky);margin-top:5px;display:block}
+.cd .go{margin-left:auto;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;background:#fff;color:var(--blue);padding:12px 18px;border-radius:2px;text-decoration:none}
+
+/* ---------- uniform card grids (repeater-shaped) ---------- */
+.rep{display:grid;gap:14px;margin-top:26px}
+.rep.c3{grid-template-columns:repeat(3,1fr)}
+.rep.c5{grid-template-columns:repeat(5,1fr)}
+.rep.c4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.rep.c5{grid-template-columns:repeat(3,1fr)}.rep.c4{grid-template-columns:repeat(2,1fr)}.rep.c3{grid-template-columns:1fr}}
+@media (max-width:560px){.rep.c5{grid-template-columns:repeat(2,1fr)}}
+
+.card{background:rgba(6,16,52,.22);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--sky)}
+.card h4{font-size:18px;letter-spacing:-.03em;line-height:1.14}
+.card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--sky)}
+
+.pcard{background:var(--white);border:1px solid var(--rule);border-radius:3px;padding:14px}
+.pcard .ph{aspect-ratio:1;overflow:hidden;border-radius:2px;background:var(--rule);position:relative}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.pcard .ph::after{content:"";position:absolute;inset:0;background:var(--blue);mix-blend-mode:color;opacity:.7}
+.pcard b{display:block;margin-top:10px;font-size:14px;letter-spacing:-.025em;line-height:1.15}
+.pcard span{display:block;margin-top:2px;font-size:11.5px;color:#4E5A82;line-height:1.3}
+.pcard em{display:block;margin-top:5px;font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+
+.logo{background:#fff;border:1px solid var(--rule);border-radius:3px;aspect-ratio:16/9;display:grid;place-items:center;padding:16px}
+.logo img{max-height:42px;width:auto;object-fit:contain}
+
+.acard{background:var(--white);border:1px solid var(--rule);border-radius:3px;padding:20px 18px 22px}
+.acard .ic{display:block;width:36px;height:36px;color:var(--blue);margin-bottom:12px}
+.acard h4{font-size:15.5px;letter-spacing:-.025em;margin-bottom:7px;line-height:1.2}
+.acard p{margin:0;font-size:13px;line-height:1.55;color:#3D4A73}
+
+.ecard{background:var(--white);border:1px solid var(--rule);border-radius:3px;padding:13px 15px}
+.ecard .y{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;color:#6B77A0}
+.ecard b{display:block;margin-top:5px;font-size:13.5px;letter-spacing:-.02em;line-height:1.22}
+.ecard em{display:block;margin-top:4px;font-style:normal;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+
+.finale{text-align:center}
+.finale h2{max-width:20ch;margin:0 auto;font-size:clamp(26px,4.4vw,44px);letter-spacing:-.04em}
+.finale .row{display:flex;gap:9px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+footer{background:var(--navy);color:var(--sky);padding:22px 0 28px}
+footer .col{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer a{text-decoration:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ==========================================================================
+   "HOW IT'S BUILT IN WIX" overlay - the part that matters in the meeting
+   ========================================================================== */
+#wixToggle{
+  position:fixed;right:14px;bottom:14px;z-index:200;cursor:pointer;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--navy);color:#fff;border:2px solid var(--navy);padding:12px 16px;border-radius:2px;
+  box-shadow:0 10px 30px -12px rgba(6,16,52,.6);
+}
+#wixToggle[aria-pressed="true"]{background:#0FBF6A;border-color:#0FBF6A;color:#04250F}
+[data-wix]{position:relative}
+body.showwix [data-wix]{outline:2px dashed #0FBF6A;outline-offset:5px}
+body.showwix [data-wix]::before{
+  content:attr(data-wix);position:absolute;left:0;top:-6px;transform:translateY(-100%);
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:#0FBF6A;color:#04250F;padding:4px 8px;border-radius:2px;white-space:nowrap;z-index:60;pointer-events:none;
+}
+.note{display:none;margin:0 0 18px;padding:11px 14px;border:1px dashed #0FBF6A;border-radius:3px;
+  background:rgba(15,191,106,.1);font-family:var(--mono);font-size:11px;line-height:1.6}
+body.showwix .note{display:block}
+.curated{margin:14px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-weight:500}
+.curated b{font-weight:800;letter-spacing:.06em}
+.curator{display:flex;gap:clamp(20px,3.4vw,44px);align-items:center}
+.curator img{width:clamp(110px,15vw,170px);height:clamp(110px,15vw,170px);border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--blue)}
+@media (max-width:680px){.curator{flex-direction:column;align-items:flex-start}
+  .curator img{width:110px!important;height:110px!important;border-width:3px!important}}
+.hook{margin:0 0 20px;font-size:clamp(15px,1.7vw,18.5px);line-height:1.45;font-weight:700;color:#fff;max-width:34ch;border-left:3px solid rgba(255,255,255,.55);padding-left:14px}
+.hook span{display:block;font-weight:500;color:var(--sky);margin-top:4px}
+.tracks{display:grid;grid-template-columns:1fr auto 1fr;gap:0 clamp(14px,2vw,26px);align-items:start;margin-top:26px}
+@media (max-width:860px){.tracks{grid-template-columns:1fr}}
+.tracklane{border:1px solid rgba(255,255,255,.32);border-radius:3px;background:rgba(6,16,52,.24);padding:20px}
+.trackhead{padding-bottom:14px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.28)}
+.tk{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);display:block;margin-bottom:7px}
+.trackhead h3{font-size:clamp(19px,2.4vw,26px);letter-spacing:-.03em;line-height:1.1}
+.slotrow{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.slotrow:last-child{border-bottom:0;padding-bottom:0}
+.slotrow .tm{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sky);flex:0 0 62px;padding-top:3px}
+.slotrow b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.2;color:#fff}
+.slotrow p{margin:5px 0 0;font-size:13.5px;line-height:1.55;color:var(--sky)}
+.slotrow .cap{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;background:#fff;color:var(--blue);padding:5px 9px;border-radius:2px}
+.parallel{display:flex;align-items:center;justify-content:center;align-self:stretch;position:relative}
+.parallel span{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);writing-mode:vertical-rl;transform:rotate(180deg);padding:10px 0;border-left:1px dashed rgba(255,255,255,.35);border-right:1px dashed rgba(255,255,255,.35);height:100%;display:flex;align-items:center;justify-content:center}
+@media (max-width:860px){.parallel span{writing-mode:horizontal-tb;transform:none;border:0;border-top:1px dashed rgba(255,255,255,.35);border-bottom:1px dashed rgba(255,255,255,.35);width:100%;height:auto;padding:9px 0;margin:12px 0}}
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+@media (max-width:820px){.offer{grid-template-columns:1fr}}
+.obox{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--blue);border-radius:3px;padding:20px}
+.obox.hot{border-left-color:#0FBF6A}
+.on{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:#6B77A0;display:block;margin-bottom:9px}
+.obox b{display:block;font-size:21px;letter-spacing:-.03em;line-height:1.1;color:var(--navy)}
+.obox p{margin:8px 0 0;font-size:14px;line-height:1.55;color:#3D4A73}
+.nextup{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:20px;padding:18px 20px;background:#fff;border:1px dashed var(--blue);border-radius:3px}
+.nextup b{display:block;font-size:19px;letter-spacing:-.03em;margin-top:6px;color:var(--navy)}
+.nextup .wh{display:block;font-size:14px;color:#3D4A73;margin-top:3px}
+.subwrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,54px);align-items:center}
+@media (max-width:820px){.subwrap{grid-template-columns:1fr}}
+.subform label{display:block;margin-bottom:9px}
+.subrow{display:flex;gap:9px;flex-wrap:wrap}
+.subrow input{flex:1;min-width:190px;padding:14px 15px;border-radius:2px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:inherit}
+.subrow input::placeholder{color:#8FA0D8}
+.subrow input:focus{outline:2px solid #fff;outline-offset:1px}
+.subnote{display:block;margin-top:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+
+/* ---- final polish pass ---- */
+h1.t{font-size:clamp(34px,6vw,66px);letter-spacing:-.05em}
+h2.sec{font-size:clamp(28px,4.2vw,46px)}
+.strip.hero .col{padding-bottom:clamp(34px,4.4vw,54px)}
+.venue img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.venue:hover img{transform:scale(1.03)}
+.card,.obox,.pcard,.spo,.acard,.ecard,.tracklane{transition:transform .2s,box-shadow .2s,border-color .2s}
+.pcard:hover,.spo:hover,.ecard:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(6,16,52,.55)}
+.obox:hover{transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(6,16,52,.4)}
+.card:hover{border-color:rgba(255,255,255,.55)}
+.eyebrow{margin-bottom:14px}
+.eyebrow .mono{font-weight:700}
+.pad{padding:clamp(46px,5.6vw,84px) 0}
+/* the numbers people scan for */
+.dcard .d b,.cd .u .n,.slotrow .cap{font-feature-settings:"tnum"}
+.hook{font-size:clamp(15px,1.75vw,19px);border-left-width:4px}
+/* speakers: colour on hover reads as a room full of real people */
+.pcard .ph::after{transition:opacity .45s cubic-bezier(.2,.7,.3,1)}
+.spk-grid,.rep{align-items:stretch}
+.obox b{font-size:22px}
+.trackhead h3{font-size:clamp(20px,2.5vw,28px)}
+footer{padding:30px 0 40px}
+
+/* ==========================================================================
+   ACCESSIBILITY PASS
+   1. Contrast. #AFC0FF on #1438F1 measured 4.12:1 and fails WCAG AA for body
+      text. Raised to #DDE4FF (5.80:1). #6B77A0 on white measured 4.40:1 and
+      is replaced by #4E5A82 (6.76:1).
+   2. Type size. Base 16px -> 18px and every small style raised with it. The
+      audience is senior. Nothing on this page should need squinting.
+   ========================================================================== */
+:root{ --sky:#DDE4FF; }
+
+body{font-size:18px;line-height:1.65}
+.mono{font-size:12.5px;letter-spacing:.14em}
+.lede{font-size:19px;line-height:1.62}
+.prose p{font-size:18.5px;line-height:1.7}
+
+/* hero */
+.hook{font-size:clamp(17px,1.9vw,21px);line-height:1.5}
+.tag{font-size:12px;letter-spacing:.11em;padding:8px 12px}
+.sub{font-size:19px}
+.curated{font-size:13.5px}
+.dcard .m{font-size:11.5px}
+.dcard .d b{font-size:32px}
+.dcard .d span{font-size:15px;line-height:1.45}
+.dcard .f{font-size:11.5px}
+
+/* buttons */
+.btn{font-size:13px;padding:14px 20px;letter-spacing:.1em}
+.btn.solid{font-weight:800}
+.hdr nav a{font-size:12.5px}
+.hdr .nm{font-size:16px}
+
+/* countdown */
+.cd .lab{font-size:12px}
+.cd .lab b{font-size:14px}
+.cd .u .n{font-size:34px}
+.cd .u .x{font-size:11px}
+.cd .go{font-size:12.5px;padding:14px 20px}
+
+/* cards + tracks */
+.card .k{font-size:11.5px}
+.card h4{font-size:20px}
+.card p{font-size:16px;line-height:1.6}
+.tk{font-size:11.5px}
+.slotrow .tm{font-size:11.5px;flex-basis:74px}
+.slotrow b{font-size:17.5px}
+.slotrow p{font-size:15.5px;line-height:1.6}
+.slotrow .cap{font-size:11.5px;padding:6px 10px}
+
+/* audience */
+.aud-full h4{font-size:19px}
+.aud-full p{font-size:16px;line-height:1.62;color:#3D4A73}
+.acard h4{font-size:17px}
+.acard p{font-size:15.5px;color:#3D4A73}
+
+/* expect */
+ul.exp li{font-size:17.5px;padding:13px 0}
+.topic{font-size:12.5px;padding:9px 13px}
+
+/* membership */
+.on{font-size:11.5px;color:#4E5A82}
+.obox b{font-size:24px}
+.obox p{font-size:16px;color:#3D4A73}
+.nextup b{font-size:21px}
+.nextup .wh{font-size:16px;color:#3D4A73}
+
+/* speakers + past events */
+.pcard b{font-size:16px}
+.pcard span{font-size:14px;color:#4E5A82;line-height:1.4}
+.pcard em{font-size:11px;letter-spacing:.11em}
+.ecard .y{font-size:11.5px;color:#4E5A82}
+.ecard b{font-size:15.5px}
+.ecard em{font-size:10.5px}
+
+/* subscribe */
+.subrow input{font-size:17px;padding:16px 16px}
+.subnote{font-size:11.5px}
+.subform label{font-size:12.5px}
+
+/* quote */
+.quote .who{font-size:16px}
+.quote .who b{font-size:17px}
+.quote .who em{font-size:11.5px}
+
+footer a,footer .mono{font-size:12.5px}
+
+/* ==========================================================================
+   LARGE-TYPE PASS - target reader is 72, not 40.
+   Body 20px, generous leading, no body copy below 16px anywhere, and the
+   uppercase mono labels get weight and looser leading so they stay legible
+   at small optical size. Header trimmed to four links so nothing wraps.
+   ========================================================================== */
+body{font-size:20px;line-height:1.7}
+.lede{font-size:21px;line-height:1.66}
+.prose p{font-size:20.5px;line-height:1.72;max-width:62ch}
+.mono{font-size:13.5px;letter-spacing:.12em;font-weight:700}
+
+.hdr .col{height:auto;min-height:66px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.hdr nav{gap:22px;flex-wrap:wrap}
+.hdr nav a{font-size:14px;letter-spacing:.09em;font-weight:600}
+.hdr .nm{font-size:18px;white-space:nowrap}
+.hdr img{height:30px}
+
+.hook{font-size:clamp(19px,2.1vw,23px);line-height:1.5}
+.tag{font-size:13.5px;letter-spacing:.09em;padding:9px 13px}
+.sub{font-size:21px;line-height:1.5}
+.curated{font-size:15px;letter-spacing:.09em}
+.btn{font-size:14.5px;padding:16px 24px;letter-spacing:.08em;font-weight:700}
+
+.dcard .m{font-size:13px}
+.dcard .d b{font-size:36px}
+.dcard .d span{font-size:17px;line-height:1.45}
+.dcard .f{font-size:13px;line-height:1.7}
+
+.cd .lab{font-size:13.5px;line-height:1.7}
+.cd .lab b{font-size:16px}
+.cd .u .n{font-size:38px}
+.cd .u .x{font-size:12.5px}
+.cd .go{font-size:14px;padding:16px 22px}
+
+.card .k{font-size:13px}
+.card h4{font-size:22px}
+.card p{font-size:17.5px;line-height:1.62}
+.tk{font-size:13px}
+.trackhead h3{font-size:clamp(22px,2.7vw,30px)}
+.slotrow .tm{font-size:13px;flex-basis:86px;line-height:1.6}
+.slotrow b{font-size:19px}
+.slotrow p{font-size:17px;line-height:1.62}
+.slotrow .cap{font-size:13px;padding:8px 12px}
+
+.aud-full h4{font-size:21px}
+.aud-full p{font-size:17.5px;line-height:1.65}
+.aud-full .ic{width:40px;height:40px}
+ul.exp li{font-size:19px;padding:15px 0;line-height:1.5}
+.topic{font-size:14px;padding:11px 15px;letter-spacing:.05em}
+
+.on{font-size:13px}
+.obox b{font-size:26px}
+.obox p{font-size:17.5px;line-height:1.62}
+.nextup b{font-size:23px}
+.nextup .wh{font-size:17.5px}
+
+.pcard b{font-size:17.5px}
+.pcard span{font-size:15.5px;line-height:1.42}
+.pcard em{font-size:12.5px;letter-spacing:.09em;font-weight:700}
+.ecard .y{font-size:13px}
+.ecard b{font-size:17px}
+.ecard em{font-size:12px;letter-spacing:.09em;font-weight:700}
+
+.subrow input{font-size:19px;padding:18px 18px}
+.subform label{font-size:13.5px}
+.subnote{font-size:13px}
+
+.quote q{font-size:clamp(26px,3.4vw,38px);line-height:1.2}
+.quote .who{font-size:17.5px;line-height:1.6}
+.quote .who b{font-size:19px}
+.quote .who em{font-size:13px}
+
+h2.sec{font-size:clamp(30px,4.4vw,50px)}
+footer a,footer .mono{font-size:13.5px}
+.eyebrow .mono{font-size:13.5px}
+
+/* smaller screens keep the same generosity */
+@media (max-width:700px){ body{font-size:19px} .lede{font-size:20px} .prose p{font-size:19.5px} }
+
+/* ==========================================================================
+   16px FLOOR
+   Nothing on this page renders below 16px. The uppercase mono labels were the
+   last offenders at 13px; they are now 16-17px with much tighter tracking,
+   because wide letterspacing at small optical size is what actually hurts.
+   ========================================================================== */
+.mono{font-size:16px;letter-spacing:.06em;font-weight:700;line-height:1.5}
+.eyebrow .mono{font-size:16.5px;letter-spacing:.07em}
+
+.tag{font-size:16px;letter-spacing:.04em;padding:10px 15px}
+.curated{font-size:17px;letter-spacing:.05em}
+.btn{font-size:16.5px;letter-spacing:.05em;padding:17px 26px;font-weight:800}
+.hdr nav a{font-size:16.5px;letter-spacing:.04em;font-weight:700}
+.hdr .nm{font-size:19px}
+
+.dcard .m{font-size:16px;letter-spacing:.06em}
+.dcard .f{font-size:16px;letter-spacing:.04em;line-height:1.6}
+.dcard .d b{font-size:38px}
+.dcard .d span{font-size:18px}
+
+.cd .lab{font-size:16px;letter-spacing:.05em;line-height:1.6}
+.cd .lab b{font-size:18px}
+.cd .u .n{font-size:42px}
+.cd .u .x{font-size:16px;letter-spacing:.05em}
+.cd .u{min-width:66px}
+.cd .go{font-size:16.5px;letter-spacing:.05em;padding:17px 24px}
+
+.card .k{font-size:16px;letter-spacing:.05em}
+.card h4{font-size:23px}
+.card p{font-size:18px}
+.tk{font-size:16px;letter-spacing:.06em}
+.slotrow .tm{font-size:16px;letter-spacing:.04em;flex-basis:104px;line-height:1.5}
+.slotrow b{font-size:20px}
+.slotrow p{font-size:18px}
+.slotrow .cap{font-size:16px;letter-spacing:.05em;padding:9px 14px}
+
+.on{font-size:16px;letter-spacing:.05em}
+.obox b{font-size:28px}
+.obox p{font-size:18px}
+.nextup b{font-size:24px}
+.nextup .wh{font-size:18px}
+
+.pcard b{font-size:18.5px}
+.pcard span{font-size:16.5px;line-height:1.4}
+.pcard em{font-size:16px;letter-spacing:.04em;font-weight:700}
+.ecard .y{font-size:16px;letter-spacing:.05em}
+.ecard b{font-size:18px}
+.ecard em{font-size:16px;letter-spacing:.04em}
+
+.topic{font-size:16.5px;letter-spacing:.03em;padding:12px 17px}
+ul.exp li{font-size:20px;padding:16px 0}
+.aud-full h4{font-size:22px}
+.aud-full p{font-size:18px}
+
+.subform label{font-size:16px;letter-spacing:.05em}
+.subnote{font-size:16px;letter-spacing:.04em;text-transform:none}
+.subrow input{font-size:20px}
+
+.quote .who{font-size:18px}
+.quote .who b{font-size:20px}
+.quote .who em{font-size:16px;letter-spacing:.04em}
+
+footer a,footer .mono{font-size:16px;letter-spacing:.04em}
+#wixToggle{font-size:15px;letter-spacing:.06em;padding:14px 18px}
+
+/* the parallel rail label was 9px, rotated - make it readable or drop it */
+.parallel span{font-size:14px;letter-spacing:.1em;font-weight:700}
+@media (max-width:1100px){.tracks{grid-template-columns:1fr}.parallel span{writing-mode:horizontal-tb;transform:none;border:0;border-top:2px dashed rgba(255,255,255,.4);border-bottom:2px dashed rgba(255,255,255,.4);width:100%;height:auto;padding:12px 0;margin:16px 0}}
+
+/* last six offenders, including the venue caption which was 9.5px */
+.venue figcaption{font-size:16px;letter-spacing:.04em;padding:13px 16px;line-height:1.5;font-weight:700}
+.note{font-size:16px;line-height:1.6;padding:15px 18px;letter-spacing:.01em}
+.parallel span{font-size:16px;letter-spacing:.08em}
+#wixToggle{font-size:16px;padding:15px 20px}
+.cms-note{font-size:16px}
+
+/* ==========================================================================
+   LIGHT BASE + SEMANTIC COLOUR  (2026 direction)
+   Blue no longer carries the page. Off-white ground, and four accents that
+   each mean something rather than decorate:
+     blue   = the brand, primary action
+     purple = the vCon Summit track
+     yellow = VoiceAI LIVE!  (fill only - 1.47:1 as text, 12.07:1 under ink)
+     green  = membership / the Foundation (fill only - 3.36:1 as text)
+   ========================================================================== */
+:root{
+  --paper:#FAFAF8; --card:#FFFFFF; --ink:#0E1320; --ink2:#47506B;
+  --blue:#1438F1; --purple:#5B2ED6; --yellow:#FFC93D; --green:#0B9D5B;
+  --line:#E3E4E8; --rule:#E3E4E8;
+}
+body{background:var(--paper);color:var(--ink);font-weight:500}
+.ice,.strip.ice{background:var(--paper);color:var(--ink)}
+.strip.blue{background:var(--card);color:var(--ink)}
+.strip.blue .mono{color:var(--blue)}
+.strip.blue .lede,.strip.blue .prose p{color:var(--ink2)}
+.strip.blue h2.sec,.strip.blue h4,.strip.blue b{color:var(--ink)}
+
+/* header: white, not a blue slab */
+.hdr{background:var(--card);border-bottom:2px solid var(--line)}
+.hdr .nm{color:var(--ink);border-left-color:var(--line)}
+.hdr img{filter:brightness(0)}
+.hdr nav a{color:var(--ink2)}
+.hdr nav a:hover{color:var(--blue)}
+
+/* hero: light, photo does the work */
+.hero{background:var(--paper);color:var(--ink)}
+.hero-photo{display:none}
+.hook{color:var(--ink);border-left:5px solid var(--blue)}
+.hook span{color:var(--ink2)}
+h1.t{color:var(--ink)} h1.t small{color:var(--blue)}
+.sub{color:var(--ink2)}
+.curated{color:var(--ink)}
+.tag{border:2px solid var(--ink);color:var(--ink)}
+.tag.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+.dcard{background:var(--card);border:2px solid var(--line)}
+.dcard .m{color:var(--blue);border-bottom-color:var(--line)}
+.dcard .d{border-bottom-color:var(--line)}
+.dcard .d b{color:var(--blue)} .dcard .d span{color:var(--ink2)}
+.dcard .f{color:var(--ink2)}
+.venue{border:2px solid var(--line)}
+.venue figcaption{background:var(--ink);color:#fff}
+
+/* buttons: bigger, bolder, unmissable */
+.btn{font-size:19px;font-weight:800;padding:20px 30px;border-width:3px;border-radius:3px;letter-spacing:.04em}
+.btn{border-color:var(--blue);color:var(--blue);background:var(--card)}
+.btn.solid{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn:hover{background:var(--blue);color:#fff}
+.btn.solid:hover{background:var(--purple);border-color:var(--purple)}
+
+/* countdown: DOORS OPEN doubled and bold */
+#cdWrap{background:var(--ink)}
+.cd .lab{font-size:30px;font-weight:800;letter-spacing:-.02em;text-transform:none;color:#fff;line-height:1.15}
+.cd .lab b{font-size:19px;font-weight:600;color:var(--yellow);letter-spacing:.02em;margin-top:4px}
+.cd .u .n{color:var(--yellow);font-size:46px}
+.cd .u .x{color:#C9CEDD}
+.cd .go{background:var(--yellow);color:var(--ink);font-weight:800;font-size:18px;padding:18px 26px}
+
+/* conversation band keeps its dark ground so the canvas reads */
+#bandWrap{background:var(--ink)}
+
+/* why this room: four accents, one per card */
+.strip.navy#why{background:var(--paper);color:var(--ink)}
+#why h2.sec{color:var(--ink)}
+#why .mono{color:var(--blue)!important}
+#why .card{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--blue)}
+#why .card:nth-child(2){border-top-color:var(--purple)}
+#why .card:nth-child(3){border-top-color:var(--yellow)}
+#why .card:nth-child(4){border-top-color:var(--green)}
+#why .card .k{color:var(--ink2)} #why .card h4{color:var(--ink)} #why .card p{color:var(--ink2)}
+
+/* program: Track A purple, Track B yellow */
+.tracklane{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--purple)}
+.tracks .tracklane:last-of-type{border-top-color:var(--yellow)}
+.tk{color:var(--ink2)} .trackhead h3{color:var(--ink)} .trackhead{border-bottom-color:var(--line)}
+.slotrow{border-bottom-color:var(--line)}
+.slotrow .tm{color:var(--purple)} .slotrow b{color:var(--ink)} .slotrow p{color:var(--ink2)}
+.tracks .tracklane:last-of-type .slotrow .tm{color:#8A6200}
+.slotrow .cap{background:var(--yellow);color:var(--ink);font-weight:800}
+.tracklane:first-of-type .slotrow .cap{background:var(--purple);color:#fff}
+.parallel span{color:var(--ink2);border-color:var(--line)}
+#program .card{background:var(--card);border:2px solid var(--line)}
+#program .card .k{color:var(--ink2)} #program .card h4{color:var(--ink)} #program .card p{color:var(--ink2)}
+
+/* membership: green is the money colour */
+#join .obox{border:2px solid var(--line);border-left:7px solid var(--blue)}
+#join .obox:nth-child(2){border-left-color:var(--purple)}
+#join .obox.hot{border-left-color:var(--green)}
+#join .nextup{border:3px dashed var(--green);background:var(--card)}
+#join .nextup .mono{color:var(--green)!important}
+
+/* doors: one colour each */
+#door{background:var(--paper);color:var(--ink)}
+#door h2.sec{font-size:clamp(38px,5.6vw,64px);color:var(--ink)}
+#door .lede{color:var(--ink2)}
+#door .mono{color:var(--blue)!important}
+#door .card{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--blue)}
+#door .card:nth-child(2){border-top-color:var(--yellow)}
+#door .card:nth-child(3){border-top-color:var(--purple)}
+#door .card:nth-child(4){border-top-color:var(--green)}
+#door .card .k{color:var(--ink2)} #door .card h4{color:var(--ink);font-size:26px} #door .card p{color:var(--ink2)}
+
+/* speakers in full colour - warmth, and less blue */
+.pcard{border:2px solid var(--line)}
+.pcard .ph::after{display:none}
+.pcard .ph img{filter:none}
+.pcard b{color:var(--ink)} .pcard span{color:var(--ink2)} .pcard em{color:var(--blue)}
+.spo{border:2px solid var(--line)}
+.ecard{border:2px solid var(--line)} .ecard b{color:var(--ink)} .ecard em{color:var(--purple)} .ecard .y{color:var(--ink2)}
+.acard,.aud-full article{border-top-color:var(--blue)}
+.aud-full p,.acard p{color:var(--ink2)}
+.aud-full .ic{color:var(--blue)}
+.topic{background:var(--card);border:2px solid var(--line);color:var(--ink)}
+ul.exp li{border-bottom-color:var(--line);color:var(--ink)}
+ul.exp li::before{background:var(--green)}
+.quote{border-left:5px solid var(--purple)}
+.quote q{color:var(--ink)} .quote .who{color:var(--ink2)} .quote .who b{color:var(--ink)} .quote .who em{color:var(--purple)}
+.eyebrow::after{background:var(--line);opacity:1}
+
+/* the two dark moments left on the page */
+.strip.navy#subscribe{background:var(--ink)}
+#subscribe h2.sec{color:#fff} #subscribe .lede{color:#C9CEDD}
+#subscribe .subform label{color:var(--yellow)} #subscribe .subnote{color:#C9CEDD}
+#subscribe .btn.solid{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.finale{background:var(--ink)} .finale h2{color:#fff} .finale .lede{color:#C9CEDD}
+.finale .btn{background:transparent;color:#fff;border-color:#fff}
+.finale .btn.solid{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+footer{background:var(--ink);color:#C9CEDD} footer a{color:#C9CEDD} footer a:hover{color:var(--yellow)}
+
+/* no thin grey anywhere */
+.lede,.prose p,.card p,.slotrow p,.aud-full p,.acard p,.obox p,.pcard span,.ecard b{font-weight:500}
+.mono{font-weight:800}
+
+/* ==========================================================================
+   ASSISTIVE PASS - the audience includes many visually impaired people.
+   Targets WCAG AAA (7:1) for body copy, not just AA.
+   ========================================================================== */
+.skiplink{position:absolute;left:-9999px;top:0;z-index:999;background:#0E1320;color:#fff;
+  padding:16px 22px;font-weight:800;font-size:18px;border-radius:0 0 4px 0}
+.skiplink:focus{left:0}
+
+/* FIX: white text stranded on white after the light flip (was 1.0:1, invisible) */
+.strip.blue .prose p strong,.strip.blue strong,.strip.blue .lede strong{color:#0E1320!important}
+.strip.navy.finale h2,.strip.navy.finale h2.sec,.finale h2,.finale h2.sec{color:#FFFFFF!important}
+.finale .lede,.finale p{color:#D8DCE6!important}
+footer .mono,footer .cr,footer span{color:#D8DCE6!important}
+
+/* FIX: green failed as text at 3.51:1 - only ever a fill from here on */
+#join .nextup .mono{color:#0E1320!important}
+#join .nextup{border-color:#0B9D5B}
+.slotrow .tm{color:#3C2E8F!important}
+.tracks .tracklane:last-of-type .slotrow .tm{color:#6B4A00!important}
+
+/* AAA body copy */
+.lede,.prose p,.card p,.slotrow p,.aud-full p,.obox p,.pcard span,.ecard b{color:#3A4157}
+.mono{color:#3A4157}
+#why .mono,#door .mono,.eyebrow .mono{color:#0F2ED0!important}
+.h3,.ch{font-size:23px;letter-spacing:-.03em;line-height:1.15;margin:0;font-weight:800}
+#door .ch{font-size:26px}
+
+/* visible, unmissable focus for keyboard and low-vision users */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:4px solid #0F2ED0;outline-offset:3px;border-radius:2px;
+  box-shadow:0 0 0 8px rgba(15,46,208,.22)}
+.finale a:focus-visible,#subscribe a:focus-visible,#subscribe input:focus-visible,footer a:focus-visible{
+  outline-color:#FFC93D;box-shadow:0 0 0 8px rgba(255,201,61,.3)}
+
+/* respect OS settings */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+@media (prefers-contrast:more){
+  :root{--ink:#000;--ink2:#1A1F30;--line:#000;--rule:#000}
+  .card,.obox,.pcard,.spo,.ecard,.tracklane,.dcard,.venue{border-width:3px!important;border-color:#000!important}
+  .btn{border-width:4px!important}
+}
+.on{color:#2C3347!important}
+
+/* ==========================================================================
+   ONE TYPEFACE
+   Per the designer: the monospace was carrying a dozen different jobs and
+   reading as many fonts. Everything is now one grotesque. Hierarchy comes
+   from WEIGHT (500 / 700 / 800) and size, not from swapping families.
+   ========================================================================== */
+:root{ --mono:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif; }
+body,.mono,.btn,.tag,.hdr nav a,.cd .lab,.cd .u .x,.card .k,.tk,.slotrow .tm,
+.slotrow .cap,.on,.pcard em,.ecard .y,.ecard em,.topic,.subform label,.subnote,
+.dcard .m,.dcard .f,.curated,.venue figcaption,.parallel span,.quote .who em,
+footer a,footer .mono,#wixToggle,.note,.cms-note{
+  font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;
+}
+
+/* labels stay labels through weight and tracking, not a different face */
+.mono,.card .k,.tk,.on,.ecard .y,.dcard .m,.subform label{
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.eyebrow .mono{font-weight:800;letter-spacing:.1em}
+.slotrow .tm{font-weight:700;letter-spacing:.06em}
+.pcard em,.ecard em,.quote .who em{font-weight:700;letter-spacing:.06em}
+.tag{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.btn{font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+.hdr nav a{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.topic{font-weight:600;letter-spacing:.02em;text-transform:none}
+.curated{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.venue figcaption{font-weight:700;letter-spacing:.03em;text-transform:none}
+.subnote{font-weight:600;letter-spacing:0;text-transform:none}
+.dcard .f{font-weight:600;letter-spacing:.02em;text-transform:none}
+.slotrow .cap{font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.parallel span{font-weight:700;letter-spacing:.1em}
+footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
+#wixToggle{font-weight:800;letter-spacing:.04em}
+.note,.cms-note{font-weight:500;letter-spacing:0;text-transform:none}
+
+/* numbers keep the one thing mono was genuinely good for */
+.cd .u .n,.dcard .d b,.card .k,.slotrow .tm,.ecard .y{font-variant-numeric:tabular-nums}
+.cd .lab{font-weight:800;letter-spacing:-.02em;text-transform:none}
+.cd .lab b{font-weight:600;letter-spacing:.02em;text-transform:none}
+.cd .u .x{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* ==========================================================================
+   DESIGNER ROUND 2
+   vCon purple is exactly #6A0DAD. Blue carries every bold. Colour never stops.
+   ========================================================================== */
+:root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
+
+/* doors-open banner is blue, not black */
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
+
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
+.cd .lab{color:#fff!important}
+.cd .lab b{color:#fff!important;opacity:.92}
+.cd .u .n{color:#fff!important}
+.cd .u .x{color:#DDE4FF!important}
+.cd .go{background:#fff!important;color:var(--blue)!important}
+
+/* Jeff in colour, bigger, blue ring */
+.curator img{width:clamp(150px,19vw,215px);height:clamp(150px,19vw,215px);border:5px solid var(--blue);filter:none}
+.curator h2.sec,.curator .lede strong{color:var(--blue)!important}
+.curator .lede{color:#0E1320}
+/* every bold goes blue, small text stays black */
+strong,.prose p strong,.lede strong,.aud-full h4,.acard h4,.obox b,.nextup b,.ch,.card h4,.slotrow b,.pcard b{color:var(--blue)!important}
+h2.sec{color:var(--blue)!important}
+.finale h2,.finale h2.sec{color:#fff!important}
+#cdWrap *,.venue figcaption{color:inherit}
+.venue figcaption{background:var(--blue);color:#fff!important}
+
+/* vCon Summit = #6A0DAD */
+.tracklane{border-top-color:var(--purple)!important}
+.tracks .tracklane:last-of-type{border-top-color:#FFC93D!important}
+.tracklane:first-of-type .trackhead h3{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow .tm{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow b{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow .cap{background:var(--purple)!important;color:#fff!important}
+/* VoiceAI LIVE! labels in green, not yellow */
+.tracks .tracklane:last-of-type .trackhead h3{color:#8A5A00!important}
+.tracks .tracklane:last-of-type .slotrow .tm{color:var(--green)!important}
+.tracks .tracklane:last-of-type .slotrow b{color:var(--green)!important}
+.tracks .tracklane:last-of-type .slotrow .cap{background:var(--green)!important;color:#fff!important}
+.parallel span{color:var(--ink2)}
+
+/* membership gets a real box, and the Report lives inside it */
+#join .col{background:#fff;border:4px solid var(--blue);border-radius:5px;padding:clamp(26px,3.4vw,46px);max-width:calc(var(--col) - 8px)}
+#join .obox{border-left-color:var(--purple)}
+#join .obox:nth-child(2){border-left-color:var(--blue)}
+#join .obox.hot{border-left-color:var(--green)}
+#join .nextup{border:3px dashed var(--blue)}
+.reportbox{margin-top:22px;padding:24px;background:var(--blue);border-radius:4px;
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+@media (max-width:820px){.reportbox{grid-template-columns:1fr}}
+.reportbox .ch{color:#fff!important;font-size:26px}
+.reportbox p{color:#DDE4FF;margin:8px 0 0;font-size:17px}
+.reportbox label{display:block;color:#fff;font-weight:700;margin-bottom:9px;font-size:16px}
+.reportbox input{width:100%;padding:16px;border-radius:3px;border:2px solid #fff;font-size:18px}
+.reportbox .btn.solid{background:#fff;color:var(--blue);border-color:#fff}
+
+/* sponsor bar between sections - replaces the dead space */
+.sponsorbar{background:#fff;border-top:3px solid var(--blue);border-bottom:3px solid var(--blue);padding:20px 0}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.bar-in img{height:34px;width:auto;object-fit:contain;opacity:.9}
+@media (max-width:820px){.bar-in img{height:26px}}
+
+/* sponsors BIG */
+.spo-big{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
+@media (max-width:860px){.spo-big{grid-template-columns:repeat(2,1fr)}}
+.logo.big{background:#fff;border:3px solid var(--blue);border-radius:4px;aspect-ratio:3/2;
+  display:grid;place-items:center;padding:26px}
+.logo.big img{max-height:110px;max-width:100%;width:auto;object-fit:contain}
+
+/* community photos in colour */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+@media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
+.gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
+
+/* speakers: colour photos, blue names, company in blue */
+.pcard .ph img{filter:none!important}
+.pcard b{color:var(--blue)!important}
+.pcard span{color:#0E1320}
+.pcard em{color:var(--purple)!important;text-transform:none;letter-spacing:.01em;font-size:17px}
+
+/* Who Should Attend - blue bolds, less dead air */
+.aud-full article{border-top:5px solid var(--blue)}
+.aud-full .ic{color:var(--blue)}
+.pad{padding:clamp(38px,4.4vw,64px) 0}
+
+/* the quote loses its tiny photo treatment */
+.quote{border-left:5px solid var(--purple)}
+.quote .who b{color:var(--blue)!important}
+
+/* header: the VE mark sits in a blue tile (source art is white letters), and
+   the full event name gets room so nothing wraps onto the button */
+.hdr img{filter:none!important;height:34px;background:var(--blue);padding:7px 9px;border-radius:4px;box-sizing:content-box}
+.hdr .col{flex-wrap:nowrap;gap:18px;min-height:74px}
+.hdr .nm{font-size:17px;line-height:1.2;white-space:normal;max-width:22ch}
+.hdr nav{gap:18px;flex-wrap:nowrap}
+.hdr nav a{font-size:15px;white-space:nowrap}
+.hdr .btn{padding:14px 20px;font-size:15px;white-space:nowrap}
+@media (max-width:1180px){.hdr nav{display:none}}
+@media (max-width:640px){.hdr .nm{font-size:15px;max-width:14ch}}
+
+.thesis-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,52px);align-items:center}
+@media (max-width:900px){.thesis-grid{grid-template-columns:1fr}}
+.tj{margin:0}
+.tj img{width:100%;height:auto;display:block;border:4px solid var(--blue);border-radius:5px}
+.tj figcaption{margin-top:10px;font-size:16px;font-weight:700;color:var(--blue)}
+
+.spo-big{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
+.spo-big .logo.big{flex:0 1 calc(33.333% - 14px);min-width:250px}
+@media (max-width:860px){.spo-big .logo.big{flex:0 1 calc(50% - 10px);min-width:200px}}
+
+.presenting{background:#fff;border:5px solid var(--blue);border-radius:5px;padding:34px;margin-top:26px;
+  display:flex;flex-direction:column;align-items:center;gap:18px}
+.ptag{font-size:17px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  background:var(--blue);padding:10px 18px;border-radius:3px}
+.presenting img{max-height:220px;max-width:min(620px,100%);width:auto;object-fit:contain}
+@media (max-width:700px){.presenting img{max-height:130px}}
+.spo-big{margin-top:20px}
+
+/* ===== ROUND 3 =====================================================
+   No boxes. Purple is reserved for the vCon Foundation only. Hover is
+   light blue. Bolds are blue. Register repeats down the page.
+   =================================================================== */
+:root{ --hover:#0FA3C7; --green:#0A6E3D; }
+
+/* hover never uses Foundation purple */
+.btn:hover,.btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important;color:#fff!important}
+.reportbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important}
+
+/* we do not live in boxes - cards become open blocks with a top rule */
+.card,#why .card,#door .card,.acard,.aud-full article,.obox,.pcard,.ecard{
+  background:transparent!important;border:0!important;border-top:4px solid var(--blue)!important;
+  border-radius:0!important;box-shadow:none!important;padding:20px 0 22px!important}
+.card:hover,.pcard:hover,.obox:hover,#door .card:hover{transform:none!important;box-shadow:none!important}
+.tracklane{background:transparent!important;border:0!important;border-top:6px solid var(--purple)!important;
+  border-radius:0!important;padding:20px 0 0!important}
+.tracks .tracklane:last-of-type{border-top-color:var(--green)!important}
+.spo-big .logo.big,.presenting{border:0!important;background:transparent!important;box-shadow:none!important}
+.presenting{padding:10px 0 26px!important}
+.venue,.tj img,.gal img{border:0!important;border-radius:0!important}
+.dcard{background:transparent!important;border:0!important;border-left:4px solid var(--blue)!important;border-radius:0!important;padding-left:20px!important}
+#join .col{border:0!important;background:transparent!important;padding:0!important}
+
+/* the vCon Foundation section is the ONE place purple belongs */
+#join .eyebrow .mono,#join h2.sec,#join .obox b,#join .nextup b,#join .nextup .mono{color:var(--purple)!important}
+#join .obox,#join .nextup{border-top-color:var(--purple)!important}
+#join .nextup{border:0!important;border-top:4px solid var(--purple)!important}
+#join .btn.solid{background:var(--purple)!important;border-color:var(--purple)!important}
+#join .btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important}
+.reportbox{background:var(--purple)!important;border-radius:0!important}
+/* purple nowhere else */
+.pcard em{color:var(--blue)!important;font-size:18px!important;font-weight:500!important;letter-spacing:normal!important;margin-top:3px!important}
+.ecard em,.quote .who em{color:var(--blue)!important}
+.quote{border-left-color:var(--blue)!important}
+
+/* VoiceAI LIVE! title matches its column */
+.tracks .tracklane:last-of-type .trackhead h3{color:var(--green)!important}
+
+/* every bold blue - What to Expect included */
+strong,.prose p strong,.lede strong,b:not(.dcard b):not(.cd b){color:var(--blue)!important}
+ul.exp li{color:#0E1320}
+
+/* speakers: 4 across, centred, company reads like the title */
+.rep.c4.spk{grid-template-columns:repeat(4,1fr)!important;gap:26px 22px}
+@media (max-width:1000px){.rep.c4.spk{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:560px){.rep.c4.spk{grid-template-columns:1fr!important}}
+.pcard{text-align:center}
+.pcard .ph{border-radius:50%;max-width:210px;margin:0 auto}
+.pcard b{display:block;margin-top:14px;font-size:20px}
+.pcard span,.pcard em{display:block;font-size:18px;line-height:1.45;font-weight:500}
+.pcard span{color:#0E1320;margin-top:4px}
+
+/* presenting-sponsor divider bar */
+.sponsorbar{background:transparent;border-top:3px solid var(--blue);border-bottom:3px solid var(--blue);padding:26px 0}
+.bar-in{justify-content:center;gap:24px}
+.bar-in img{height:70px}
+.barlab{font-size:16px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+@media (max-width:700px){.bar-in{flex-direction:column}.bar-in img{height:52px}}
+
+/* all community photos */
+.gal{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+
+/* MOBILE - classic Wix is laid out separately, so this is the spec for it */
+@media (max-width:760px){
+  .hgrid,.thesis-grid,.tracks,.subwrap,.reportbox,.curator{grid-template-columns:1fr!important;display:block!important}
+  .hero-side{width:100%!important;margin-top:22px}
+  .curator img{margin-bottom:16px}
+  .offer{grid-template-columns:1fr!important}
+  .spo-big .logo.big{flex:0 1 100%!important}
+  .nextup{display:block!important}
+  .nextup .btn{margin-top:14px;width:100%}
+  .cta .btn,.finale .btn{width:100%}
+  .hdr .col{flex-wrap:wrap!important;height:auto;padding:10px 0}
+  .hdr .nm{max-width:none;font-size:16px}
+  h1.t{font-size:34px!important}
+  .tracklane{margin-bottom:26px}
+}
+.regstrip{background:var(--blue);padding:22px 0;text-align:center}
+.regstrip .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important;font-size:19px}
+.regstrip .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+/* Oct 14-15 schedule */
+.day2{margin-top:26px}
+.d2head{display:flex;align-items:baseline;gap:16px;padding-bottom:12px;border-bottom:4px solid var(--blue)}
+.d2n{font-size:19px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+.d2head .ch{font-size:24px;color:var(--blue)!important}
+.d2rows{margin-top:4px}
+.d2row{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.d2row span{flex:0 0 168px;font-size:18px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+.d2row b{font-size:19px;color:var(--blue)!important}
+.d2row.hl b{color:var(--green)!important}
+@media (max-width:640px){.d2row{display:block}.d2row span{display:block;margin-bottom:4px}}
+/* tighter after Oct 13 */
+.tracks{margin-bottom:6px}
+/* quote now sits under the photo */
+.tj .quote{margin-top:20px;border-left:5px solid var(--blue);padding-left:20px}
+.tj .quote q{font-size:clamp(22px,2.6vw,30px);display:block;line-height:1.2}
+.tj .quote .who{margin-top:12px;font-size:17px}
+/* presenting sponsor bigger in the break */
+.bar-in img{height:118px!important}
+@media (max-width:700px){.bar-in img{height:80px!important}}
+.barlab{font-size:18px}
+/* community photos keep their shape, no crop */
+.gal{grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+@media (max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.gal{grid-template-columns:1fr}}
+.gal img{width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}
+/* every remaining bold blue, including the closing block */
+.finale strong,.finale b,#expect strong,#expect b,ul.exp li b,.prose strong{color:var(--blue)!important}
+.finale .lede strong{color:#fff!important}
+
+.d2head.oct13{margin-bottom:22px;border-bottom-color:#0E1320}
+.d2head.oct13 .d2n,.d2head.oct13 .ch{color:var(--purple)!important}
+.pcard span{color:var(--blue)!important}
+
+/* community photos: whole images, never cropped. masonry columns let each
+   keep its own proportions instead of being forced into a box. */
+.gal{display:block!important;column-count:3;column-gap:16px}
+@media (max-width:900px){.gal{column-count:2}}
+@media (max-width:560px){.gal{column-count:1}}
+.gal img{width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;
+  display:block;margin:0 0 16px;break-inside:avoid;border:0!important;border-radius:0!important}
+
+/* closing block in blue, not black */
+.finale{background:var(--blue)!important}
+.finale h2,.finale h2.sec{color:#fff!important}
+.finale .lede,.finale p{color:#DDE4FF!important}
+.finale .btn{border-color:#fff!important;color:#fff!important;background:transparent!important}
+.finale .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
+.finale .btn:hover,.finale .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+footer{background:var(--blue-deep)!important;color:#DDE4FF!important}
+footer .ftlogo{height:34px;width:auto;display:block;margin-bottom:10px}
+footer a{color:#DDE4FF!important}
+footer a:hover{color:#fff!important}
+
+/* REGRESSION FIX 1: the Subscribe button inherited #join's purple and landed
+   purple-on-purple (1.26:1, effectively invisible). White on the purple panel. */
+.reportbox .btn.solid,#join .reportbox .btn.solid{
+  background:#FFFFFF!important;color:var(--purple)!important;border-color:#FFFFFF!important}
+.reportbox .btn.solid:hover,#join .reportbox .btn.solid:hover{
+  background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+/* REGRESSION FIX 2: header nav and its button had slipped to 15px */
+.hdr nav a,.hdr .btn,.hdr .btn.solid{font-size:16.5px!important}
+
+/* vCon is always vCon. text-transform was rendering it VCON, so any element
+   carrying the word opts out of case transformation entirely. */
+.novcase,.novcase *{text-transform:none!important}
+
+.codebox{margin-top:20px;padding:22px 24px;background:#fff;border:3px dashed var(--purple);border-radius:0}
+.codebox b{display:block;font-size:21px;color:var(--purple)!important;letter-spacing:-.02em}
+.codebox p{margin:8px 0 0;font-size:18px;line-height:1.6;color:#0E1320}
+.codebox a{color:var(--purple)!important;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.codebox a:hover{color:var(--hover)!important}
+
+/* sponsor tiers: presenting > gold > silver */
+.tierlab{margin:30px 0 12px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:22px}
+.spo-gold .logo.gold{flex:0 1 calc(33.333% - 16px);min-width:250px;background:transparent;border:0;
+  aspect-ratio:auto;display:grid;place-items:center;padding:18px}
+.spo-gold .logo.gold img{max-height:130px;max-width:100%;width:auto;object-fit:contain}
+.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
+.spo-silver .logo.silver{flex:0 1 calc(25% - 15px);min-width:190px;background:transparent;border:0;
+  aspect-ratio:auto;display:grid;place-items:center;padding:14px}
+.spo-silver .logo.silver img{max-height:78px;max-width:100%;width:auto;object-fit:contain}
+@media (max-width:820px){.spo-gold .logo.gold{flex:0 1 calc(50% - 11px)}.spo-silver .logo.silver{flex:0 1 calc(50% - 10px)}}
+/* mailing list block, styled like the Report but blue */
+.mailbox{margin-top:20px;padding:24px;background:var(--blue);border-radius:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+@media (max-width:820px){.mailbox{grid-template-columns:1fr}}
+.mailbox .ch{color:#fff!important;font-size:26px}
+.mailbox p{color:#DDE4FF;margin:8px 0 0;font-size:17px}
+.mailbox label{display:block;color:#fff;font-weight:700;margin-bottom:9px;font-size:16px}
+.mailbox input{width:100%;padding:16px;border-radius:3px;border:2px solid #fff;font-size:18px}
+.mailbox .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
+.mailbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+
+/* venue photo as an actual photograph, not a background wash */
+.venue{border:1px solid rgba(255,255,255,.4);border-radius:3px;overflow:hidden;background:var(--blue-deep)}
+.venue img{width:100%;height:auto;display:block}
+.venue figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sky);padding:9px 12px;background:rgba(6,16,52,.45)}
+.hero-side{display:flex;flex-direction:column;gap:14px;width:330px;max-width:100%}
+@media (max-width:820px){.hero-side{width:100%}}
+/* full-length prose blocks */
+.prose p{font-size:16.5px;line-height:1.68;max-width:66ch;margin:0 0 15px}
+.prose p:last-child{margin-bottom:0}
+.blue .prose p{color:var(--sky)}
+.blue .prose p strong{color:#fff}
+.ice .prose p strong{color:var(--navy)}
+.quote{border-left:3px solid var(--blue);padding-left:22px;margin-top:8px}
+.quote q{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:800;letter-spacing:-.035em;line-height:1.14;color:var(--navy);quotes:"\201C" "\201D"}
+.quote .who{margin-top:14px;font-size:14px;line-height:1.55;color:#3D4A73}
+.quote .who b{display:block;color:var(--navy);font-size:15px}
+.quote .who em{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);display:block;margin-top:7px}
+ul.exp{list-style:none;margin:18px 0 0;padding:0}
+ul.exp li{padding:11px 0;border-bottom:1px solid var(--rule);display:flex;gap:13px;align-items:flex-start;font-size:16px;line-height:1.45}
+ul.exp li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--blue);margin-top:.5em}
+.blue ul.exp li{border-bottom-color:rgba(255,255,255,.24)}
+.blue ul.exp li::before{background:#fff}
+.topics{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.topic{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--rule);border-radius:2px;color:var(--navy);background:#fff}
+.aud-full{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 clamp(20px,3vw,36px);margin-top:26px}
+.aud-full article{padding:20px 0 24px;border-top:2px solid var(--blue)}
+.aud-full .ic{display:block;width:34px;height:34px;color:var(--blue);margin-bottom:11px}
+.aud-full h4{font-size:16.5px;letter-spacing:-.025em;margin-bottom:8px}
+.aud-full p{margin:0;font-size:14.5px;line-height:1.6;color:#3D4A73}
+.tracks{display:grid;grid-template-columns:1fr auto 1fr;gap:0 clamp(14px,2vw,26px);align-items:start;margin-top:26px}
+@media (max-width:860px){.tracks{grid-template-columns:1fr}}
+.tracklane{border:1px solid rgba(255,255,255,.32);border-radius:3px;background:rgba(6,16,52,.24);padding:20px}
+.trackhead{padding-bottom:14px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.28)}
+.tk{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);display:block;margin-bottom:7px}
+.trackhead h3{font-size:clamp(19px,2.4vw,26px);letter-spacing:-.03em;line-height:1.1}
+.slotrow{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.slotrow:last-child{border-bottom:0;padding-bottom:0}
+.slotrow .tm{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sky);flex:0 0 62px;padding-top:3px}
+.slotrow b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.2;color:#fff}
+.slotrow p{margin:5px 0 0;font-size:13.5px;line-height:1.55;color:var(--sky)}
+.slotrow .cap{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;background:#fff;color:var(--blue);padding:5px 9px;border-radius:2px}
+.parallel{display:flex;align-items:center;justify-content:center;align-self:stretch;position:relative}
+.parallel span{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);writing-mode:vertical-rl;transform:rotate(180deg);padding:10px 0;border-left:1px dashed rgba(255,255,255,.35);border-right:1px dashed rgba(255,255,255,.35);height:100%;display:flex;align-items:center;justify-content:center}
+@media (max-width:860px){.parallel span{writing-mode:horizontal-tb;transform:none;border:0;border-top:1px dashed rgba(255,255,255,.35);border-bottom:1px dashed rgba(255,255,255,.35);width:100%;height:auto;padding:9px 0;margin:12px 0}}
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+@media (max-width:820px){.offer{grid-template-columns:1fr}}
+.obox{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--blue);border-radius:3px;padding:20px}
+.obox.hot{border-left-color:#0FBF6A}
+.on{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:#6B77A0;display:block;margin-bottom:9px}
+.obox b{display:block;font-size:21px;letter-spacing:-.03em;line-height:1.1;color:var(--navy)}
+.obox p{margin:8px 0 0;font-size:14px;line-height:1.55;color:#3D4A73}
+.nextup{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:20px;padding:18px 20px;background:#fff;border:1px dashed var(--blue);border-radius:3px}
+.nextup b{display:block;font-size:19px;letter-spacing:-.03em;margin-top:6px;color:var(--navy)}
+.nextup .wh{display:block;font-size:14px;color:#3D4A73;margin-top:3px}
+.subwrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,54px);align-items:center}
+@media (max-width:820px){.subwrap{grid-template-columns:1fr}}
+.subform label{display:block;margin-bottom:9px}
+.subrow{display:flex;gap:9px;flex-wrap:wrap}
+.subrow input{flex:1;min-width:190px;padding:14px 15px;border-radius:2px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:inherit}
+.subrow input::placeholder{color:#8FA0D8}
+.subrow input:focus{outline:2px solid #fff;outline-offset:1px}
+.subnote{display:block;margin-top:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+
+/* ---- final polish pass ---- */
+h1.t{font-size:clamp(34px,6vw,66px);letter-spacing:-.05em}
+h2.sec{font-size:clamp(28px,4.2vw,46px)}
+.strip.hero .col{padding-bottom:clamp(34px,4.4vw,54px)}
+.venue img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.venue:hover img{transform:scale(1.03)}
+.card,.obox,.pcard,.spo,.acard,.ecard,.tracklane{transition:transform .2s,box-shadow .2s,border-color .2s}
+.pcard:hover,.spo:hover,.ecard:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(6,16,52,.55)}
+.obox:hover{transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(6,16,52,.4)}
+.card:hover{border-color:rgba(255,255,255,.55)}
+.eyebrow{margin-bottom:14px}
+.eyebrow .mono{font-weight:700}
+.pad{padding:clamp(46px,5.6vw,84px) 0}
+/* the numbers people scan for */
+.dcard .d b,.cd .u .n,.slotrow .cap{font-feature-settings:"tnum"}
+.hook{font-size:clamp(15px,1.75vw,19px);border-left-width:4px}
+/* speakers: colour on hover reads as a room full of real people */
+.pcard .ph::after{transition:opacity .45s cubic-bezier(.2,.7,.3,1)}
+.spk-grid,.rep{align-items:stretch}
+.obox b{font-size:22px}
+.trackhead h3{font-size:clamp(20px,2.5vw,28px)}
+footer{padding:30px 0 40px}
+
+/* ==========================================================================
+   ACCESSIBILITY PASS
+   1. Contrast. #AFC0FF on #1438F1 measured 4.12:1 and fails WCAG AA for body
+      text. Raised to #DDE4FF (5.80:1). #6B77A0 on white measured 4.40:1 and
+      is replaced by #4E5A82 (6.76:1).
+   2. Type size. Base 16px -> 18px and every small style raised with it. The
+      audience is senior. Nothing on this page should need squinting.
+   ========================================================================== */
+:root{ --sky:#DDE4FF; }
+
+body{font-size:18px;line-height:1.65}
+.mono{font-size:12.5px;letter-spacing:.14em}
+.lede{font-size:19px;line-height:1.62}
+.prose p{font-size:18.5px;line-height:1.7}
+
+/* hero */
+.hook{font-size:clamp(17px,1.9vw,21px);line-height:1.5}
+.tag{font-size:12px;letter-spacing:.11em;padding:8px 12px}
+.sub{font-size:19px}
+.curated{font-size:13.5px}
+.dcard .m{font-size:11.5px}
+.dcard .d b{font-size:32px}
+.dcard .d span{font-size:15px;line-height:1.45}
+.dcard .f{font-size:11.5px}
+
+/* buttons */
+.btn{font-size:13px;padding:14px 20px;letter-spacing:.1em}
+.btn.solid{font-weight:800}
+.hdr nav a{font-size:12.5px}
+.hdr .nm{font-size:16px}
+
+/* countdown */
+.cd .lab{font-size:12px}
+.cd .lab b{font-size:14px}
+.cd .u .n{font-size:34px}
+.cd .u .x{font-size:11px}
+.cd .go{font-size:12.5px;padding:14px 20px}
+
+/* cards + tracks */
+.card .k{font-size:11.5px}
+.card h4{font-size:20px}
+.card p{font-size:16px;line-height:1.6}
+.tk{font-size:11.5px}
+.slotrow .tm{font-size:11.5px;flex-basis:74px}
+.slotrow b{font-size:17.5px}
+.slotrow p{font-size:15.5px;line-height:1.6}
+.slotrow .cap{font-size:11.5px;padding:6px 10px}
+
+/* audience */
+.aud-full h4{font-size:19px}
+.aud-full p{font-size:16px;line-height:1.62;color:#3D4A73}
+.acard h4{font-size:17px}
+.acard p{font-size:15.5px;color:#3D4A73}
+
+/* expect */
+ul.exp li{font-size:17.5px;padding:13px 0}
+.topic{font-size:12.5px;padding:9px 13px}
+
+/* membership */
+.on{font-size:11.5px;color:#4E5A82}
+.obox b{font-size:24px}
+.obox p{font-size:16px;color:#3D4A73}
+.nextup b{font-size:21px}
+.nextup .wh{font-size:16px;color:#3D4A73}
+
+/* speakers + past events */
+.pcard b{font-size:16px}
+.pcard span{font-size:14px;color:#4E5A82;line-height:1.4}
+.pcard em{font-size:11px;letter-spacing:.11em}
+.ecard .y{font-size:11.5px;color:#4E5A82}
+.ecard b{font-size:15.5px}
+.ecard em{font-size:10.5px}
+
+/* subscribe */
+.subrow input{font-size:17px;padding:16px 16px}
+.subnote{font-size:11.5px}
+.subform label{font-size:12.5px}
+
+/* quote */
+.quote .who{font-size:16px}
+.quote .who b{font-size:17px}
+.quote .who em{font-size:11.5px}
+
+footer a,footer .mono{font-size:12.5px}
+
+/* ==========================================================================
+   LARGE-TYPE PASS - target reader is 72, not 40.
+   Body 20px, generous leading, no body copy below 16px anywhere, and the
+   uppercase mono labels get weight and looser leading so they stay legible
+   at small optical size. Header trimmed to four links so nothing wraps.
+   ========================================================================== */
+body{font-size:20px;line-height:1.7}
+.lede{font-size:21px;line-height:1.66}
+.prose p{font-size:20.5px;line-height:1.72;max-width:62ch}
+.mono{font-size:13.5px;letter-spacing:.12em;font-weight:700}
+
+.hdr .col{height:auto;min-height:66px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.hdr nav{gap:22px;flex-wrap:wrap}
+.hdr nav a{font-size:14px;letter-spacing:.09em;font-weight:600}
+.hdr .nm{font-size:18px;white-space:nowrap}
+.hdr img{height:30px}
+
+.hook{font-size:clamp(19px,2.1vw,23px);line-height:1.5}
+.tag{font-size:13.5px;letter-spacing:.09em;padding:9px 13px}
+.sub{font-size:21px;line-height:1.5}
+.curated{font-size:15px;letter-spacing:.09em}
+.btn{font-size:14.5px;padding:16px 24px;letter-spacing:.08em;font-weight:700}
+
+.dcard .m{font-size:13px}
+.dcard .d b{font-size:36px}
+.dcard .d span{font-size:17px;line-height:1.45}
+.dcard .f{font-size:13px;line-height:1.7}
+
+.cd .lab{font-size:13.5px;line-height:1.7}
+.cd .lab b{font-size:16px}
+.cd .u .n{font-size:38px}
+.cd .u .x{font-size:12.5px}
+.cd .go{font-size:14px;padding:16px 22px}
+
+.card .k{font-size:13px}
+.card h4{font-size:22px}
+.card p{font-size:17.5px;line-height:1.62}
+.tk{font-size:13px}
+.trackhead h3{font-size:clamp(22px,2.7vw,30px)}
+.slotrow .tm{font-size:13px;flex-basis:86px;line-height:1.6}
+.slotrow b{font-size:19px}
+.slotrow p{font-size:17px;line-height:1.62}
+.slotrow .cap{font-size:13px;padding:8px 12px}
+
+.aud-full h4{font-size:21px}
+.aud-full p{font-size:17.5px;line-height:1.65}
+.aud-full .ic{width:40px;height:40px}
+ul.exp li{font-size:19px;padding:15px 0;line-height:1.5}
+.topic{font-size:14px;padding:11px 15px;letter-spacing:.05em}
+
+.on{font-size:13px}
+.obox b{font-size:26px}
+.obox p{font-size:17.5px;line-height:1.62}
+.nextup b{font-size:23px}
+.nextup .wh{font-size:17.5px}
+
+.pcard b{font-size:17.5px}
+.pcard span{font-size:15.5px;line-height:1.42}
+.pcard em{font-size:12.5px;letter-spacing:.09em;font-weight:700}
+.ecard .y{font-size:13px}
+.ecard b{font-size:17px}
+.ecard em{font-size:12px;letter-spacing:.09em;font-weight:700}
+
+.subrow input{font-size:19px;padding:18px 18px}
+.subform label{font-size:13.5px}
+.subnote{font-size:13px}
+
+.quote q{font-size:clamp(26px,3.4vw,38px);line-height:1.2}
+.quote .who{font-size:17.5px;line-height:1.6}
+.quote .who b{font-size:19px}
+.quote .who em{font-size:13px}
+
+h2.sec{font-size:clamp(30px,4.4vw,50px)}
+footer a,footer .mono{font-size:13.5px}
+.eyebrow .mono{font-size:13.5px}
+
+/* smaller screens keep the same generosity */
+@media (max-width:700px){ body{font-size:19px} .lede{font-size:20px} .prose p{font-size:19.5px} }
+
+/* ==========================================================================
+   16px FLOOR
+   Nothing on this page renders below 16px. The uppercase mono labels were the
+   last offenders at 13px; they are now 16-17px with much tighter tracking,
+   because wide letterspacing at small optical size is what actually hurts.
+   ========================================================================== */
+.mono{font-size:16px;letter-spacing:.06em;font-weight:700;line-height:1.5}
+.eyebrow .mono{font-size:16.5px;letter-spacing:.07em}
+
+.tag{font-size:16px;letter-spacing:.04em;padding:10px 15px}
+.curated{font-size:17px;letter-spacing:.05em}
+.btn{font-size:16.5px;letter-spacing:.05em;padding:17px 26px;font-weight:800}
+.hdr nav a{font-size:16.5px;letter-spacing:.04em;font-weight:700}
+.hdr .nm{font-size:19px}
+
+.dcard .m{font-size:16px;letter-spacing:.06em}
+.dcard .f{font-size:16px;letter-spacing:.04em;line-height:1.6}
+.dcard .d b{font-size:38px}
+.dcard .d span{font-size:18px}
+
+.cd .lab{font-size:16px;letter-spacing:.05em;line-height:1.6}
+.cd .lab b{font-size:18px}
+.cd .u .n{font-size:42px}
+.cd .u .x{font-size:16px;letter-spacing:.05em}
+.cd .u{min-width:66px}
+.cd .go{font-size:16.5px;letter-spacing:.05em;padding:17px 24px}
+
+.card .k{font-size:16px;letter-spacing:.05em}
+.card h4{font-size:23px}
+.card p{font-size:18px}
+.tk{font-size:16px;letter-spacing:.06em}
+.slotrow .tm{font-size:16px;letter-spacing:.04em;flex-basis:104px;line-height:1.5}
+.slotrow b{font-size:20px}
+.slotrow p{font-size:18px}
+.slotrow .cap{font-size:16px;letter-spacing:.05em;padding:9px 14px}
+
+.on{font-size:16px;letter-spacing:.05em}
+.obox b{font-size:28px}
+.obox p{font-size:18px}
+.nextup b{font-size:24px}
+.nextup .wh{font-size:18px}
+
+.pcard b{font-size:18.5px}
+.pcard span{font-size:16.5px;line-height:1.4}
+.pcard em{font-size:16px;letter-spacing:.04em;font-weight:700}
+.ecard .y{font-size:16px;letter-spacing:.05em}
+.ecard b{font-size:18px}
+.ecard em{font-size:16px;letter-spacing:.04em}
+
+.topic{font-size:16.5px;letter-spacing:.03em;padding:12px 17px}
+ul.exp li{font-size:20px;padding:16px 0}
+.aud-full h4{font-size:22px}
+.aud-full p{font-size:18px}
+
+.subform label{font-size:16px;letter-spacing:.05em}
+.subnote{font-size:16px;letter-spacing:.04em;text-transform:none}
+.subrow input{font-size:20px}
+
+.quote .who{font-size:18px}
+.quote .who b{font-size:20px}
+.quote .who em{font-size:16px;letter-spacing:.04em}
+
+footer a,footer .mono{font-size:16px;letter-spacing:.04em}
+#wixToggle{font-size:15px;letter-spacing:.06em;padding:14px 18px}
+
+/* the parallel rail label was 9px, rotated - make it readable or drop it */
+.parallel span{font-size:14px;letter-spacing:.1em;font-weight:700}
+@media (max-width:1100px){.tracks{grid-template-columns:1fr}.parallel span{writing-mode:horizontal-tb;transform:none;border:0;border-top:2px dashed rgba(255,255,255,.4);border-bottom:2px dashed rgba(255,255,255,.4);width:100%;height:auto;padding:12px 0;margin:16px 0}}
+
+/* last six offenders, including the venue caption which was 9.5px */
+.venue figcaption{font-size:16px;letter-spacing:.04em;padding:13px 16px;line-height:1.5;font-weight:700}
+.note{font-size:16px;line-height:1.6;padding:15px 18px;letter-spacing:.01em}
+.parallel span{font-size:16px;letter-spacing:.08em}
+#wixToggle{font-size:16px;padding:15px 20px}
+.cms-note{font-size:16px}
+
+/* ==========================================================================
+   LIGHT BASE + SEMANTIC COLOUR  (2026 direction)
+   Blue no longer carries the page. Off-white ground, and four accents that
+   each mean something rather than decorate:
+     blue   = the brand, primary action
+     purple = the vCon Summit track
+     yellow = VoiceAI LIVE!  (fill only - 1.47:1 as text, 12.07:1 under ink)
+     green  = membership / the Foundation (fill only - 3.36:1 as text)
+   ========================================================================== */
+:root{
+  --paper:#FAFAF8; --card:#FFFFFF; --ink:#0E1320; --ink2:#47506B;
+  --blue:#1438F1; --purple:#5B2ED6; --yellow:#FFC93D; --green:#0B9D5B;
+  --line:#E3E4E8; --rule:#E3E4E8;
+}
+body{background:var(--paper);color:var(--ink);font-weight:500}
+.ice,.strip.ice{background:var(--paper);color:var(--ink)}
+.strip.blue{background:var(--card);color:var(--ink)}
+.strip.blue .mono{color:var(--blue)}
+.strip.blue .lede,.strip.blue .prose p{color:var(--ink2)}
+.strip.blue h2.sec,.strip.blue h4,.strip.blue b{color:var(--ink)}
+
+/* header: white, not a blue slab */
+.hdr{background:var(--card);border-bottom:2px solid var(--line)}
+.hdr .nm{color:var(--ink);border-left-color:var(--line)}
+.hdr img{filter:brightness(0)}
+.hdr nav a{color:var(--ink2)}
+.hdr nav a:hover{color:var(--blue)}
+
+/* hero: light, photo does the work */
+.hero{background:var(--paper);color:var(--ink)}
+.hero-photo{display:none}
+.hook{color:var(--ink);border-left:5px solid var(--blue)}
+.hook span{color:var(--ink2)}
+h1.t{color:var(--ink)} h1.t small{color:var(--blue)}
+.sub{color:var(--ink2)}
+.curated{color:var(--ink)}
+.tag{border:2px solid var(--ink);color:var(--ink)}
+.tag.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+.dcard{background:var(--card);border:2px solid var(--line)}
+.dcard .m{color:var(--blue);border-bottom-color:var(--line)}
+.dcard .d{border-bottom-color:var(--line)}
+.dcard .d b{color:var(--blue)} .dcard .d span{color:var(--ink2)}
+.dcard .f{color:var(--ink2)}
+.venue{border:2px solid var(--line)}
+.venue figcaption{background:var(--ink);color:#fff}
+
+/* buttons: bigger, bolder, unmissable */
+.btn{font-size:19px;font-weight:800;padding:20px 30px;border-width:3px;border-radius:3px;letter-spacing:.04em}
+.btn{border-color:var(--blue);color:var(--blue);background:var(--card)}
+.btn.solid{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn:hover{background:var(--blue);color:#fff}
+.btn.solid:hover{background:var(--purple);border-color:var(--purple)}
+
+/* countdown: DOORS OPEN doubled and bold */
+#cdWrap{background:var(--ink)}
+.cd .lab{font-size:30px;font-weight:800;letter-spacing:-.02em;text-transform:none;color:#fff;line-height:1.15}
+.cd .lab b{font-size:19px;font-weight:600;color:var(--yellow);letter-spacing:.02em;margin-top:4px}
+.cd .u .n{color:var(--yellow);font-size:46px}
+.cd .u .x{color:#C9CEDD}
+.cd .go{background:var(--yellow);color:var(--ink);font-weight:800;font-size:18px;padding:18px 26px}
+
+/* conversation band keeps its dark ground so the canvas reads */
+#bandWrap{background:var(--ink)}
+
+/* why this room: four accents, one per card */
+.strip.navy#why{background:var(--paper);color:var(--ink)}
+#why h2.sec{color:var(--ink)}
+#why .mono{color:var(--blue)!important}
+#why .card{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--blue)}
+#why .card:nth-child(2){border-top-color:var(--purple)}
+#why .card:nth-child(3){border-top-color:var(--yellow)}
+#why .card:nth-child(4){border-top-color:var(--green)}
+#why .card .k{color:var(--ink2)} #why .card h4{color:var(--ink)} #why .card p{color:var(--ink2)}
+
+/* program: Track A purple, Track B yellow */
+.tracklane{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--purple)}
+.tracks .tracklane:last-of-type{border-top-color:var(--yellow)}
+.tk{color:var(--ink2)} .trackhead h3{color:var(--ink)} .trackhead{border-bottom-color:var(--line)}
+.slotrow{border-bottom-color:var(--line)}
+.slotrow .tm{color:var(--purple)} .slotrow b{color:var(--ink)} .slotrow p{color:var(--ink2)}
+.tracks .tracklane:last-of-type .slotrow .tm{color:#8A6200}
+.slotrow .cap{background:var(--yellow);color:var(--ink);font-weight:800}
+.tracklane:first-of-type .slotrow .cap{background:var(--purple);color:#fff}
+.parallel span{color:var(--ink2);border-color:var(--line)}
+#program .card{background:var(--card);border:2px solid var(--line)}
+#program .card .k{color:var(--ink2)} #program .card h4{color:var(--ink)} #program .card p{color:var(--ink2)}
+
+/* membership: green is the money colour */
+#join .obox{border:2px solid var(--line);border-left:7px solid var(--blue)}
+#join .obox:nth-child(2){border-left-color:var(--purple)}
+#join .obox.hot{border-left-color:var(--green)}
+#join .nextup{border:3px dashed var(--green);background:var(--card)}
+#join .nextup .mono{color:var(--green)!important}
+
+/* doors: one colour each */
+#door{background:var(--paper);color:var(--ink)}
+#door h2.sec{font-size:clamp(38px,5.6vw,64px);color:var(--ink)}
+#door .lede{color:var(--ink2)}
+#door .mono{color:var(--blue)!important}
+#door .card{background:var(--card);border:2px solid var(--line);border-top:7px solid var(--blue)}
+#door .card:nth-child(2){border-top-color:var(--yellow)}
+#door .card:nth-child(3){border-top-color:var(--purple)}
+#door .card:nth-child(4){border-top-color:var(--green)}
+#door .card .k{color:var(--ink2)} #door .card h4{color:var(--ink);font-size:26px} #door .card p{color:var(--ink2)}
+
+/* speakers in full colour - warmth, and less blue */
+.pcard{border:2px solid var(--line)}
+.pcard .ph::after{display:none}
+.pcard .ph img{filter:none}
+.pcard b{color:var(--ink)} .pcard span{color:var(--ink2)} .pcard em{color:var(--blue)}
+.spo{border:2px solid var(--line)}
+.ecard{border:2px solid var(--line)} .ecard b{color:var(--ink)} .ecard em{color:var(--purple)} .ecard .y{color:var(--ink2)}
+.acard,.aud-full article{border-top-color:var(--blue)}
+.aud-full p,.acard p{color:var(--ink2)}
+.aud-full .ic{color:var(--blue)}
+.topic{background:var(--card);border:2px solid var(--line);color:var(--ink)}
+ul.exp li{border-bottom-color:var(--line);color:var(--ink)}
+ul.exp li::before{background:var(--green)}
+.quote{border-left:5px solid var(--purple)}
+.quote q{color:var(--ink)} .quote .who{color:var(--ink2)} .quote .who b{color:var(--ink)} .quote .who em{color:var(--purple)}
+.eyebrow::after{background:var(--line);opacity:1}
+
+/* the two dark moments left on the page */
+.strip.navy#subscribe{background:var(--ink)}
+#subscribe h2.sec{color:#fff} #subscribe .lede{color:#C9CEDD}
+#subscribe .subform label{color:var(--yellow)} #subscribe .subnote{color:#C9CEDD}
+#subscribe .btn.solid{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.finale{background:var(--ink)} .finale h2{color:#fff} .finale .lede{color:#C9CEDD}
+.finale .btn{background:transparent;color:#fff;border-color:#fff}
+.finale .btn.solid{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+footer{background:var(--ink);color:#C9CEDD} footer a{color:#C9CEDD} footer a:hover{color:var(--yellow)}
+
+/* no thin grey anywhere */
+.lede,.prose p,.card p,.slotrow p,.aud-full p,.acard p,.obox p,.pcard span,.ecard b{font-weight:500}
+.mono{font-weight:800}
+
+/* ==========================================================================
+   ASSISTIVE PASS - the audience includes many visually impaired people.
+   Targets WCAG AAA (7:1) for body copy, not just AA.
+   ========================================================================== */
+.skiplink{position:absolute;left:-9999px;top:0;z-index:999;background:#0E1320;color:#fff;
+  padding:16px 22px;font-weight:800;font-size:18px;border-radius:0 0 4px 0}
+.skiplink:focus{left:0}
+
+/* FIX: white text stranded on white after the light flip (was 1.0:1, invisible) */
+.strip.blue .prose p strong,.strip.blue strong,.strip.blue .lede strong{color:#0E1320!important}
+.strip.navy.finale h2,.strip.navy.finale h2.sec,.finale h2,.finale h2.sec{color:#FFFFFF!important}
+.finale .lede,.finale p{color:#D8DCE6!important}
+footer .mono,footer .cr,footer span{color:#D8DCE6!important}
+
+/* FIX: green failed as text at 3.51:1 - only ever a fill from here on */
+#join .nextup .mono{color:#0E1320!important}
+#join .nextup{border-color:#0B9D5B}
+.slotrow .tm{color:#3C2E8F!important}
+.tracks .tracklane:last-of-type .slotrow .tm{color:#6B4A00!important}
+
+/* AAA body copy */
+.lede,.prose p,.card p,.slotrow p,.aud-full p,.obox p,.pcard span,.ecard b{color:#3A4157}
+.mono{color:#3A4157}
+#why .mono,#door .mono,.eyebrow .mono{color:#0F2ED0!important}
+.h3,.ch{font-size:23px;letter-spacing:-.03em;line-height:1.15;margin:0;font-weight:800}
+#door .ch{font-size:26px}
+
+/* visible, unmissable focus for keyboard and low-vision users */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:4px solid #0F2ED0;outline-offset:3px;border-radius:2px;
+  box-shadow:0 0 0 8px rgba(15,46,208,.22)}
+.finale a:focus-visible,#subscribe a:focus-visible,#subscribe input:focus-visible,footer a:focus-visible{
+  outline-color:#FFC93D;box-shadow:0 0 0 8px rgba(255,201,61,.3)}
+
+/* respect OS settings */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+@media (prefers-contrast:more){
+  :root{--ink:#000;--ink2:#1A1F30;--line:#000;--rule:#000}
+  .card,.obox,.pcard,.spo,.ecard,.tracklane,.dcard,.venue{border-width:3px!important;border-color:#000!important}
+  .btn{border-width:4px!important}
+}
+.on{color:#2C3347!important}
+
+/* ==========================================================================
+   ONE TYPEFACE
+   Per the designer: the monospace was carrying a dozen different jobs and
+   reading as many fonts. Everything is now one grotesque. Hierarchy comes
+   from WEIGHT (500 / 700 / 800) and size, not from swapping families.
+   ========================================================================== */
+:root{ --mono:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif; }
+body,.mono,.btn,.tag,.hdr nav a,.cd .lab,.cd .u .x,.card .k,.tk,.slotrow .tm,
+.slotrow .cap,.on,.pcard em,.ecard .y,.ecard em,.topic,.subform label,.subnote,
+.dcard .m,.dcard .f,.curated,.venue figcaption,.parallel span,.quote .who em,
+footer a,footer .mono,#wixToggle,.note,.cms-note{
+  font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;
+}
+
+/* labels stay labels through weight and tracking, not a different face */
+.mono,.card .k,.tk,.on,.ecard .y,.dcard .m,.subform label{
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.eyebrow .mono{font-weight:800;letter-spacing:.1em}
+.slotrow .tm{font-weight:700;letter-spacing:.06em}
+.pcard em,.ecard em,.quote .who em{font-weight:700;letter-spacing:.06em}
+.tag{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.btn{font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+.hdr nav a{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.topic{font-weight:600;letter-spacing:.02em;text-transform:none}
+.curated{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.venue figcaption{font-weight:700;letter-spacing:.03em;text-transform:none}
+.subnote{font-weight:600;letter-spacing:0;text-transform:none}
+.dcard .f{font-weight:600;letter-spacing:.02em;text-transform:none}
+.slotrow .cap{font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.parallel span{font-weight:700;letter-spacing:.1em}
+footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
+#wixToggle{font-weight:800;letter-spacing:.04em}
+.note,.cms-note{font-weight:500;letter-spacing:0;text-transform:none}
+
+/* numbers keep the one thing mono was genuinely good for */
+.cd .u .n,.dcard .d b,.card .k,.slotrow .tm,.ecard .y{font-variant-numeric:tabular-nums}
+.cd .lab{font-weight:800;letter-spacing:-.02em;text-transform:none}
+.cd .lab b{font-weight:600;letter-spacing:.02em;text-transform:none}
+.cd .u .x{font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* ==========================================================================
+   DESIGNER ROUND 2
+   vCon purple is exactly #6A0DAD. Blue carries every bold. Colour never stops.
+   ========================================================================== */
+:root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
+
+/* doors-open banner is blue, not black */
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
+
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
+.cd .lab{color:#fff!important}
+.cd .lab b{color:#fff!important;opacity:.92}
+.cd .u .n{color:#fff!important}
+.cd .u .x{color:#DDE4FF!important}
+.cd .go{background:#fff!important;color:var(--blue)!important}
+
+/* Jeff in colour, bigger, blue ring */
+.curator img{width:clamp(150px,19vw,215px);height:clamp(150px,19vw,215px);border:5px solid var(--blue);filter:none}
+.curator h2.sec,.curator .lede strong{color:var(--blue)!important}
+.curator .lede{color:#0E1320}
+/* every bold goes blue, small text stays black */
+strong,.prose p strong,.lede strong,.aud-full h4,.acard h4,.obox b,.nextup b,.ch,.card h4,.slotrow b,.pcard b{color:var(--blue)!important}
+h2.sec{color:var(--blue)!important}
+.finale h2,.finale h2.sec{color:#fff!important}
+#cdWrap *,.venue figcaption{color:inherit}
+.venue figcaption{background:var(--blue);color:#fff!important}
+
+/* vCon Summit = #6A0DAD */
+.tracklane{border-top-color:var(--purple)!important}
+.tracks .tracklane:last-of-type{border-top-color:#FFC93D!important}
+.tracklane:first-of-type .trackhead h3{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow .tm{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow b{color:var(--purple)!important}
+.tracklane:first-of-type .slotrow .cap{background:var(--purple)!important;color:#fff!important}
+/* VoiceAI LIVE! labels in green, not yellow */
+.tracks .tracklane:last-of-type .trackhead h3{color:#8A5A00!important}
+.tracks .tracklane:last-of-type .slotrow .tm{color:var(--green)!important}
+.tracks .tracklane:last-of-type .slotrow b{color:var(--green)!important}
+.tracks .tracklane:last-of-type .slotrow .cap{background:var(--green)!important;color:#fff!important}
+.parallel span{color:var(--ink2)}
+
+/* membership gets a real box, and the Report lives inside it */
+#join .col{background:#fff;border:4px solid var(--blue);border-radius:5px;padding:clamp(26px,3.4vw,46px);max-width:calc(var(--col) - 8px)}
+#join .obox{border-left-color:var(--purple)}
+#join .obox:nth-child(2){border-left-color:var(--blue)}
+#join .obox.hot{border-left-color:var(--green)}
+#join .nextup{border:3px dashed var(--blue)}
+.reportbox{margin-top:22px;padding:24px;background:var(--blue);border-radius:4px;
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+@media (max-width:820px){.reportbox{grid-template-columns:1fr}}
+.reportbox .ch{color:#fff!important;font-size:26px}
+.reportbox p{color:#DDE4FF;margin:8px 0 0;font-size:17px}
+.reportbox label{display:block;color:#fff;font-weight:700;margin-bottom:9px;font-size:16px}
+.reportbox input{width:100%;padding:16px;border-radius:3px;border:2px solid #fff;font-size:18px}
+.reportbox .btn.solid{background:#fff;color:var(--blue);border-color:#fff}
+
+/* sponsor bar between sections - replaces the dead space */
+.sponsorbar{background:#fff;border-top:3px solid var(--blue);border-bottom:3px solid var(--blue);padding:20px 0}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.bar-in img{height:34px;width:auto;object-fit:contain;opacity:.9}
+@media (max-width:820px){.bar-in img{height:26px}}
+
+/* sponsors BIG */
+.spo-big{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
+@media (max-width:860px){.spo-big{grid-template-columns:repeat(2,1fr)}}
+.logo.big{background:#fff;border:3px solid var(--blue);border-radius:4px;aspect-ratio:3/2;
+  display:grid;place-items:center;padding:26px}
+.logo.big img{max-height:110px;max-width:100%;width:auto;object-fit:contain}
+
+/* community photos in colour */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+@media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
+.gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
+
+/* speakers: colour photos, blue names, company in blue */
+.pcard .ph img{filter:none!important}
+.pcard b{color:var(--blue)!important}
+.pcard span{color:#0E1320}
+.pcard em{color:var(--purple)!important;text-transform:none;letter-spacing:.01em;font-size:17px}
+
+/* Who Should Attend - blue bolds, less dead air */
+.aud-full article{border-top:5px solid var(--blue)}
+.aud-full .ic{color:var(--blue)}
+.pad{padding:clamp(38px,4.4vw,64px) 0}
+
+/* the quote loses its tiny photo treatment */
+.quote{border-left:5px solid var(--purple)}
+.quote .who b{color:var(--blue)!important}
+
+/* header: the VE mark sits in a blue tile (source art is white letters), and
+   the full event name gets room so nothing wraps onto the button */
+.hdr img{filter:none!important;height:34px;background:var(--blue);padding:7px 9px;border-radius:4px;box-sizing:content-box}
+.hdr .col{flex-wrap:nowrap;gap:18px;min-height:74px}
+.hdr .nm{font-size:17px;line-height:1.2;white-space:normal;max-width:22ch}
+.hdr nav{gap:18px;flex-wrap:nowrap}
+.hdr nav a{font-size:15px;white-space:nowrap}
+.hdr .btn{padding:14px 20px;font-size:15px;white-space:nowrap}
+@media (max-width:1180px){.hdr nav{display:none}}
+@media (max-width:640px){.hdr .nm{font-size:15px;max-width:14ch}}
+
+.thesis-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,52px);align-items:center}
+@media (max-width:900px){.thesis-grid{grid-template-columns:1fr}}
+.tj{margin:0}
+.tj img{width:100%;height:auto;display:block;border:4px solid var(--blue);border-radius:5px}
+.tj figcaption{margin-top:10px;font-size:16px;font-weight:700;color:var(--blue)}
+
+.spo-big{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
+.spo-big .logo.big{flex:0 1 calc(33.333% - 14px);min-width:250px}
+@media (max-width:860px){.spo-big .logo.big{flex:0 1 calc(50% - 10px);min-width:200px}}
+
+.presenting{background:#fff;border:5px solid var(--blue);border-radius:5px;padding:34px;margin-top:26px;
+  display:flex;flex-direction:column;align-items:center;gap:18px}
+.ptag{font-size:17px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  background:var(--blue);padding:10px 18px;border-radius:3px}
+.presenting img{max-height:220px;max-width:min(620px,100%);width:auto;object-fit:contain}
+@media (max-width:700px){.presenting img{max-height:130px}}
+.spo-big{margin-top:20px}
+
+/* ===== ROUND 3 =====================================================
+   No boxes. Purple is reserved for the vCon Foundation only. Hover is
+   light blue. Bolds are blue. Register repeats down the page.
+   =================================================================== */
+:root{ --hover:#0FA3C7; --green:#0A6E3D; }
+
+/* hover never uses Foundation purple */
+.btn:hover,.btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important;color:#fff!important}
+.reportbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important}
+
+/* we do not live in boxes - cards become open blocks with a top rule */
+.card,#why .card,#door .card,.acard,.aud-full article,.obox,.pcard,.ecard{
+  background:transparent!important;border:0!important;border-top:4px solid var(--blue)!important;
+  border-radius:0!important;box-shadow:none!important;padding:20px 0 22px!important}
+.card:hover,.pcard:hover,.obox:hover,#door .card:hover{transform:none!important;box-shadow:none!important}
+.tracklane{background:transparent!important;border:0!important;border-top:6px solid var(--purple)!important;
+  border-radius:0!important;padding:20px 0 0!important}
+.tracks .tracklane:last-of-type{border-top-color:var(--green)!important}
+.spo-big .logo.big,.presenting{border:0!important;background:transparent!important;box-shadow:none!important}
+.presenting{padding:10px 0 26px!important}
+.venue,.tj img,.gal img{border:0!important;border-radius:0!important}
+.dcard{background:transparent!important;border:0!important;border-left:4px solid var(--blue)!important;border-radius:0!important;padding-left:20px!important}
+#join .col{border:0!important;background:transparent!important;padding:0!important}
+
+/* the vCon Foundation section is the ONE place purple belongs */
+#join .eyebrow .mono,#join h2.sec,#join .obox b,#join .nextup b,#join .nextup .mono{color:var(--purple)!important}
+#join .obox,#join .nextup{border-top-color:var(--purple)!important}
+#join .nextup{border:0!important;border-top:4px solid var(--purple)!important}
+#join .btn.solid{background:var(--purple)!important;border-color:var(--purple)!important}
+#join .btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important}
+.reportbox{background:var(--purple)!important;border-radius:0!important}
+/* purple nowhere else */
+.pcard em{color:var(--blue)!important;font-size:18px!important;font-weight:500!important;letter-spacing:normal!important;margin-top:3px!important}
+.ecard em,.quote .who em{color:var(--blue)!important}
+.quote{border-left-color:var(--blue)!important}
+
+/* VoiceAI LIVE! title matches its column */
+.tracks .tracklane:last-of-type .trackhead h3{color:var(--green)!important}
+
+/* every bold blue - What to Expect included */
+strong,.prose p strong,.lede strong,b:not(.dcard b):not(.cd b){color:var(--blue)!important}
+ul.exp li{color:#0E1320}
+
+/* speakers: 4 across, centred, company reads like the title */
+.rep.c4.spk{grid-template-columns:repeat(4,1fr)!important;gap:26px 22px}
+@media (max-width:1000px){.rep.c4.spk{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:560px){.rep.c4.spk{grid-template-columns:1fr!important}}
+.pcard{text-align:center}
+.pcard .ph{border-radius:50%;max-width:210px;margin:0 auto}
+.pcard b{display:block;margin-top:14px;font-size:20px}
+.pcard span,.pcard em{display:block;font-size:18px;line-height:1.45;font-weight:500}
+.pcard span{color:#0E1320;margin-top:4px}
+
+/* presenting-sponsor divider bar */
+.sponsorbar{background:transparent;border-top:3px solid var(--blue);border-bottom:3px solid var(--blue);padding:26px 0}
+.bar-in{justify-content:center;gap:24px}
+.bar-in img{height:70px}
+.barlab{font-size:16px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+@media (max-width:700px){.bar-in{flex-direction:column}.bar-in img{height:52px}}
+
+/* all community photos */
+.gal{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+
+/* MOBILE - classic Wix is laid out separately, so this is the spec for it */
+@media (max-width:760px){
+  .hgrid,.thesis-grid,.tracks,.subwrap,.reportbox,.curator{grid-template-columns:1fr!important;display:block!important}
+  .hero-side{width:100%!important;margin-top:22px}
+  .curator img{margin-bottom:16px}
+  .offer{grid-template-columns:1fr!important}
+  .spo-big .logo.big{flex:0 1 100%!important}
+  .nextup{display:block!important}
+  .nextup .btn{margin-top:14px;width:100%}
+  .cta .btn,.finale .btn{width:100%}
+  .hdr .col{flex-wrap:wrap!important;height:auto;padding:10px 0}
+  .hdr .nm{max-width:none;font-size:16px}
+  h1.t{font-size:34px!important}
+  .tracklane{margin-bottom:26px}
+}
+.regstrip{background:var(--blue);padding:22px 0;text-align:center}
+.regstrip .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important;font-size:19px}
+.regstrip .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+/* Oct 14-15 schedule */
+.day2{margin-top:26px}
+.d2head{display:flex;align-items:baseline;gap:16px;padding-bottom:12px;border-bottom:4px solid var(--blue)}
+.d2n{font-size:19px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+.d2head .ch{font-size:24px;color:var(--blue)!important}
+.d2rows{margin-top:4px}
+.d2row{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.d2row span{flex:0 0 168px;font-size:18px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+.d2row b{font-size:19px;color:var(--blue)!important}
+.d2row.hl b{color:var(--green)!important}
+@media (max-width:640px){.d2row{display:block}.d2row span{display:block;margin-bottom:4px}}
+/* tighter after Oct 13 */
+.tracks{margin-bottom:6px}
+/* quote now sits under the photo */
+.tj .quote{margin-top:20px;border-left:5px solid var(--blue);padding-left:20px}
+.tj .quote q{font-size:clamp(22px,2.6vw,30px);display:block;line-height:1.2}
+.tj .quote .who{margin-top:12px;font-size:17px}
+/* presenting sponsor bigger in the break */
+.bar-in img{height:118px!important}
+@media (max-width:700px){.bar-in img{height:80px!important}}
+.barlab{font-size:18px}
+/* community photos keep their shape, no crop */
+.gal{grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+@media (max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.gal{grid-template-columns:1fr}}
+.gal img{width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}
+/* every remaining bold blue, including the closing block */
+.finale strong,.finale b,#expect strong,#expect b,ul.exp li b,.prose strong{color:var(--blue)!important}
+.finale .lede strong{color:#fff!important}
+
+.d2head.oct13{margin-bottom:22px;border-bottom-color:#0E1320}
+.d2head.oct13 .d2n,.d2head.oct13 .ch{color:var(--purple)!important}
+.pcard span{color:var(--blue)!important}
+
+/* community photos: whole images, never cropped. masonry columns let each
+   keep its own proportions instead of being forced into a box. */
+.gal{display:block!important;column-count:3;column-gap:16px}
+@media (max-width:900px){.gal{column-count:2}}
+@media (max-width:560px){.gal{column-count:1}}
+.gal img{width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;
+  display:block;margin:0 0 16px;break-inside:avoid;border:0!important;border-radius:0!important}
+
+/* closing block in blue, not black */
+.finale{background:var(--blue)!important}
+.finale h2,.finale h2.sec{color:#fff!important}
+.finale .lede,.finale p{color:#DDE4FF!important}
+.finale .btn{border-color:#fff!important;color:#fff!important;background:transparent!important}
+.finale .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
+.finale .btn:hover,.finale .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+footer{background:var(--blue-deep)!important;color:#DDE4FF!important}
+footer .ftlogo{height:34px;width:auto;display:block;margin-bottom:10px}
+footer a{color:#DDE4FF!important}
+footer a:hover{color:#fff!important}
+
+/* REGRESSION FIX 1: the Subscribe button inherited #join's purple and landed
+   purple-on-purple (1.26:1, effectively invisible). White on the purple panel. */
+.reportbox .btn.solid,#join .reportbox .btn.solid{
+  background:#FFFFFF!important;color:var(--purple)!important;border-color:#FFFFFF!important}
+.reportbox .btn.solid:hover,#join .reportbox .btn.solid:hover{
+  background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+/* REGRESSION FIX 2: header nav and its button had slipped to 15px */
+.hdr nav a,.hdr .btn,.hdr .btn.solid{font-size:16.5px!important}
+
+/* vCon is always vCon. text-transform was rendering it VCON, so any element
+   carrying the word opts out of case transformation entirely. */
+.novcase,.novcase *{text-transform:none!important}
+
+.codebox{margin-top:20px;padding:22px 24px;background:#fff;border:3px dashed var(--purple);border-radius:0}
+.codebox b{display:block;font-size:21px;color:var(--purple)!important;letter-spacing:-.02em}
+.codebox p{margin:8px 0 0;font-size:18px;line-height:1.6;color:#0E1320}
+.codebox a{color:var(--purple)!important;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.codebox a:hover{color:var(--hover)!important}
+
+/* sponsor tiers: presenting > gold > silver */
+.tierlab{margin:30px 0 12px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:22px}
+.spo-gold .logo.gold{flex:0 1 calc(33.333% - 16px);min-width:250px;background:transparent;border:0;
+  aspect-ratio:auto;display:grid;place-items:center;padding:18px}
+.spo-gold .logo.gold img{max-height:130px;max-width:100%;width:auto;object-fit:contain}
+.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
+.spo-silver .logo.silver{flex:0 1 calc(25% - 15px);min-width:190px;background:transparent;border:0;
+  aspect-ratio:auto;display:grid;place-items:center;padding:14px}
+.spo-silver .logo.silver img{max-height:78px;max-width:100%;width:auto;object-fit:contain}
+@media (max-width:820px){.spo-gold .logo.gold{flex:0 1 calc(50% - 11px)}.spo-silver .logo.silver{flex:0 1 calc(50% - 10px)}}
+/* mailing list block, styled like the Report but blue */
+.mailbox{margin-top:20px;padding:24px;background:var(--blue);border-radius:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+@media (max-width:820px){.mailbox{grid-template-columns:1fr}}
+.mailbox .ch{color:#fff!important;font-size:26px}
+.mailbox p{color:#DDE4FF;margin:8px 0 0;font-size:17px}
+.mailbox label{display:block;color:#fff;font-weight:700;margin-bottom:9px;font-size:16px}
+.mailbox input{width:100%;padding:16px;border-radius:3px;border:2px solid #fff;font-size:18px}
+.mailbox .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
+.mailbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+
+
+
+
+
+
+
+/* The hero right column was a 287px photo above 500px of nothing while the left
+   column carried everything. Proof goes in the dead space: faces above the fold
+   without making the hero one pixel taller. */
+.herofaces{margin-top:16px}
+.hfrow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.hface img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;
+  border:2px solid var(--blue);display:block}
+.hface:hover img{border-color:var(--hover)}
+.hfmore{display:block;margin-top:12px;font-size:16px;font-weight:700;color:var(--blue);
+  text-decoration:underline;text-underline-offset:4px}
+.hfmore:hover{color:var(--hover)}
+@media (max-width:820px){.hfrow{grid-template-columns:repeat(8,1fr)}}
+
+
+
+/* the brand is a link: top of page here, home from the other pages.
+   ".hdr .nm{margin-right:auto}" was the spacer that pushed the nav right. Once
+   the name moved inside this anchor that auto margin only pushed within the
+   link, so the brand and AGENDA collided. The spacer belongs on the link. */
+.hdr .brand{display:flex;align-items:center;gap:14px;text-decoration:none;
+  margin-right:auto;min-width:0}
+.hdr .brand .nm{margin-right:0}
+.hdr .col{flex-wrap:wrap;row-gap:10px}
+.hdr .brand .nm{color:#0E1320}
+.hdr .brand:hover .nm{color:var(--blue)}
+/* back to top, appears once you are past the first screen */
+#totop{position:fixed;right:20px;bottom:20px;z-index:60;display:none;
+  width:52px;height:52px;border-radius:50%;background:var(--blue);color:#fff;
+  align-items:center;justify-content:center;font-size:23px;line-height:1;
+  text-decoration:none;box-shadow:0 3px 14px rgba(14,19,32,.34)}
+#totop.on{display:flex}
+#totop:hover{background:var(--hover)}
+@media (max-width:620px){#totop{right:14px;bottom:14px;width:48px;height:48px}}
+
+
+/* ==========================================================================
+   REVIEW NOTES, 10 Aug
+   "Business runs on conversation" is the argument, so it is set big and bold.
+   The presenting sponsor is the biggest cheque, so it reads that way. And the
+   hero photo fills the right column instead of leaving dead space under it.
+   ========================================================================== */
+.thesis-grid .prose p:first-child{font-size:clamp(22px,2.6vw,29px);line-height:1.32;
+  font-weight:800;letter-spacing:-.025em;color:#0E1320}
+.thesis-grid .prose p:first-child + p{margin-top:16px}
+
+.sponsorbar .barlab{font-size:clamp(16px,1.8vw,19px);font-weight:800;letter-spacing:.08em}
+.sponsorbar .bar-in img{height:clamp(46px,5.2vw,74px)!important;width:auto}
+.sponsorbar{padding:clamp(24px,3vw,34px) 0}
+#sponsors .ptag{font-size:clamp(17px,2vw,21px);font-weight:800;letter-spacing:.07em}
+#sponsors .spo-pres img,#sponsors .presenting img{max-height:190px!important}
+
+/* hero photo carries the column rather than floating in it */
+.hero-side .venue img{width:100%;height:clamp(300px,34vw,430px);object-fit:cover}
+@media (max-width:820px){.hero-side .venue img{height:clamp(190px,44vw,280px)}}
+
+
+/* If the sale runs on thirty years of producing events, the track record
+   belongs in the hero, not 40% down the page. */
+.strip.hero .curated{margin:20px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;
+  letter-spacing:0;text-transform:none;color:#0E1320!important;line-height:1.35}
+.strip.hero .curated b{color:var(--blue)!important;font-weight:800}
+.strip.hero .curated span{display:block;font-weight:500;font-size:clamp(16px,1.7vw,18px);
+  color:#3A4157;margin-top:4px;letter-spacing:0;text-transform:none}
+
+/* The history ran 1997 to 2008 and then jumped to 2026, which read as a gap.
+   There was no gap. Jeff never stopped, and the past events prove it. */
+.curator .nostop{font-size:clamp(19px,2.1vw,22px);font-weight:700;line-height:1.4;color:#0E1320}
+.curator .nostop a{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.curator .nostop a:hover{color:var(--hover)!important}
+
+/* Six competing type voices in one block meant nothing receded. One lead, the
+   rest plain. Reviewer's fix, and he was right. */
+.curator .passion{font-size:clamp(20px,2.2vw,23px);font-weight:800;line-height:1.36;
+  letter-spacing:-.015em;color:#0E1320}
+.curator p:not(.passion),.curator p:not(.passion) strong{font-size:19px!important;
+  font-weight:500!important;line-height:1.62!important;letter-spacing:0!important;
+  color:#3A4157!important;margin-top:11px!important}
+.curator .promise{font-weight:700!important;color:#0E1320!important}
+.curator .wiki{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.curator .wiki:hover{color:var(--hover)!important}
+
+/* what people actually buy, in Jeff's words */
+.curator .promise{font-size:clamp(20px,2.3vw,25px);font-weight:800;letter-spacing:-.02em;
+  line-height:1.3;color:var(--blue)!important;max-width:30ch}
+
+/* ==========================================================================
+   HERO, LAUREN'S NOTES
+   Title in brand blue, not grey. Nothing tiny. One action, not two. More room
+   from the left edge on a phone, where 20px was crowding the margin.
+   ========================================================================== */
+.strip.hero h1.t{color:var(--blue)!important}
+.strip.hero h1.t small{color:#0E1320!important;font-size:18px;letter-spacing:.10em;margin-bottom:14px}
+.strip.hero .sub{font-size:clamp(21px,2.4vw,26px);line-height:1.35;font-weight:700;
+  color:#0E1320!important;max-width:26ch;margin-top:14px}
+.strip.hero .tag{font-size:16px;letter-spacing:.03em;padding:11px 16px}
+.strip.hero .herothesis{margin-top:22px}
+.strip.hero .herourge{font-size:clamp(19px,2.1vw,22px);font-weight:700}
+@media (max-width:820px){
+  .col{padding:0 26px}
+  /* the header was taking 142px of the fold. Mark only, one row. */
+  .hdr .col{height:56px;min-height:56px;flex-wrap:nowrap;gap:10px;padding-top:0;padding-bottom:0}
+  .hdr .brand .nm{display:none}
+  .hdr .brand img{height:30px}
+  .hdr .btn.solid{padding:8px 14px;font-size:16px}
+  /* the hero was 1,024px on a phone. One thesis line, one chip. */
+  .strip.hero .herothesis{font-size:clamp(20px,5.2vw,24px)}
+  /* hide whole sentences, not the line breaks between them. Hiding the <br>s
+     ran the text together with no space and looked like a rendering fault. */
+  .strip.hero .herothesis span:not(:last-child){display:none}
+  .strip.hero .tags .tag:nth-child(2){display:none}
+  .strip.hero .curated span{display:none}
+  .strip.hero h1.t{font-size:clamp(34px,8.4vw,52px)}
+  .strip.hero .sub{font-size:clamp(19px,4.8vw,23px);max-width:none}
+  .strip.hero .herothesis{font-size:clamp(20px,5.2vw,25px)}
+}
+
+/* the early-bird bar: tighter box, and the words that matter are the big ones */
+.ebird{padding:clamp(11px,1.4vw,15px) 0}
+.ebird .eb-in .eb-lab{font-size:clamp(19px,2.1vw,23px);line-height:1.2}
+.ebird .eb-in .eb-lab .ebhead{display:block;font-weight:800;letter-spacing:-.03em}
+.ebird .eb-in .eb-lab b{font-weight:600;font-size:clamp(16px,1.7vw,18px);margin-top:5px}
+.ebclk .u{padding:5px 9px;min-width:54px}
+.ebclk .n{font-size:clamp(17px,1.9vw,21px)}
+.ebclk .x{font-size:15px;margin-top:4px}
+.evt{color:var(--blue)!important;font-weight:800}
+/* the event name inherits whatever the surface needs. The register bar has a
+   WHITE button with blue text, so white-on-white was invisible there. */
+.finale .evt,footer .evt,.navy .evt{color:#fff!important}
+.regstrip .btn.solid .evt{color:var(--blue)!important}
+.herourge{margin:16px 0 0;font-size:clamp(17px,1.9vw,19px);font-weight:600;color:#0E1320}
+.hero .herourge b{font-weight:800;color:var(--blue)!important}
+
+/* the thesis moved into the hero. It is the key message and it was three
+   sections down, below the fold on every device. */
+.herothesis{margin:18px 0 0;font-weight:800;letter-spacing:-.03em;
+  line-height:1.16;font-size:clamp(21px,2.7vw,30px);color:#0E1320}
+.hero .herothesis{color:var(--blue)!important}
+.hero .herothesis span{display:block}
+.hero .herothesis b{font-weight:800;color:var(--blue)!important}
+@media (max-width:820px){.herothesis{font-size:clamp(20px,5.4vw,26px)}}
+
+/* event names in the hero date card are bold. Done in CSS, not <b>, because the
+   global "every bold goes blue" rule would repaint them on the dark card. */
+.hero .dcard .d span{font-weight:700}
+/* register bars carry the deadline, not just the button */
+.regstrip .col{display:flex;align-items:center;justify-content:center;gap:10px 20px;flex-wrap:wrap}
+.regstrip .ebtag{font-size:17.5px;font-weight:600;color:#fff!important;letter-spacing:.01em}
+@media (max-width:620px){.regstrip .col{flex-direction:column}.regstrip .ebtag{font-size:16.5px}}
+
+/* ==========================================================================
+   SPEAKER GRID ON MOBILE
+   Measured at 390px: the grid was falling to ONE column, so 22 speakers ran
+   8,428px tall, about eleven screens of nothing but faces. The lineup strip
+   above already does the "see who is speaking" job, so down here the grid goes
+   two-up and compact. Same 22 people, roughly a third of the height.
+   ========================================================================== */
+@media (max-width:700px){
+  #speakers .rep.c4.spk{grid-template-columns:repeat(2,1fr)!important;gap:20px 14px}
+  #speakers .pcard .ph{width:100%;aspect-ratio:1/1}
+  #speakers .pcard .ph img{width:100%;height:100%;object-fit:cover}
+  #speakers .pcard b{font-size:17px;line-height:1.22}
+  #speakers .pcard span{font-size:15px;line-height:1.3}
+  #speakers .pcard em{font-size:15px}
+}
+
+/* ==========================================================================
+   LINEUP STRIP
+   The full 22-card grid two-up on a phone is 11 rows of photographs, which is
+   a scroll wall exactly where the page should be moving. This is one row at
+   any width, swipeable, and it stays one row at 30 speakers. The full grid
+   lives further down at full size.
+   ========================================================================== */
+.spkstrip{padding-top:clamp(30px,4vw,54px);padding-bottom:clamp(26px,3.4vw,44px)}
+.striphead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.facerail{display:flex;gap:18px;overflow-x:auto;margin-top:24px;padding:4px 2px 16px;
+  scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.facerail::-webkit-scrollbar{height:9px}
+.facerail::-webkit-scrollbar-track{background:var(--rule);border-radius:5px}
+.facerail::-webkit-scrollbar-thumb{background:var(--blue);border-radius:5px}
+.face{flex:0 0 138px;scroll-snap-align:start;text-align:center}
+.face img{width:116px;height:116px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--blue);display:block;margin:0 auto 11px}
+.spkstrip .facerail .face b{display:block;font-size:17px;line-height:1.24;
+  font-weight:800;color:#0E1320!important}
+.spkstrip .facerail .face span{display:block;font-size:16px;line-height:1.3;
+  font-weight:500;color:#3A4157!important;margin-top:3px}
+
+.railnote{margin:2px 0 0;font-size:16px;color:#3A4157}
+.railnote a{color:var(--blue)!important;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.railnote a:hover{color:var(--hover)!important}
+/* nothing below 16px, including speaker roles and companies */
+#speakers .pcard span,#speakers .pcard em{font-size:16px}
+@media (max-width:620px){.face{flex:0 0 116px}.face img{width:98px;height:98px}}
+
+/* ==========================================================================
+   LEFTOVER FROM THE DARK-TO-LIGHT FLIP
+   .strip.blue used to be a blue band, so its list bullets and row rules were
+   painted white. It is a white card now, which left 7px white dots and a
+   0.24-alpha white divider on a white ground - invisible. A text-contrast
+   audit does not catch ::before, which is why this survived.
+   ========================================================================== */
+.strip.blue ul.exp li::before,.blue ul.exp li::before{background:var(--blue)!important}
+.strip.blue ul.exp li,.blue ul.exp li{border-bottom-color:var(--rule)!important}
+
+/* The mailing-list block lives inside #join, and "#join .btn.solid" (1,1,1)
+   outranks ".mailbox .btn.solid" (0,2,1) - so the button came out blue text on
+   the purple Foundation fill, ratio 1.26. Same trap the Subscribe button hit.
+   Match the ID specificity instead of adding another !important. */
+#join .mailbox .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
+#join .mailbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
+
+/* ==========================================================================
+   EARLY-BIRD BAND
+   Defined here, used on BOTH pages - the registration page lifts this
+   stylesheet at build time, so there is one definition, not two.
+
+   Yellow FILL with ink text, deliberately: the doors-open countdown directly
+   above it is blue, and two blue countdown bars in a row read as a duplicate.
+   Yellow is fill-only per the design system (1.47 as text, 12.07 as fill),
+   so every word on it is ink, never yellow.
+   ========================================================================== */
+.ebird{background:var(--yellow);padding:clamp(20px,2.8vw,30px) 0}
+.eb-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.ebird .eb-lab{margin:0;color:#0E1320!important;font-weight:800;letter-spacing:-.022em;
+  line-height:1.22;font-size:clamp(20px,2.4vw,27px)}
+/* the global rule forces every <b> blue; on yellow that is unreadable.
+   (0,3,1) beats b:not(.dcard b):not(.cd b) at (0,2,3). */
+.ebird .eb-in .eb-lab b{display:block;margin-top:7px;color:#3A2E00!important;
+  font-weight:600;font-size:clamp(16px,1.7vw,18px);letter-spacing:.01em}
+/* ==========================================================================
+   PROGRAM - Lauren's notes
+   The vertical "co-located" label is gone; the header already says the day is
+   two co-located events. The divider it carried moves onto .parallel itself,
+   so the two tracks stay separated without the word.
+   ========================================================================== */
+.tracks .parallel{border-left:2px dashed var(--line)}
+@media (max-width:1100px){
+  .tracks .parallel{border-left:0;border-top:2px dashed var(--line);
+    width:100%;min-height:0;margin:20px 0}
+}
+/* Day markers are black. */
+.d2head .d2n,.d2head.oct13 .d2n{color:#0E1320!important}
+
+/* The Report is a Substack with its own list - link out, never collect a second
+   list beside it. #join .btn.solid is purple, so match that specificity. */
+.substk{display:flex;flex-direction:column;align-items:flex-start;gap:12px;justify-content:center}
+/* the Report box is the purple Foundation fill on both pages - white button,
+   white note. #join .btn.solid is an ID rule, so match its specificity. */
+.reportbox .substk .subnote{margin:0;font-size:16px;font-weight:600;color:#fff!important}
+#join .reportbox .substk .btn.solid,.reportbox .substk .btn.solid{
+  background:#fff!important;color:var(--purple)!important;border-color:#fff!important}
+#join .reportbox .substk .btn.solid:hover,.reportbox .substk .btn.solid:hover{
+  background:var(--hover)!important;border-color:var(--hover)!important;color:#fff!important}
+
+.ebird .eb-lab{flex:1 1 340px}
+.eb-right{display:flex;align-items:center;gap:clamp(14px,1.8vw,24px);flex-wrap:wrap}
+.ebclk{display:flex;gap:11px;align-items:center}
+.ebclk .u{background:rgba(14,19,32,.09);border:2px solid #0E1320;padding:10px 14px;
+  text-align:center;min-width:74px;border-radius:2px}
+.ebclk .n{display:block;font-size:clamp(24px,3vw,34px);font-weight:800;color:#0E1320;
+  line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ebclk .x{display:block;margin-top:6px;font-size:16px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:#0E1320}
+.ebird .btn.solid,.ebird .eb-in .btn.solid{background:#0E1320!important;color:#fff!important;
+  border-color:#0E1320!important}
+.ebird .btn.solid:hover,.ebird .eb-in .btn.solid:hover{background:var(--blue)!important;
+  color:#fff!important;border-color:var(--blue)!important}
+@media (max-width:760px){
+  .ebclk .u{min-width:60px;padding:8px 10px}
+  .eb-in{flex-direction:column;align-items:flex-start;gap:16px}
+  /* the row uses flex:1 1 340px on the label. Once the container is a COLUMN
+     that 340px basis becomes a HEIGHT, which left a huge empty yellow block on
+     phones. Reset it. */
+  .ebird .eb-lab{flex:0 0 auto}
+  .eb-right{width:100%;justify-content:space-between}
+}
+
+/* ==========================================================================
+   JEFF'S FRAMING - What to Expect
+   His words, set as the lead statement. Everything already in this section
+   stays underneath it.
+   ========================================================================== */
+.knows{border-left:6px solid var(--blue);padding:2px 0 2px 26px;margin:22px 0 4px;max-width:46ch}
+.knows p{margin:0;font-weight:800;letter-spacing:-.022em;line-height:1.24;
+  font-size:clamp(23px,2.9vw,31px);color:var(--blue)!important}
+.knows p + p{margin-top:16px;font-weight:600;letter-spacing:-.004em;line-height:1.5;
+  font-size:clamp(18px,2vw,21px);color:#0E1320!important}
+
+/* ==========================================================================
+   THE ROOM - who convenes
+   One band above Who Should Attend. The five audience cards below it then
+   read as the detail under it.
+   ========================================================================== */
+.layer{padding-top:clamp(34px,4.6vw,64px);padding-bottom:clamp(30px,4vw,52px)}
+.layer h2.sec{max-width:20ch}
+.layer .lede{margin-top:14px;max-width:54ch}
+.constit{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.constit span{font-size:17px;font-weight:700;letter-spacing:.01em;line-height:1.2;
+  padding:12px 18px;background:#fff;border:2px solid var(--blue);color:var(--blue);border-radius:2px}
+.unbound{margin-top:26px;font-size:clamp(20px,2.3vw,25px);font-weight:800;
+  letter-spacing:-.02em;line-height:1.3;color:#0E1320}
+@media (max-width:620px){.constit span{font-size:16px;padding:10px 14px}}
+
+/* ---- review 4 fixes ---- */
+/* #join was 1209px on mobile: the three offer boxes repeat the lede verbatim.
+   Keep the grid on desktop, collapse to a plain list on mobile. */
+@media (max-width:820px){
+  #join .offer{display:block!important;margin-top:16px}
+  #join .obox{border:0!important;border-top:2px solid var(--purple)!important;
+    padding:10px 0 0!important;margin:0 0 10px!important;background:transparent!important}
+  #join .obox p{display:none!important}
+  #join .obox .on{display:inline;margin-right:8px}
+  #join .obox b{display:inline}
+}
+/* Eleven photographs one-per-row was 1394px. Two up. */
+@media (max-width:560px){.gal{column-count:2!important}}
+/* Five gold logos in one column, heights ranging 98px to 166px. */
+@media (max-width:860px){
+  .spo-gold .logo.gold{flex:0 1 calc(50% - 11px)!important;min-width:0!important}
+  .spo-gold .logo.gold img{max-height:96px!important}
+}
+/* #stayintouch sat below the finale in the same blue, reading as debris that
+   fell off it. Ground both cards on white with an outline instead. */
+#stayintouch .mailbox{background:#fff!important;border:3px solid var(--blue)}
+#stayintouch .mailbox .ch{color:var(--blue)!important}
+#stayintouch .mailbox p{color:#3A4157!important}
+#stayintouch .mailbox label{color:#0E1320!important}
+#stayintouch .mailbox .btn.solid{background:var(--blue)!important;color:#fff!important;border-color:var(--blue)!important}
+#stayintouch .mailbox .btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important;color:#fff!important}
+
+/* a{color:inherit} would render these as plain text. They are the only inline
+   links in body copy on the page, so say so explicitly. */
+.curator .lede a{color:var(--blue);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:2px;font-weight:700}
+.curator .lede a:hover{color:var(--hover)}
+
+/* ---- review 5 ---- */
+/* The lede and the three rows state the same three facts. Rows are scannable,
+   the lede is prose; on a phone keep the rows. Both stay on desktop. */
+@media (max-width:820px){#join .lede{display:none!important}}
+/* The Substack card was left a solid purple slab beside a white outlined one,
+   which made Jeff's newsletter the heaviest block in the bottom third. */
+#stayintouch .reportbox{background:#fff!important;border:3px solid var(--blue)!important;
+  border-radius:0;padding:24px}
+#stayintouch .reportbox .ch{color:var(--blue)!important}
+#stayintouch .reportbox p{color:#3A4157!important}
+#stayintouch .reportbox .subnote{color:#3A4157!important}
+#stayintouch .reportbox .btn.solid{background:var(--blue)!important;color:#fff!important;
+  border-color:var(--blue)!important}
+#stayintouch .reportbox .btn.solid:hover{background:var(--hover)!important;
+  border-color:var(--hover)!important;color:#fff!important}
+/* Silver got the treatment gold got. */
+@media (max-width:860px){
+  .spo-silver .logo.silver{flex:0 1 calc(50% - 11px)!important;min-width:0!important}
+  .spo-silver .logo.silver img{max-height:64px!important}
+}
+
+/* One countdown at a time. #cdWrap (doors open) is hidden until the early-bird
+   deadline passes, then the script below swaps them. */
+#cdWrap{display:none}
+body.past-earlybird #cdWrap{display:block}
+body.past-earlybird .ebird{display:none!important}
+
+/* Review 6, two content bugs.
+   1. On 29 Aug the hero still read "Early-bird pricing ends August 28. Save up
+      to $475." A stalled clock looks broken; a stale price claim reads as true.
+      Same hook as the countdown swap. Replacement copy is Jeff's call; until
+      then the page says nothing false. */
+body.past-earlybird .herourge{display:none!important}
+body.past-earlybird .regstrip .ebtag{display:none!important}
+/* 2. Hiding the obox paragraphs AND the lede on mobile deleted four facts that
+      then survived in neither: the word "individuals", the "on October 13"
+      qualifier, and the names of both October 13 events. The rows alone never
+      named what they were selling. Put the paragraphs back. */
+@media (max-width:820px){#join .obox p{display:block!important;margin:4px 0 0}}
+
+/* Back on the home page at Jeff's request. a{color:inherit} would render the
+   address as plain text, and #join forces purple on headings, so say it here. */
+#join .codenote{margin:18px 0 0;font-size:17px;line-height:1.55;color:#3A4157}
+#join .codenote a{color:var(--purple);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:2px}
+#join .codenote a:hover{color:var(--hover)}
+
+/* ---- Lauren's desktop review, 11 Aug ---- */
+/* 1. Header is a white bar. Words blue, black on hover. */
+.hdr .nm{color:var(--blue)!important}
+.hdr nav a{color:var(--blue)!important}
+.hdr nav a:hover{color:#000!important}
+/* 6. ".btn" is inline-flex, and flex DISCARDS the whitespace between items, so
+   "Register for " + <span> rendered as "forVoice". Lauren reported it as a typo;
+   the space was in the markup all along. */
+.btn{gap:.34em}
+/* 9. keep the city and state together */
+.nb{white-space:nowrap}
+/* 10. the small line in the final box */
+.finale .lede{font-weight:700}
+/* 5. presenting sponsor, bigger and filling the bar */
+.sponsorbar .barlab{font-size:19px!important;letter-spacing:.06em}
+.sponsorbar .bar-in img{max-height:104px!important;height:auto;width:auto}
+.sponsorbar .bar-in{gap:26px}
+/* 7. silver logos all one height */
+.spo-silver .logo.silver{align-items:center;justify-content:center;min-height:96px}
+.spo-silver .logo.silver img{max-height:56px!important;height:56px;object-fit:contain;width:auto}
+/* 11. footer in brand blue with the logo reversed out */
+footer{background:var(--blue)!important;color:#fff!important}
+footer a{color:#fff!important}
+footer a:hover{color:var(--sky)!important}
+footer .ftlogo{filter:brightness(0) invert(1);height:34px;width:auto}
+
+/* The register bar now carries the long form, which no longer fits one line at
+   19px. Stack it deliberately rather than let it look like a wrap. */
+.regstrip .btn.solid{flex-direction:column;gap:2px;line-height:1.25;padding:16px 24px}
+.regstrip .btn.solid .evt{display:block}
+/* footer .mono was picking up its own grey; the footer is brand blue now. */
+footer .mono,footer span,footer .mono a{color:#fff!important}
+footer .mono a:hover{color:var(--sky)!important}
+
+/* ---- review 7 ---- */
+/* Lauren asked for the footer navigation off. On desktop the header carries it,
+   so that is right. Below 1180px ".hdr nav" is display:none and there is no
+   hamburger, so removing it left a phone with NO route from the home page to the
+   agenda, and made registration a dead end. Desktop keeps her change; mobile
+   gets navigation back. */
+.ftnav{display:none}
+@media (max-width:1180px){
+  .ftnav{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+  .ftnav a{color:#fff!important;font-weight:700}
+}
+/* ".nb" was unconditional nowrap to stop "Georgia" orphaning. The span is 350px,
+   so at 320 and 360 the whole PAGE scrolled sideways. Fixing an orphan is not
+   worth a horizontal scrollbar on the most common phone width. */
+@media (max-width:430px){.nb{white-space:normal}}
+/* The register button carries the long form now. On a phone it set in four
+   lines; shrink the type so it sets in two. */
+@media (max-width:600px){
+  .regstrip .btn.solid{font-size:15px;padding:14px 18px}
+  .regstrip .btn.solid .evt{font-size:15px}
+}
+
+.strip{margin:0}</style></head><body><div class="strip ice pad">
+  <div class="col">
+   <div class="thesis-grid">
+    <div>
+    
+    <div class="prose" style="margin-top:24px">
+      <p>Business runs on conversation. Every customer interaction, every agent call, every transaction begins with a voice or a message. AI has changed what happens next.</p>
+      <p>Fall '26 <span class="evt">Voice and Conversations on the Net</span> brings together the carriers, platforms, enterprises, and standards community defining the future of AI Communication.</p>
+            <p>Our focus is on the emergence of AI Communication, where intelligent systems do not simply respond. These systems remember, govern intent, and act responsibly.</p>
+    </div>
+    </div>
+    <figure class="tj">
+      <img src="data:image/jpeg;base64,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" alt="Thomas McCarthy-Howe and Jeff Pulver at a vCon Foundation event">
+      <figcaption>Thomas McCarthy-Howe and Jeff Pulver</figcaption>
+      <blockquote class="quote">
+        <q>vCons are the robot food for AI.</q>
+        <div class="who"><b>Thomas McCarthy-Howe</b>CTO, vConic &middot; co-author of the vCon Specification</div>
+      </blockquote>
+    </figure>
+   </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  "use strict";
+  function pad(n){return n<10?"0"+n:String(n);}
+  function run(ids, target){
+    var e={d:document.getElementById(ids[0]),h:document.getElementById(ids[1]),
+           m:document.getElementById(ids[2]),s:document.getElementById(ids[3])};
+    if(!e.d||!e.h||!e.m||!e.s) return;          // section does not carry this clock
+    (function tick(){
+      var left=target-Date.now();
+      if(left<=0){e.d.textContent="0";e.h.textContent="00";e.m.textContent="00";e.s.textContent="00";return;}
+      var sec=Math.floor(left/1000);
+      e.d.textContent=Math.floor(sec/86400);
+      e.h.textContent=pad(Math.floor(sec/3600)%24);
+      e.m.textContent=pad(Math.floor(sec/60)%60);
+      e.s.textContent=pad(sec%60);
+      setTimeout(tick,1000);
+    })();
+  }
+  var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
+  var DOORS=new Date("2026-10-13T09:00:00-04:00").getTime();
+  run(["ebd","ebh","ebm","ebs"], EB);
+  run(["d","h","m","s"], DOORS);
+  // the 29 Aug swap, so an embed left open across the date does the right thing
+  function swap(){document.body.classList.toggle("past-earlybird", Date.now()>EB);}
+  swap(); setInterval(swap,60000);
+})();
+</script></body></html>
