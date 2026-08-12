@@ -2574,6 +2574,21 @@ footer .mono a:hover{color:var(--sky)!important}
   function swap(){document.body.classList.toggle("past-earlybird",Date.now()>EB);}
   swap(); setInterval(swap,60000);
 
+  // The event mailing list. Hands the address to Substack with it prefilled so
+  // the subscriber confirms there and the list lives where mail is sent from.
+  // top.location because a redirect inside an iframe goes somewhere nobody sees.
+  var f=document.querySelector("form.subform");
+  if(f){
+    f.removeAttribute("onsubmit");
+    f.onsubmit=function(ev){
+      ev.preventDefault();
+      var i=f.querySelector('input[type=email]');
+      if(!i||!i.value||!i.checkValidity()){ if(i) i.focus(); return false; }
+      top.location.href="https://thejeffpulver.substack.com/subscribe?email="+encodeURIComponent(i.value);
+      return false;
+    };
+  }
+
   // Auto-height. Wix page code listens for this and resizes the frame, so no
   // one drags a bottom edge, and regenerating the speaker list from 22 to 30
   // does not mean re-dragging every page.
