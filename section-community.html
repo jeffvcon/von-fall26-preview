@@ -2295,97 +2295,28 @@ footer .mono a:hover{color:var(--sky)!important}
 <script>
 (function(){
   "use strict";
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* countdown */
-  var TARGET = new Date("2026-10-13T09:00:00-04:00").getTime();
-  var E = {d:document.getElementById("d"),h:document.getElementById("h"),m:document.getElementById("m"),s:document.getElementById("s")};
-  function pad(n){ return n<10 ? "0"+n : String(n); }
-  (function tick(){
-    var left = TARGET - Date.now();
-    if (left <= 0) return;
-    var sec = Math.floor(left/1000);
-    E.d.textContent = Math.floor(sec/86400);
-    E.h.textContent = pad(Math.floor(sec/3600)%24);
-    E.m.textContent = pad(Math.floor(sec/60)%60);
-    E.s.textContent = pad(sec%60);
-    setTimeout(tick, 1000);
-  })();
-
-  /* The swap. Before 28 Aug: early-bird bar, no doors-open band. After: the
-     early-bird bar comes off (it would otherwise sit at 0 DAYS 00:00:00
-     forever) and the doors-open countdown takes its place. Re-checked every
-     minute so a tab left open overnight on the 28th does the right thing. */
-  (function(){
-    var EB = new Date("2026-08-28T23:59:59-04:00").getTime();
-    function swap(){
-      document.body.classList.toggle("past-earlybird", Date.now() > EB);
-    }
-    swap();
-    setInterval(swap, 60000);
-  })();
-
-
-  /* early-bird countdown. Guarded: a missing element here once threw and killed
-     every script below it, including the countdown above. */
-  (function(){
-    var END = new Date("2026-08-28T23:59:59-04:00").getTime();
-    var B = {d:document.getElementById("ebd"),h:document.getElementById("ebh"),m:document.getElementById("ebm"),s:document.getElementById("ebs")};
-    if (!B.d || !B.h || !B.m || !B.s) return;
-    (function beat(){
-      var left = END - Date.now();
-      if (left <= 0){ B.d.textContent="0"; B.h.textContent="00"; B.m.textContent="00"; B.s.textContent="00"; return; }
-      var sec = Math.floor(left/1000);
-      B.d.textContent = Math.floor(sec/86400);
-      B.h.textContent = pad(Math.floor(sec/3600)%24);
-      B.m.textContent = pad(Math.floor(sec/60)%60);
-      B.s.textContent = pad(sec%60);
-      setTimeout(beat, 1000);
+  function pad(n){return n<10?"0"+n:String(n);}
+  function run(ids, target){
+    var e={d:document.getElementById(ids[0]),h:document.getElementById(ids[1]),
+           m:document.getElementById(ids[2]),s:document.getElementById(ids[3])};
+    if(!e.d||!e.h||!e.m||!e.s) return;          // section does not carry this clock
+    (function tick(){
+      var left=target-Date.now();
+      if(left<=0){e.d.textContent="0";e.h.textContent="00";e.m.textContent="00";e.s.textContent="00";return;}
+      var sec=Math.floor(left/1000);
+      e.d.textContent=Math.floor(sec/86400);
+      e.h.textContent=pad(Math.floor(sec/3600)%24);
+      e.m.textContent=pad(Math.floor(sec/60)%60);
+      e.s.textContent=pad(sec%60);
+      setTimeout(tick,1000);
     })();
-  })();
-
-  /* conversation band */
-  var c = document.getElementById("band"); if (!c) return;
-  var ctx = c.getContext("2d"), raf = 0;
-  function rnd(i){ var x = Math.sin(i*127.1+311.7)*43758.5453; return x - Math.floor(x); }
-  var TURNS = (function(){ var o=[],t=0,i=0; while(t<1.7){ var d=.05+rnd(i)*.1; o.push({start:t,dur:d,lane:rnd(i+50)>.48?0:1}); t+=d+.013+rnd(i+90)*.03; i++; } return o; })();
-  function size(){ var r=Math.min(devicePixelRatio||1,2); c.width=Math.max(1,c.clientWidth*r); c.height=Math.max(1,c.clientHeight*r); ctx.setTransform(r,0,0,r,0,0); }
-  function draw(ts){
-    var w=c.clientWidth,h=c.clientHeight; if(!w||!h) return;
-    ctx.clearRect(0,0,w,h);
-    var drift=(ts||0)/26000, laneH=Math.max(15,Math.min(26,h*.17)), gap=laneH*.55;
-    var base=h-(laneH*2+gap)-Math.max(14,h*.1), lanes=[base,base+laneH+gap];
-    ctx.strokeStyle="rgba(255,255,255,.12)"; ctx.lineWidth=1; ctx.beginPath();
-    for(var gx=-((drift*w*2)%64); gx<w; gx+=64){ ctx.moveTo(Math.round(gx)+.5,0); ctx.lineTo(Math.round(gx)+.5,h); }
-    ctx.stroke();
-    ctx.strokeStyle="rgba(255,255,255,.22)"; ctx.beginPath();
-    for(var L=0;L<2;L++){ ctx.moveTo(0,Math.round(lanes[L]+laneH)+.5); ctx.lineTo(w,Math.round(lanes[L]+laneH)+.5); }
-    ctx.stroke();
-    for(var k=0;k<TURNS.length;k++){
-      var T=TURNS[k], x=(T.start-drift)*w, bw=T.dur*w;
-      if(x+bw<-40||x>w+40) continue;
-      var y=lanes[T.lane];
-      ctx.fillStyle = T.lane===0 ? "#FFFFFF" : "#AFC0FF";
-      ctx.globalAlpha=.18; ctx.fillRect(x,y,bw,laneH);
-      ctx.globalAlpha=.65; ctx.fillRect(x,y,Math.min(2,bw),laneH);
-      ctx.globalAlpha=.55;
-      var bars=Math.max(3,Math.floor(bw/5));
-      for(var b=0;b<bars;b++){
-        var f=b/bars, env=Math.sin(Math.PI*f)*.6+.4;
-        var a=Math.abs(Math.sin(f*21+k*2.3)*Math.sin(f*7.1-k))*env;
-        var bh=Math.max(1.5,a*laneH*.8);
-        ctx.fillRect(x+f*bw, y+(laneH-bh)/2, 2, bh);
-      }
-      ctx.globalAlpha=1;
-    }
   }
-  function vis(){ var r=c.getBoundingClientRect(); return r.bottom>0 && r.top<(innerHeight||0); }
-  var run=false;
-  function loop(ts){ if(!vis()){run=false;return;} draw(ts); raf=requestAnimationFrame(loop); }
-  function kick(){ if(reduce||run||!vis()) return; run=true; cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); }
-  function start(){ size(); if(reduce){draw(1400);return;} run=false; kick(); }
-  addEventListener("resize",start,{passive:true});
-  addEventListener("scroll",kick,{passive:true});
-  start();
+  var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
+  var DOORS=new Date("2026-10-13T09:00:00-04:00").getTime();
+  run(["ebd","ebh","ebm","ebs"], EB);
+  run(["d","h","m","s"], DOORS);
+  // the 29 Aug swap, so an embed left open across the date does the right thing
+  function swap(){document.body.classList.toggle("past-earlybird", Date.now()>EB);}
+  swap(); setInterval(swap,60000);
 })();
 </script></body></html>
