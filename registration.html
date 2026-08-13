@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:type" content="website"><meta property="og:title" content="Register | Voice and Conversations on the Net"><meta property="og:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Register | Voice and Conversations on the Net"><meta name="twitter:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><title>Register | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">13 Aug 2026, 12:17 ET &middot; build 460f709</span></div><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:type" content="website"><meta property="og:title" content="Register | Voice and Conversations on the Net"><meta property="og:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Register | Voice and Conversations on the Net"><meta name="twitter:description" content="Early-bird pricing ends August 28, 2026. Prices rise 25 percent on August 29."><title>Register | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">13 Aug 2026, 12:27 ET &middot; build dc102a3</span></div><style>
 /* ==========================================================================
    FALL '26 // WIX CUT
    Everything here is buildable in the classic Wix Editor they already have.
@@ -2412,12 +2412,23 @@ footer .mono a:hover{color:var(--sky)!important}
 /* 10. the smaller line in the final box is bold */
 .finale .lede,.strip.navy.finale .lede{font-weight:700!important}
 /* 13. The vCon Foundation reads purple on the ticket page */
-.reghead .eyebrow,.members .eyebrow,.eyebrow.vcf{color:var(--purple)!important}
+/* 13 colour. The template already marks these spans purple INLINE
+   (style="color:var(--purple)"), but .eyebrow .mono{color:#0F2ED0!important}
+   overrides inline, so every vCon Foundation kicker rendered blue. Home only
+   looked right because a #join rule happened to cover it. Honour the inline
+   intent wherever it was written, on every page, instead of chasing containers:
+   the earlier attempt used .members and the markup is id="members". */
+.eyebrow .mono[style*="--purple"],.eyebrow.vcf .mono{color:var(--purple)!important}
 /* 15. the VIP rows reach the edge of their card */
 .tcard .row,.tcard .priceline{margin-left:0!important;margin-right:0!important;width:100%!important}
-/* 16. the Everything badge is not shouting */
-.tcard .badge,.badge.everything{font-size:13px!important;padding:4px 10px!important;
-  letter-spacing:.04em!important}
+/* 16. Lauren: "Everything" was set as loud as the tier headings. The old rule
+   matched NOTHING: there is no .tcard and no .badge in the markup, the element
+   is <span class="flag"> inside <div class="t best">. It also overlapped the
+   card title. Band above every card title so the three titles stay aligned. */
+.tix .t{padding-top:58px!important}
+.tix .t.best .flag{top:18px!important;right:auto!important;left:24px!important;
+  font-size:16px!important;font-weight:700!important;line-height:1.25!important;
+  padding:4px 11px!important;letter-spacing:.08em!important}
 :root:has(body > .strip.finale:last-of-type){
   /* 19. no white band between the closing box and the footer. These four pages
      are dragged to home's height in Wix, so the leftover below the last strip
