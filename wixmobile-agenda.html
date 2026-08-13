@@ -1,0 +1,168 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agenda</title><style>
+:root{
+  --blue:#1438F1; --navy:#0E1320; --ink:#3A4157;
+  --ice:#F5F6FA; --line:#DFE3EE; --amber:#F5C24C; --purple:#6B21A8;
+  --pad:22px; --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink)}
+.w{padding:0 var(--pad)}
+section{padding:34px 0}
+section+section{border-top:1px solid var(--line)}
+h1,h2,h3{margin:0;color:var(--navy);letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:32px;line-height:1.1;font-weight:800}
+h2{font-size:23px;line-height:1.18;font-weight:800;margin-bottom:14px}
+h3{font-size:17px;line-height:1.3;font-weight:700}
+p{margin:0 0 14px}
+p:last-child{margin-bottom:0}
+a{color:var(--blue)}
+.eyebrow{font-size:12px;line-height:1;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--blue);margin:0 0 11px}
+
+/* top bar, on every page */
+.bar{display:flex;align-items:center;justify-content:space-between;
+  padding:11px var(--pad);background:var(--navy);position:sticky;top:0;z-index:9}
+.bar a.home{color:#fff;text-decoration:none;font-size:14px;font-weight:700;
+  letter-spacing:.01em}
+.bar a.home span{color:#8FA2FF}
+.bar a.buy{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;
+  font-weight:700;padding:9px 14px;border-radius:2px}
+
+.hero{background:var(--navy);color:#fff;padding:28px 0 32px}
+.hero h1,.hero h2{color:#fff}
+.hero .kicker{font-size:12px;line-height:1;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:#8FA2FF;margin:0 0 13px}
+.hero .sub{font-size:18px;line-height:1.4;font-weight:500;color:#C9D2F5;margin:12px 0 0}
+.facts{display:flex;flex-direction:column;gap:7px;margin:22px 0 0;
+  font-size:16px;line-height:1.35;font-weight:600;color:#fff}
+.facts span{display:flex;gap:10px;align-items:baseline}
+.facts b{color:#8FA2FF;font-weight:700;flex:0 0 54px;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase}
+.cta{display:block;margin:22px 0 0;background:var(--blue);color:#fff;
+  text-align:center;text-decoration:none;font-size:17px;line-height:1;
+  font-weight:700;padding:18px;border-radius:2px}
+.cta.ghost{background:transparent;color:#fff;border:2px solid #3B54F5;
+  margin-top:10px;padding:16px}
+.cta.dark{background:var(--navy)}
+.urg{margin:15px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--amber)}
+
+.thesis{font-size:23px;line-height:1.32;font-weight:800;color:var(--blue);
+  margin:0 0 18px;letter-spacing:-.02em}
+.thesis span{display:block}
+
+.day{border-left:3px solid var(--blue);padding:2px 0 2px 15px;margin:0 0 20px}
+.day .d{font-size:12px;line-height:1;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.day p{font-size:16px;margin:5px 0 0}
+.day.p{border-left-color:var(--purple)}
+.day.p .d{color:var(--purple)}
+
+.host{display:flex;gap:14px;align-items:center;margin:0 0 24px}
+.host img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px}
+.host b{display:block;color:var(--navy);font-size:17px;font-weight:700;line-height:1.3}
+.host span{font-size:15px;line-height:1.4}
+.faces{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin:0 0 24px}
+.faces figure{margin:0;text-align:center}
+.faces img{width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;display:block}
+.faces figcaption{margin-top:8px;font-size:13px;line-height:1.25;font-weight:700;
+  color:var(--navy)}
+.faces em{display:block;font-size:12px;line-height:1.25;font-style:normal;
+  font-weight:400;color:var(--ink);margin-top:2px}
+.names{columns:2;column-gap:16px;margin:0;padding:0;list-style:none}
+.names li{break-inside:avoid;margin:0 0 11px;font-size:14px;line-height:1.25;
+  font-weight:600;color:var(--navy)}
+.names em{display:block;font-size:13px;line-height:1.2;font-style:normal;
+  font-weight:400;color:var(--ink);margin-top:1px}
+.roster{margin:0;padding:0;list-style:none}
+.roster li{border-bottom:1px solid var(--line);padding:12px 0}
+.roster li:last-child{border-bottom:0}
+.roster b{display:block;color:var(--navy);font-size:16px;font-weight:700;line-height:1.3}
+.roster span{font-size:14px;line-height:1.35;display:block;margin-top:2px}
+.more{margin:18px 0 0;font-size:15px;line-height:1.45}
+
+ul.for,ul.bul{margin:0;padding:0 0 0 18px}
+.for li,.bul li{margin:0 0 11px;font-size:16px;line-height:1.45}
+.for b{color:var(--navy);font-weight:700}
+
+.tier{border:1px solid var(--line);border-left:3px solid var(--blue);
+  padding:16px;margin:0 0 12px}
+.tier .th{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tier b{color:var(--navy);font-size:17px;font-weight:700;line-height:1.25}
+.tier .when{font-size:13px;color:var(--ink);font-weight:400;display:block;margin-top:3px}
+.tier .p{color:var(--blue);font-size:22px;line-height:1;font-weight:800;white-space:nowrap}
+.tier .vip{font-size:13px;margin-top:9px;color:var(--ink)}
+.tier ul{margin:11px 0 0;padding:0 0 0 17px}
+.tier li{font-size:14px;line-height:1.4;margin:0 0 5px}
+.note{font-size:14px;line-height:1.45;margin-top:16px}
+.callout{background:var(--ice);border-left:3px solid var(--purple);
+  padding:14px 15px;margin:18px 0 0;font-size:15px;line-height:1.45}
+.callout b{color:var(--purple)}
+
+.brand{margin:0 0 26px}
+.brand h3{color:var(--blue);font-size:19px}
+.brand .n{font-size:13px;color:var(--ink);margin:2px 0 10px}
+.brand ul{margin:0;padding:0;list-style:none}
+.brand li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);
+  font-size:15px;line-height:1.3}
+.brand li:last-child{border-bottom:0}
+.brand li i{font-style:normal;color:var(--ink);font-size:13px;flex:0 0 38px;
+  font-weight:600;padding-top:1px}
+.brand li b{color:var(--navy);font-weight:600}
+
+.ps{background:var(--ice);text-align:center}
+.ps img{max-width:186px;height:auto}
+.end{background:var(--navy);color:#C9D2F5;text-align:center}
+.end h2{color:#fff}
+.end p{font-size:16px;line-height:1.5}
+
+nav.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);
+  background:#fff}
+nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
+  color:var(--ink);text-decoration:none;border-right:1px solid var(--line);
+  line-height:1.2}
+nav.tabs a:last-child{border-right:0}
+nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
+</style></head><body>
+<div class="bar"><a class="home" href="wixmobile-home.html">Fall <span>&rsquo;26</span> VON</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
+
+<section class="hero"><div class="w">
+  <p class="kicker">October 13&ndash;15, 2026</p><h1>Agenda</h1>
+  <p class="sub">Sessions begin promptly at 9:00 AM.</p>
+</div></section>
+
+<section><div class="w">
+  <div class="callout"><b>The full schedule publishes around September 1.</b>
+  October 13 is set. The 14th and 15th are being curated session by session.</div>
+</div></section>
+
+<section><div class="w">
+  <h2>The three days</h2>
+  <div class="day p"><div class="d">Tuesday, October 13</div>
+    <h3>Pre-Conference</h3>
+    <p>Two co-located events, one ticket. The 2026 vCon Summit, a vCon
+    Foundation event, and 2026 VoiceAI LIVE! 9:00 AM to 4:00 PM.</p>
+    <p>To learn vCons specifically, this is the day. The Introduction to vCons
+    Primer runs once, on the 13th.</p></div>
+  <div class="day"><div class="d">Wednesday, October 14</div>
+    <h3>Main conference, day one</h3>
+    <p>Sessions through the day, then the Welcome Reception in the evening.</p></div>
+  <div class="day"><div class="d">Thursday, October 15</div>
+    <h3>Main conference, day two</h3>
+    <p>Sessions through the day, and networking throughout.</p></div>
+</div></section>
+
+<section><div class="w">
+  <p class="eyebrow">What we cover</p>
+  <h2>Some of the topics</h2>
+  <ul class="bul"><li>Conversation capture, structuring and governance</li><li>vCons, and the state of the standard at the IETF</li><li>AI communication inside enterprise deployments</li><li>Compliance and analytics built on conversational memory</li><li>Contact center deployments, including regulated industries</li><li>What changes after a conversation ends</li></ul>
+  <p class="more">Building on Spring '26 in Dallas, where more than 40 speakers
+  from across North America and Europe took part.</p>
+  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
+</div></section>
+
+<nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html">Speakers</a><a href="wixmobile-agenda.html" aria-current="page">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html">Past</a></nav>
+</body></html>
