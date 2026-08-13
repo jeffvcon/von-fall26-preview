@@ -26,7 +26,7 @@ a{color:var(--blue)}
 /* top bar, on every page */
 .bar{display:flex;align-items:center;justify-content:space-between;
   padding:11px var(--pad);background:var(--navy);position:sticky;top:0;z-index:9}
-.bar a.home{color:#fff;text-decoration:none;font-size:14px;font-weight:700;
+.bar a.home{color:#fff;text-decoration:none;font-size:13px;font-weight:700;
   letter-spacing:.01em}
 .bar a.home span{color:#8FA2FF}
 .bar a.buy{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;
@@ -127,9 +127,8 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 /* Lauren asked for logos the same size. Different marks have wildly
    different aspect ratios, so give every one an identical box and let
    object-fit centre the artwork inside it. */
-.spon .g img{width:100%;height:46px;object-fit:contain;object-position:center;display:block}
-.spon .s img{width:100%;height:32px;object-fit:contain;object-position:center;display:block}
-.spon .pres img{width:auto;max-width:190px;height:60px;object-fit:contain;margin:0 auto}
+.spon img{width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto}
+.spon .g,.spon .s{align-items:center;justify-items:center}
 .ps{background:var(--ice);text-align:center}
 .ps img{max-width:186px;height:auto}
 .end{background:var(--navy);color:#C9D2F5;text-align:center}
@@ -143,22 +142,32 @@ nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
   line-height:1.2}
 nav.tabs a:last-child{border-right:0}
 nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
-</style></head><body>
-<div class="bar"><a class="home" href="wixmobile-home.html">Fall <span>&rsquo;26</span> VON</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
+
+.spon img.lg-888voip{height:73px}
+.spon img.lg-grandstream{height:43px}
+.spon img.lg-alianza{height:31px}
+.spon img.lg-crexendo{height:48px}
+.spon img.lg-carrierx{height:32px}
+.spon img.lg-vconic{height:34px}
+.spon img.lg-phound{height:24px}
+.spon img.lg-the-vcon-foundation{height:44px}
+.spon img.lg-fornix{height:44px}
+.spon img.lg-technology-reseller-news{height:44px}</style></head><body>
+<div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
   <p class="kicker">The lineup</p><h1>Speakers</h1>
-  <p class="sub">22 confirmed. More announced weekly.</p>
+  <p class="sub">22 speakers. More announced weekly.</p>
 </div></section>
 <section><div class="w">
   <div class="faces"><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure></div>
   <h2>Everyone speaking</h2>
   <ul class="roster"><li><b>Alberto Gonzalez Trastoy</b><span>CTO &middot; WebRTC</span></li><li><b>Audrey Hayn</b><span>Co-Founder &amp; COO &middot; MindMaking</span></li><li><b>Bradley Metrock</b><span>CEO &amp; General Partner &middot; FlagStat</span></li><li><b>Brian Peterson</b><span>Co-Founder &amp; CTO &middot; Dialpad</span></li><li><b>Chris Fine</b><span>CEO &middot; Integrative Technologies</span></li><li><b>Dag Peak</b><span>CPTO &middot; Alianza</span></li><li><b>Dan Petrie</b><span>President &middot; SIPez</span></li><li><b>Dave Erickson</b><span>CEO &middot; CarrierX</span></li><li><b>Derek Caneja</b><span>Co-Founder &amp; CTO &middot; VoiceRun</span></li><li><b>Gerry Christensen</b><span>Principal Consultant &amp; Analyst &middot; Wireless Waypoint</span></li><li><b>Hari Kishan KV</b><span>CEO &middot; BoundaryAI</span></li><li><b>Hippolyte Lapierre</b><span>CEO &middot; BoundaryAI</span></li><li><b>Jeff Pulver</b><span>CEO &middot; The vCon Foundation</span></li><li><b>Ken Adams</b><span>President &middot; P2P Labs</span></li><li><b>Mark Vange</b><span>Founder &amp; CTO &middot; Autom8ly</span></li><li><b>Matt Florell</b><span>President &middot; VICIdial Group</span></li><li><b>Michael Anderson</b><span>EVP of AI for Enterprise &middot; SoundHound</span></li><li><b>Mike Mills</b><span>Managing Director, Service Provider &middot; Gamma</span></li><li><b>Randy Layman</b><span>CTO &middot; AVOXI</span></li><li><b>Sahil Jagtap</b><span>CEO &amp; Founder &middot; Drum</span></li><li><b>Thomas McCarthy-Howe</b><span>CTO &middot; vConic</span></li><li><b>Vin Micciche</b><span>CEO &amp; Founder &middot; Strolid</span></li></ul>
-  <p class="more">Session times are published as they are confirmed.
+  <p class="more">Session times are published closer to the event.
   <a href="wixmobile-agenda.html">See the agenda</a>.</p>
   <a class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img src="m/grandstream.png" alt="Grandstream" loading="lazy"><img src="m/alianza.png" alt="Alianza" loading="lazy"><img src="m/crexendo.png" alt="Crexendo" loading="lazy"><img src="m/carrierx.png" alt="CarrierX" loading="lazy"><img src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img src="m/phound.png" alt="Phound" loading="lazy"><img src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img src="m/fornix.png" alt="Fornix" loading="lazy"><img src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 <nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html" aria-current="page">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html">Past</a></nav>
 </body></html>

@@ -26,7 +26,7 @@ a{color:var(--blue)}
 /* top bar, on every page */
 .bar{display:flex;align-items:center;justify-content:space-between;
   padding:11px var(--pad);background:var(--navy);position:sticky;top:0;z-index:9}
-.bar a.home{color:#fff;text-decoration:none;font-size:14px;font-weight:700;
+.bar a.home{color:#fff;text-decoration:none;font-size:13px;font-weight:700;
   letter-spacing:.01em}
 .bar a.home span{color:#8FA2FF}
 .bar a.buy{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;
@@ -127,9 +127,8 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 /* Lauren asked for logos the same size. Different marks have wildly
    different aspect ratios, so give every one an identical box and let
    object-fit centre the artwork inside it. */
-.spon .g img{width:100%;height:46px;object-fit:contain;object-position:center;display:block}
-.spon .s img{width:100%;height:32px;object-fit:contain;object-position:center;display:block}
-.spon .pres img{width:auto;max-width:190px;height:60px;object-fit:contain;margin:0 auto}
+.spon img{width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto}
+.spon .g,.spon .s{align-items:center;justify-items:center}
 .ps{background:var(--ice);text-align:center}
 .ps img{max-width:186px;height:auto}
 .end{background:var(--navy);color:#C9D2F5;text-align:center}
@@ -143,8 +142,18 @@ nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
   line-height:1.2}
 nav.tabs a:last-child{border-right:0}
 nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
-</style></head><body>
-<div class="bar"><a class="home" href="wixmobile-home.html">Fall <span>&rsquo;26</span> VON</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
+
+.spon img.lg-888voip{height:73px}
+.spon img.lg-grandstream{height:43px}
+.spon img.lg-alianza{height:31px}
+.spon img.lg-crexendo{height:48px}
+.spon img.lg-carrierx{height:32px}
+.spon img.lg-vconic{height:34px}
+.spon img.lg-phound{height:24px}
+.spon img.lg-the-vcon-foundation{height:44px}
+.spon img.lg-fornix{height:44px}
+.spon img.lg-technology-reseller-news{height:44px}</style></head><body>
+<div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
   <p class="kicker">Past events</p><h1>Fourteen events since 2023</h1>
@@ -154,9 +163,9 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
   <div class="brand"><h3>Voice and Conversations</h3><p class="n">Three events, 2025 to 2026</p><ul><li><i>2026</i><b>Spring &#x27;26 Voice and Conversations</b></li><li><i>2025</i><b>Fall &#x27;25 vCon</b></li><li><i>2025</i><b>Spring &#x27;25 vCon</b></li></ul></div><div class="brand"><h3>VON: Evolution</h3><p class="n">Eight events, 2023 to 2025</p><ul><li><i>2025</i><b>Spring &#x27;25 VON</b></li><li><i>2024</i><b>Fall &#x27;24 VON: Evolution</b></li><li><i>2024</i><b>vCon Workshop</b></li><li><i>2024</i><b>Spring &#x27;24</b></li><li><i>2024</i><b>DeVON</b></li><li><i>2024</i><b>VON London</b></li><li><i>2023</i><b>Fall &#x27;23 VON: Evolution</b></li><li><i>2023</i><b>VON: Builder</b></li></ul></div><div class="brand"><h3>AI/COMM</h3><p class="n">Three events, 2024 to 2025</p><ul><li><i>2025</i><b>Spring &#x27;25 AI/COMM</b></li><li><i>2024</i><b>Fall &#x27;24 AI/COMM</b></li><li><i>2024</i><b>AI/COMM</b></li></ul></div>
   <p class="more">From 1997 until 2008, Voice on the Net was the VoIP industry
   conference. More than 5,000 people twice a year in the US.</p>
-  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket for Fall &rsquo;26</a>
+  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket for Fall &rsquo;26 Voice and Conversations</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img src="m/grandstream.png" alt="Grandstream" loading="lazy"><img src="m/alianza.png" alt="Alianza" loading="lazy"><img src="m/crexendo.png" alt="Crexendo" loading="lazy"><img src="m/carrierx.png" alt="CarrierX" loading="lazy"><img src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img src="m/phound.png" alt="Phound" loading="lazy"><img src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img src="m/fornix.png" alt="Fornix" loading="lazy"><img src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 <nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html" aria-current="page">Past</a></nav>
 </body></html>
