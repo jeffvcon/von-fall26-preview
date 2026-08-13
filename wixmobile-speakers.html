@@ -48,6 +48,7 @@ a{color:var(--blue)}
 .cta.ghost{background:transparent;color:#fff;border:2px solid #3B54F5;
   margin-top:10px;padding:16px}
 .cta.dark{background:var(--navy)}
+.ebdays{font-weight:800}
 .urg{margin:15px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--amber)}
 
 .thesis{font-size:23px;line-height:1.32;font-weight:800;color:var(--blue);
@@ -117,18 +118,41 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .keep h2{margin-bottom:8px}
 .keep p{font-size:16px}
 .keep .cta{background:var(--navy)}
+/* Lauren, 13 Aug: "The blue on black is terrible" and "why did the color type
+   disappear in some places". The brand blue is a dark blue. On the near-black
+   hero and sticky bar it sat at roughly 2:1 against the ground, under the 4.5:1
+   readable floor, so small labels looked like they were fading out. On dark
+   grounds only, lift it to a tint that clears the floor. Blue on white is
+   unchanged. */
+.hero .kicker,.bar .home span{color:#8FA6FF}
+.hero .facts b{color:#9DB2FF}
+.bar{background:#0B1220}
+
 .spon{background:var(--ice)}
 .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}
 .spon .tier-lab:first-of-type{margin-top:0}
 .spon .pres{text-align:center}
-.spon .g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 14px;align-items:center}
-.spon .s{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;align-items:center}
+/* Lauren, 13 Aug: "The logos are terrible." Three separate faults, not one.
+   A rigid 2 and 3 column grid left the 5th gold logo and the 4th silver logo
+   orphaned hard left. Crexendo's artwork has a white background, so it showed
+   as a visible white rectangle floating on the grey. And sizing purely by area
+   let TR's solid red square read far heavier than Phound's wordmark.
+   A centred flex of equal white tiles fixes all three: the last row centres,
+   every logo sits on the same white ground so no one card looks pasted on,
+   and the tile carries the visual weight instead of the artwork. */
+.spon .pres,.spon .g,.spon .s{display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px;padding:0}
+.spon .tile{background:#fff;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 1px 3px rgba(16,24,40,.09)}
+.spon .pres .tile{width:100%;height:128px}
+.spon .g .tile{width:calc(50% - 5px);height:92px}
+.spon .s .tile{width:calc(33.333% - 7px);height:74px}
 /* Lauren asked for logos the same size. Different marks have wildly
    different aspect ratios, so give every one an identical box and let
    object-fit centre the artwork inside it. */
-.spon img{width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto}
-.spon .g,.spon .s{align-items:center;justify-items:center}
+.spon img{width:auto;max-width:78%;object-fit:contain;display:block}
+
 .ps{background:var(--ice);text-align:center}
 .ps img{max-width:186px;height:auto}
 .end{background:var(--navy);color:#C9D2F5;text-align:center}
@@ -143,31 +167,37 @@ nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
 nav.tabs a:last-child{border-right:0}
 nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
 
-.spon img.lg-888voip{height:73px}
-.spon img.lg-grandstream{height:43px}
-.spon img.lg-alianza{height:31px}
-.spon img.lg-crexendo{height:48px}
-.spon img.lg-carrierx{height:32px}
-.spon img.lg-vconic{height:34px}
-.spon img.lg-phound{height:24px}
-.spon img.lg-the-vcon-foundation{height:44px}
-.spon img.lg-fornix{height:44px}
-.spon img.lg-technology-reseller-news{height:44px}</style></head><body>
+.spon img.lg-888voip{height:73px;max-height:76%}
+.spon img.lg-grandstream{height:43px;max-height:76%}
+.spon img.lg-alianza{height:31px;max-height:76%}
+.spon img.lg-crexendo{height:48px;max-height:76%}
+.spon img.lg-carrierx{height:32px;max-height:76%}
+.spon img.lg-vconic{height:34px;max-height:76%}
+.spon img.lg-phound{height:24px;max-height:76%}
+.spon img.lg-the-vcon-foundation{height:44px;max-height:76%}
+.spon img.lg-fornix{height:44px;max-height:76%}
+.spon img.lg-technology-reseller-news{height:44px;max-height:76%}</style></head><body>
 <div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
   <p class="kicker">The lineup</p><h1>Speakers</h1>
-  <p class="sub">22 speakers. More announced weekly.</p>
+  <p class="sub">More announced weekly.</p>
 </div></section>
 <section><div class="w">
-  <div class="faces"><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure></div>
-  <h2>Everyone speaking</h2>
-  <ul class="roster"><li><b>Alberto Gonzalez Trastoy</b><span>CTO &middot; WebRTC</span></li><li><b>Audrey Hayn</b><span>Co-Founder &amp; COO &middot; MindMaking</span></li><li><b>Bradley Metrock</b><span>CEO &amp; General Partner &middot; FlagStat</span></li><li><b>Brian Peterson</b><span>Co-Founder &amp; CTO &middot; Dialpad</span></li><li><b>Chris Fine</b><span>CEO &middot; Integrative Technologies</span></li><li><b>Dag Peak</b><span>CPTO &middot; Alianza</span></li><li><b>Dan Petrie</b><span>President &middot; SIPez</span></li><li><b>Dave Erickson</b><span>CEO &middot; CarrierX</span></li><li><b>Derek Caneja</b><span>Co-Founder &amp; CTO &middot; VoiceRun</span></li><li><b>Gerry Christensen</b><span>Principal Consultant &amp; Analyst &middot; Wireless Waypoint</span></li><li><b>Hari Kishan KV</b><span>CEO &middot; BoundaryAI</span></li><li><b>Hippolyte Lapierre</b><span>CEO &middot; BoundaryAI</span></li><li><b>Jeff Pulver</b><span>CEO &middot; The vCon Foundation</span></li><li><b>Ken Adams</b><span>President &middot; P2P Labs</span></li><li><b>Mark Vange</b><span>Founder &amp; CTO &middot; Autom8ly</span></li><li><b>Matt Florell</b><span>President &middot; VICIdial Group</span></li><li><b>Michael Anderson</b><span>EVP of AI for Enterprise &middot; SoundHound</span></li><li><b>Mike Mills</b><span>Managing Director, Service Provider &middot; Gamma</span></li><li><b>Randy Layman</b><span>CTO &middot; AVOXI</span></li><li><b>Sahil Jagtap</b><span>CEO &amp; Founder &middot; Drum</span></li><li><b>Thomas McCarthy-Howe</b><span>CTO &middot; vConic</span></li><li><b>Vin Micciche</b><span>CEO &amp; Founder &middot; Strolid</span></li></ul>
+  <div class="faces all"><figure><img src="m/ken-adams.jpg" alt="Ken Adams" loading="lazy"><figcaption>Ken Adams<em>P2P Labs</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson" loading="lazy"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/derek-caneja.jpg" alt="Derek Caneja" loading="lazy"><figcaption>Derek Caneja<em>VoiceRun</em></figcaption></figure><figure><img src="m/gerry-christensen.jpg" alt="Gerry Christensen" loading="lazy"><figcaption>Gerry Christensen<em>Wireless Waypoint</em></figcaption></figure><figure><img src="m/dave-erickson.jpg" alt="Dave Erickson" loading="lazy"><figcaption>Dave Erickson<em>CarrierX</em></figcaption></figure><figure><img src="m/chris-fine.jpg" alt="Chris Fine" loading="lazy"><figcaption>Chris Fine<em>Integrative Technologies</em></figcaption></figure><figure><img src="m/matt-florell.jpg" alt="Matt Florell" loading="lazy"><figcaption>Matt Florell<em>VICIdial Group</em></figcaption></figure><figure><img src="m/audrey-hayn.jpg" alt="Audrey Hayn" loading="lazy"><figcaption>Audrey Hayn<em>MindMaking</em></figcaption></figure><figure><img src="m/sahil-jagtap.jpg" alt="Sahil Jagtap" loading="lazy"><figcaption>Sahil Jagtap<em>Drum</em></figcaption></figure><figure><img src="m/hari-kishan-kv.jpg" alt="Hari Kishan KV" loading="lazy"><figcaption>Hari Kishan KV<em>BoundaryAI</em></figcaption></figure><figure><img src="m/hippolyte-lapierre.jpg" alt="Hippolyte Lapierre" loading="lazy"><figcaption>Hippolyte Lapierre<em>BoundaryAI</em></figcaption></figure><figure><img src="m/randy-layman.jpg" alt="Randy Layman" loading="lazy"><figcaption>Randy Layman<em>AVOXI</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe" loading="lazy"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock" loading="lazy"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure><figure><img src="m/vin-micciche.jpg" alt="Vin Micciche" loading="lazy"><figcaption>Vin Micciche<em>Strolid</em></figcaption></figure><figure><img src="m/mike-mills.jpg" alt="Mike Mills" loading="lazy"><figcaption>Mike Mills<em>Gamma</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak" loading="lazy"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson" loading="lazy"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/dan-petrie.jpg" alt="Dan Petrie" loading="lazy"><figcaption>Dan Petrie<em>SIPez</em></figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver" loading="lazy"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure><figure><img src="m/alberto-gonzalez-trastoy.jpg" alt="Alberto Gonzalez Trastoy" loading="lazy"><figcaption>Alberto Gonzalez Trastoy<em>WebRTC</em></figcaption></figure><figure><img src="m/mark-vange.jpg" alt="Mark Vange" loading="lazy"><figcaption>Mark Vange<em>Autom8ly</em></figcaption></figure></div>
   <p class="more">Session times are published closer to the event.
   <a href="wixmobile-agenda.html">See the agenda</a>.</p>
   <a class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 <nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html" aria-current="page">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html">Past</a></nav>
+<script>
+(function(){var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
+function paint(){var n=document.querySelectorAll(".ebdays");if(!n.length)return;
+ var d=Math.ceil((EB-Date.now())/86400000);
+ var t=d>1?d+" days left. ":d===1?"Last day. ":"";
+ for(var i=0;i<n.length;i++){n[i].textContent=t;n[i].style.display=t?"":"none";}}
+paint();addEventListener("focus",paint);addEventListener("pageshow",paint);})();
+</script>
 </body></html>

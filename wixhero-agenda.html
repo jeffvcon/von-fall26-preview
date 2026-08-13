@@ -2353,9 +2353,19 @@ footer .mono a:hover{color:var(--sky)!important}
   .sponsorbar .bar-in img{height:clamp(64px,13vw,92px)!important}
   .sponsorbar .barlab{font-size:19px!important}
 }
-/* 7. silver sponsor logos all the same size */
-.silver img,.sponsors .tier2 img,.sponsorgrid img{height:64px!important;width:auto!important;
-  object-fit:contain!important;max-width:200px!important}
+/* 6. Silver logos: equal INK, not equal boxes. See the note in the generator.
+   Selectors are on alt text because the images carry no per-logo class. */
+.logo.silver img{width:auto!important;object-fit:contain!important;max-width:none!important}
+.logo.silver img[alt="Phound"]{height:40px!important}
+.logo.silver img[alt="The vCon Foundation"]{height:73px!important}
+.logo.silver img[alt="Fornix"]{height:73px!important}
+.logo.silver img[alt="Technology Reseller News"]{height:73px!important}
+.spo-silver,.spo-silver .row{align-items:center!important}
+
+/* 17, again. One Eventbrite button still rendered as a 66x46 blue rectangle
+   with no label: an earlier edit of mine blanked the text but left the anchor.
+   :empty is exact, so a labelled button can never be caught by it. */
+.cta a.btn:empty{display:none!important}
 /* 9. Atlanta and Georgia stay on one line */
 .finale h2 .nowrap,.nowrap{white-space:nowrap}
 /* 9b. and the whole phrase holds one line, the way home already sets it. */

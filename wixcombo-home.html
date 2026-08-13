@@ -654,9 +654,12 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   width:auto!important;max-width:min(560px,90%)!important;object-fit:contain!important}#vd .sponsorbar .barlab{font-size:clamp(20px,2.2vw,26px)!important;font-weight:800!important;
   letter-spacing:.06em!important;color:var(--blue)!important}#vd .sponsorbar .bar-in{gap:clamp(24px,3vw,38px)!important}#vd .sponsorbar{padding:clamp(26px,3.4vw,40px) 0!important}
 @media (max-width:700px){#vd .sponsorbar .bar-in img{height:clamp(64px,13vw,92px)!important}#vd .sponsorbar .barlab{font-size:19px!important}
-}#vd /* 7. silver sponsor logos all the same size */
-.silver img, #vd .sponsors .tier2 img, #vd .sponsorgrid img{height:64px!important;width:auto!important;
-  object-fit:contain!important;max-width:200px!important}#vd /* 9. Atlanta and Georgia stay on one line */
+}#vd /* 6. Silver logos: equal INK, #vd not equal boxes. See the note in the generator.
+   Selectors are on alt text because the images carry no per-logo class. */
+.logo.silver img{width:auto!important;object-fit:contain!important;max-width:none!important}#vd .logo.silver img[alt="Phound"]{height:40px!important}#vd .logo.silver img[alt="The vCon Foundation"]{height:73px!important}#vd .logo.silver img[alt="Fornix"]{height:73px!important}#vd .logo.silver img[alt="Technology Reseller News"]{height:73px!important}#vd .spo-silver, #vd .spo-silver .row{align-items:center!important}#vd /* 17, #vd again. One Eventbrite button still rendered as a 66x46 blue rectangle
+   with no label: an earlier edit of mine blanked the text but left the anchor.
+   :empty is exact, #vd so a labelled button can never be caught by it. */
+.cta a.btn:empty{display:none!important}#vd /* 9. Atlanta and Georgia stay on one line */
 .finale h2 .nowrap, #vd .nowrap{white-space:nowrap}#vd /* 9b. and the whole phrase holds one line, #vd the way home already sets it. */
 .finale h2 .nb{white-space:nowrap}
 @media (max-width:640px){#vd .finale h2 .nb{white-space:normal}}#vd /* Lauren round 2, #vd item 5: the Foundation block sat 16px left of every other
@@ -700,7 +703,7 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   letter-spacing:.08em;text-transform:uppercase}#vm .cta{display:block;margin:22px 0 0;background:var(--blue);color:#fff;
   text-align:center;text-decoration:none;font-size:17px;line-height:1;
   font-weight:700;padding:18px;border-radius:2px}#vm .cta.ghost{background:transparent;color:#fff;border:2px solid #3B54F5;
-  margin-top:10px;padding:16px}#vm .cta.dark{background:var(--navy)}#vm .urg{margin:15px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--amber)}#vm .thesis{font-size:23px;line-height:1.32;font-weight:800;color:var(--blue);
+  margin-top:10px;padding:16px}#vm .cta.dark{background:var(--navy)}#vm .ebdays{font-weight:800}#vm .urg{margin:15px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--amber)}#vm .thesis{font-size:23px;line-height:1.32;font-weight:800;color:var(--blue);
   margin:0 0 18px;letter-spacing:-.02em}#vm .thesis span{display:block}#vm .day{border-left:3px solid var(--blue);padding:2px 0 2px 15px;margin:0 0 20px}#vm .day .d{font-size:12px;line-height:1;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--blue);margin-bottom:6px}#vm .day p{font-size:16px;margin:5px 0 0}#vm .day.p{border-left-color:var(--purple)}#vm .day.p .d{color:var(--purple)}#vm .host{display:flex;gap:14px;align-items:center;margin:0 0 24px}#vm .host img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px}#vm .host b{display:block;color:var(--navy);font-size:17px;font-weight:700;line-height:1.3}#vm .host span{font-size:15px;line-height:1.4}#vm .faces{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin:0 0 24px}#vm .faces figure{margin:0;text-align:center}#vm .faces img{width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;display:block}#vm .faces figcaption{margin-top:8px;font-size:13px;line-height:1.25;font-weight:700;
   color:var(--navy)}#vm .faces em{display:block;font-size:12px;line-height:1.25;font-style:normal;
@@ -710,14 +713,28 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   padding:16px;margin:0 0 12px}#vm .tier .th{display:flex;justify-content:space-between;align-items:baseline;gap:12px}#vm .tier b{color:var(--navy);font-size:17px;font-weight:700;line-height:1.25}#vm .tier .when{font-size:13px;color:var(--ink);font-weight:400;display:block;margin-top:3px}#vm .tier .p{color:var(--blue);font-size:22px;line-height:1;font-weight:800;white-space:nowrap}#vm .tier .vip{font-size:13px;margin-top:9px;color:var(--ink)}#vm .tier ul{margin:11px 0 0;padding:0 0 0 17px}#vm .tier li{font-size:14px;line-height:1.4;margin:0 0 5px}#vm .note{font-size:14px;line-height:1.45;margin-top:16px}#vm .callout{background:var(--ice);border-left:3px solid var(--purple);
   padding:14px 15px;margin:18px 0 0;font-size:15px;line-height:1.45}#vm .callout b{color:var(--purple)}#vm .brand{margin:0 0 26px}#vm .brand h3{color:var(--blue);font-size:19px}#vm .brand .n{font-size:13px;color:var(--ink);margin:2px 0 10px}#vm .brand ul{margin:0;padding:0;list-style:none}#vm .brand li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);
   font-size:15px;line-height:1.3}#vm .brand li:last-child{border-bottom:0}#vm .brand li i{font-style:normal;color:var(--ink);font-size:13px;flex:0 0 38px;
-  font-weight:600;padding-top:1px}#vm .brand li b{color:var(--navy);font-weight:600}#vm .keep{background:var(--ice)}#vm .keep h2{margin-bottom:8px}#vm .keep p{font-size:16px}#vm .keep .cta{background:var(--navy)}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}#vm .spon .tier-lab:first-of-type{margin-top:0}#vm .spon .pres{text-align:center}#vm .spon .g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 14px;align-items:center}#vm .spon .s{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;align-items:center}#vm /* Lauren asked for logos the same size. Different marks have wildly
+  font-weight:600;padding-top:1px}#vm .brand li b{color:var(--navy);font-weight:600}#vm .keep{background:var(--ice)}#vm .keep h2{margin-bottom:8px}#vm .keep p{font-size:16px}#vm .keep .cta{background:var(--navy)}#vm /* Lauren, #vm 13 Aug: "The blue on black is terrible" and "why did the color type
+   disappear in some places". The brand blue is a dark blue. On the near-black
+   hero and sticky bar it sat at roughly 2:1 against the ground, #vm under the 4.5:1
+   readable floor, #vm so small labels looked like they were fading out. On dark
+   grounds only, #vm lift it to a tint that clears the floor. Blue on white is
+   unchanged. */
+.hero .kicker, #vm .bar .home span{color:#8FA6FF}#vm .hero .facts b{color:#9DB2FF}#vm .bar{background:#0B1220}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}#vm .spon .tier-lab:first-of-type{margin-top:0}#vm .spon .pres{text-align:center}#vm /* Lauren, #vm 13 Aug: "The logos are terrible." Three separate faults, #vm not one.
+   A rigid 2 and 3 column grid left the 5th gold logo and the 4th silver logo
+   orphaned hard left. Crexendo's artwork has a white background, #vm so it showed
+   as a visible white rectangle floating on the grey. And sizing purely by area
+   let TR's solid red square read far heavier than Phound's wordmark.
+   A centred flex of equal white tiles fixes all three: the last row centres, #vm every logo sits on the same white ground so no one card looks pasted on, #vm and the tile carries the visual weight instead of the artwork. */
+.spon .pres, #vm .spon .g, #vm .spon .s{display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px;padding:0}#vm .spon .tile{background:#fff;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 1px 3px rgba(16,24,40,.09)}#vm .spon .pres .tile{width:100%;height:128px}#vm .spon .g .tile{width:calc(50% - 5px);height:92px}#vm .spon .s .tile{width:calc(33.333% - 7px);height:74px}#vm /* Lauren asked for logos the same size. Different marks have wildly
    different aspect ratios, #vm so give every one an identical box and let
    object-fit centre the artwork inside it. */
-.spon img{width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto}#vm .spon .g, #vm .spon .s{align-items:center;justify-items:center}#vm .ps{background:var(--ice);text-align:center}#vm .ps img{max-width:186px;height:auto}#vm .end{background:var(--navy);color:#C9D2F5;text-align:center}#vm .end h2{color:#fff}#vm .end p{font-size:16px;line-height:1.5}#vm nav.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);
+.spon img{width:auto;max-width:78%;object-fit:contain;display:block}#vm .ps{background:var(--ice);text-align:center}#vm .ps img{max-width:186px;height:auto}#vm .end{background:var(--navy);color:#C9D2F5;text-align:center}#vm .end h2{color:#fff}#vm .end p{font-size:16px;line-height:1.5}#vm nav.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);
   background:#fff}#vm nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
   color:var(--ink);text-decoration:none;border-right:1px solid var(--line);
-  line-height:1.2}#vm nav.tabs a:last-child{border-right:0}#vm nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}#vm .spon img.lg-888voip{height:73px}#vm .spon img.lg-grandstream{height:43px}#vm .spon img.lg-alianza{height:31px}#vm .spon img.lg-crexendo{height:48px}#vm .spon img.lg-carrierx{height:32px}#vm .spon img.lg-vconic{height:34px}#vm .spon img.lg-phound{height:24px}#vm .spon img.lg-the-vcon-foundation{height:44px}#vm .spon img.lg-fornix{height:44px}#vm .spon img.lg-technology-reseller-news{height:44px}
+  line-height:1.2}#vm nav.tabs a:last-child{border-right:0}#vm nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}#vm .spon img.lg-888voip{height:73px;max-height:76%}#vm .spon img.lg-grandstream{height:43px;max-height:76%}#vm .spon img.lg-alianza{height:31px;max-height:76%}#vm .spon img.lg-crexendo{height:48px;max-height:76%}#vm .spon img.lg-carrierx{height:32px;max-height:76%}#vm .spon img.lg-vconic{height:34px;max-height:76%}#vm .spon img.lg-phound{height:24px;max-height:76%}#vm .spon img.lg-the-vcon-foundation{height:44px;max-height:76%}#vm .spon img.lg-fornix{height:44px;max-height:76%}#vm .spon img.lg-technology-reseller-news{height:44px;max-height:76%}
 </style></head><body>
 <div id="vd">
 
@@ -812,7 +829,7 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   <div class="col">
     <div class="eyebrow"><span class="mono novcase">The vCon Foundation</span></div>
     <h2 class="sec novcase" style="max-width:22ch">October 13 Is Free For Members Of The vCon Foundation</h2>
-    <p class="lede">Individual members attend at no cost. Corporate members can send up to five individuals. Members attend October 14 and 15 at a 50% discount.</p>
+    <p class="lede">Join our community and be part of the conversations with the members of the Foundation. We bring together individuals and companies from all aspects of the communications industry and work together as we share the impact of vCons on communications.</p>
 
     <div class="offer">
       <div class="obox">
@@ -967,10 +984,10 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   <div class="facts">
     <span><b>When</b>October 13 to 15, 2026</span>
     <span><b>Where</b>Sandy Springs Performing Arts Center, Atlanta</span>
-    <span><b>Who</b>22 speakers, curated by Jeff Pulver</span>
+    <span><b>Who</b>Curated by Jeff Pulver</span>
   </div>
   <a class="cta" href="wixmobile-tickets.html">Get a ticket</a>
-  <p class="urg">Early-bird pricing ends August 28. Save up to $475.</p>
+  <p class="urg"><b class="ebdays"></b>Early-bird pricing ends August 28. Save up to $475.</p>
 </div></section>
 
 <section><div class="w">
@@ -1001,9 +1018,9 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
     <div><b>Curated and hosted by Jeff Pulver</b>
     <span>Producing the conversations of this industry since 1996.</span></div></div>
   <h2>Speakers</h2>
-  <div class="faces"><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure></div>
+  <div class="faces"><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure></div>
   <ul class="names"><li>Alberto Gonzalez Trastoy<em>WebRTC</em></li><li>Audrey Hayn<em>MindMaking</em></li><li>Chris Fine<em>Integrative Technologies</em></li><li>Dan Petrie<em>SIPez</em></li><li>Dave Erickson<em>CarrierX</em></li><li>Derek Caneja<em>VoiceRun</em></li><li>Gerry Christensen<em>Wireless Waypoint</em></li><li>Hari Kishan KV<em>BoundaryAI</em></li><li>Hippolyte Lapierre<em>BoundaryAI</em></li><li>Ken Adams<em>P2P Labs</em></li><li>Mark Vange<em>Autom8ly</em></li><li>Matt Florell<em>VICIdial Group</em></li><li>Mike Mills<em>Gamma</em></li><li>Randy Layman<em>AVOXI</em></li><li>Sahil Jagtap<em>Drum</em></li><li>Vin Micciche<em>Strolid</em></li></ul>
-  <p class="more"><a href="wixmobile-speakers.html">All 22 speakers</a></p>
+  <p class="more"><a href="wixmobile-speakers.html">See all speakers</a></p>
 </div></section>
 
 <section><div class="w">
@@ -1034,7 +1051,8 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   <a class="cta ghost" href="https://www.vonevolution.com/sponsor" target="_top">Sponsor</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+
 
 </div>
 <script>

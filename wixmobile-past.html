@@ -48,6 +48,7 @@ a{color:var(--blue)}
 .cta.ghost{background:transparent;color:#fff;border:2px solid #3B54F5;
   margin-top:10px;padding:16px}
 .cta.dark{background:var(--navy)}
+.ebdays{font-weight:800}
 .urg{margin:15px 0 0;font-size:14px;line-height:1.4;font-weight:600;color:var(--amber)}
 
 .thesis{font-size:23px;line-height:1.32;font-weight:800;color:var(--blue);
@@ -117,18 +118,41 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .keep h2{margin-bottom:8px}
 .keep p{font-size:16px}
 .keep .cta{background:var(--navy)}
+/* Lauren, 13 Aug: "The blue on black is terrible" and "why did the color type
+   disappear in some places". The brand blue is a dark blue. On the near-black
+   hero and sticky bar it sat at roughly 2:1 against the ground, under the 4.5:1
+   readable floor, so small labels looked like they were fading out. On dark
+   grounds only, lift it to a tint that clears the floor. Blue on white is
+   unchanged. */
+.hero .kicker,.bar .home span{color:#8FA6FF}
+.hero .facts b{color:#9DB2FF}
+.bar{background:#0B1220}
+
 .spon{background:var(--ice)}
 .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}
 .spon .tier-lab:first-of-type{margin-top:0}
 .spon .pres{text-align:center}
-.spon .g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 14px;align-items:center}
-.spon .s{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;align-items:center}
+/* Lauren, 13 Aug: "The logos are terrible." Three separate faults, not one.
+   A rigid 2 and 3 column grid left the 5th gold logo and the 4th silver logo
+   orphaned hard left. Crexendo's artwork has a white background, so it showed
+   as a visible white rectangle floating on the grey. And sizing purely by area
+   let TR's solid red square read far heavier than Phound's wordmark.
+   A centred flex of equal white tiles fixes all three: the last row centres,
+   every logo sits on the same white ground so no one card looks pasted on,
+   and the tile carries the visual weight instead of the artwork. */
+.spon .pres,.spon .g,.spon .s{display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px;padding:0}
+.spon .tile{background:#fff;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 1px 3px rgba(16,24,40,.09)}
+.spon .pres .tile{width:100%;height:128px}
+.spon .g .tile{width:calc(50% - 5px);height:92px}
+.spon .s .tile{width:calc(33.333% - 7px);height:74px}
 /* Lauren asked for logos the same size. Different marks have wildly
    different aspect ratios, so give every one an identical box and let
    object-fit centre the artwork inside it. */
-.spon img{width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto}
-.spon .g,.spon .s{align-items:center;justify-items:center}
+.spon img{width:auto;max-width:78%;object-fit:contain;display:block}
+
 .ps{background:var(--ice);text-align:center}
 .ps img{max-width:186px;height:auto}
 .end{background:var(--navy);color:#C9D2F5;text-align:center}
@@ -143,16 +167,16 @@ nav.tabs a{padding:14px 2px;text-align:center;font-size:12px;font-weight:700;
 nav.tabs a:last-child{border-right:0}
 nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
 
-.spon img.lg-888voip{height:73px}
-.spon img.lg-grandstream{height:43px}
-.spon img.lg-alianza{height:31px}
-.spon img.lg-crexendo{height:48px}
-.spon img.lg-carrierx{height:32px}
-.spon img.lg-vconic{height:34px}
-.spon img.lg-phound{height:24px}
-.spon img.lg-the-vcon-foundation{height:44px}
-.spon img.lg-fornix{height:44px}
-.spon img.lg-technology-reseller-news{height:44px}</style></head><body>
+.spon img.lg-888voip{height:73px;max-height:76%}
+.spon img.lg-grandstream{height:43px;max-height:76%}
+.spon img.lg-alianza{height:31px;max-height:76%}
+.spon img.lg-crexendo{height:48px;max-height:76%}
+.spon img.lg-carrierx{height:32px;max-height:76%}
+.spon img.lg-vconic{height:34px;max-height:76%}
+.spon img.lg-phound{height:24px;max-height:76%}
+.spon img.lg-the-vcon-foundation{height:44px;max-height:76%}
+.spon img.lg-fornix{height:44px;max-height:76%}
+.spon img.lg-technology-reseller-news{height:44px;max-height:76%}</style></head><body>
 <div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
@@ -166,6 +190,14 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
   <a class="cta dark" href="wixmobile-tickets.html">Get a ticket for Fall &rsquo;26 Voice and Conversations</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></div><div class="tier-lab">Gold sponsors</div><div class="g"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></div><div class="tier-lab">Silver sponsors</div><div class="s"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 <nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html" aria-current="page">Past</a></nav>
+<script>
+(function(){var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
+function paint(){var n=document.querySelectorAll(".ebdays");if(!n.length)return;
+ var d=Math.ceil((EB-Date.now())/86400000);
+ var t=d>1?d+" days left. ":d===1?"Last day. ":"";
+ for(var i=0;i<n.length;i++){n[i].textContent=t;n[i].style.display=t?"":"none";}}
+paint();addEventListener("focus",paint);addEventListener("pageshow",paint);})();
+</script>
 </body></html>
