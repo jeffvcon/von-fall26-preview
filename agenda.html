@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:type" content="website"><meta property="og:title" content="Agenda | Voice and Conversations on the Net"><meta property="og:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Agenda | Voice and Conversations on the Net"><meta name="twitter:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><title>Agenda | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">13 Aug 2026, 13:41 ET &middot; build 498db1e</span></div><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:type" content="website"><meta property="og:title" content="Agenda | Voice and Conversations on the Net"><meta property="og:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><meta property="og:site_name" content="Voice and Conversations on the Net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Agenda | Voice and Conversations on the Net"><meta name="twitter:description" content="Three days in Atlanta. Pre-Conference on October 13, main conference on the 14th and 15th."><title>Agenda | Voice and Conversations on the Net</title></head><body><div style="background:#0E1320;color:#fff;font:600 16px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:11px 18px;text-align:center;letter-spacing:.01em">Private preview &middot; proposed design for Voice and Conversations on the Net &middot; not the live site<span style="display:block;font-weight:400;font-size:16px;opacity:.82;margin-top:3px">13 Aug 2026, 13:41 ET &middot; build 1652b88</span></div><style>
 /* ==========================================================================
    FALL '26 // WIX CUT
    Everything here is buildable in the classic Wix Editor they already have.
@@ -2353,7 +2353,12 @@ footer .mono a:hover{color:var(--sky)!important}
 }
 /* 6. Silver logos: equal INK, not equal boxes. See the note in the generator.
    Selectors are on alt text because the images carry no per-logo class. */
-.logo.silver img{width:auto!important;object-fit:contain!important;max-width:none!important}
+/* max-height is the one that actually binds here: the template carries
+   .spo-silver .logo.silver img{max-height:56px!important}, which silently
+   capped the three square marks at 56 while Phound's 40 slipped under it.
+   That is why the first pass moved Phound and left the others untouched. */
+.logo.silver img{width:auto!important;object-fit:contain!important;
+  max-width:none!important;max-height:none!important}
 .logo.silver img[alt="Phound"]{height:40px!important}
 .logo.silver img[alt="The vCon Foundation"]{height:73px!important}
 .logo.silver img[alt="Fornix"]{height:73px!important}

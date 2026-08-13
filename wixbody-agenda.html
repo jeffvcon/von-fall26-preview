@@ -2355,7 +2355,12 @@ footer .mono a:hover{color:var(--sky)!important}
 }
 /* 6. Silver logos: equal INK, not equal boxes. See the note in the generator.
    Selectors are on alt text because the images carry no per-logo class. */
-.logo.silver img{width:auto!important;object-fit:contain!important;max-width:none!important}
+/* max-height is the one that actually binds here: the template carries
+   .spo-silver .logo.silver img{max-height:56px!important}, which silently
+   capped the three square marks at 56 while Phound's 40 slipped under it.
+   That is why the first pass moved Phound and left the others untouched. */
+.logo.silver img{width:auto!important;object-fit:contain!important;
+  max-width:none!important;max-height:none!important}
 .logo.silver img[alt="Phound"]{height:40px!important}
 .logo.silver img[alt="The vCon Foundation"]{height:73px!important}
 .logo.silver img[alt="Fornix"]{height:73px!important}

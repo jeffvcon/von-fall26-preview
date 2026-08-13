@@ -639,7 +639,12 @@ strong, #vd .prose p strong, #vd .lede strong, #vd b:not(.dcard b):not(.cd b){co
 @media (max-width:700px){#vd .sponsorbar .bar-in img{height:clamp(64px,13vw,92px)!important}#vd .sponsorbar .barlab{font-size:19px!important}
 }#vd /* 6. Silver logos: equal INK, #vd not equal boxes. See the note in the generator.
    Selectors are on alt text because the images carry no per-logo class. */
-.logo.silver img{width:auto!important;object-fit:contain!important;max-width:none!important}#vd .logo.silver img[alt="Phound"]{height:40px!important}#vd .logo.silver img[alt="The vCon Foundation"]{height:73px!important}#vd .logo.silver img[alt="Fornix"]{height:73px!important}#vd .logo.silver img[alt="Technology Reseller News"]{height:73px!important}#vd .spo-silver, #vd .spo-silver .row{align-items:center!important}#vd /* 17, #vd again. One Eventbrite button still rendered as a 66x46 blue rectangle
+/* max-height is the one that actually binds here: the template carries
+   .spo-silver .logo.silver img{max-height:56px!important}#vd which silently
+   capped the three square marks at 56 while Phound's 40 slipped under it.
+   That is why the first pass moved Phound and left the others untouched. */
+.logo.silver img{width:auto!important;object-fit:contain!important;
+  max-width:none!important;max-height:none!important}#vd .logo.silver img[alt="Phound"]{height:40px!important}#vd .logo.silver img[alt="The vCon Foundation"]{height:73px!important}#vd .logo.silver img[alt="Fornix"]{height:73px!important}#vd .logo.silver img[alt="Technology Reseller News"]{height:73px!important}#vd .spo-silver, #vd .spo-silver .row{align-items:center!important}#vd /* 17, #vd again. One Eventbrite button still rendered as a 66x46 blue rectangle
    with no label: an earlier edit of mine blanked the text but left the anchor.
    :empty is exact, #vd so a labelled button can never be caught by it. */
 .cta a.btn:empty{display:none!important}#vd /* 9. Atlanta and Georgia stay on one line */
