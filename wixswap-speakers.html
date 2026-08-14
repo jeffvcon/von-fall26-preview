@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>speakers</title>
+<style>
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#fff}
+  iframe{display:block;width:100%;height:100%;border:0}
+</style></head><body>
+<iframe id="f" title="speakers" scrolling="no"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+<script>
+(function(){
+  // One decision, taken before anything heavy loads. The body that is not
+  // chosen is never requested at all.
+  var MOBILE = "https://fall26.pulver.com/desktop/wixmobile-speakers.html", DESKTOP = "https://fall26.pulver.com/desktop/wixfull-speakers.html", BREAK = 760;
+  var f = document.getElementById("f");
+  f.src = (window.innerWidth < BREAK ? MOBILE : DESKTOP);
+
+  // If the viewport crosses the breakpoint (tablet rotation, desktop resize),
+  // swap once rather than on every resize event.
+  var isMobile = window.innerWidth < BREAK, t;
+  addEventListener("resize", function(){
+    clearTimeout(t);
+    t = setTimeout(function(){
+      var now = window.innerWidth < BREAK;
+      if (now !== isMobile) { isMobile = now; f.src = now ? MOBILE : DESKTOP; }
+    }, 250);
+  });
+})();
+</script>
+</body></html>

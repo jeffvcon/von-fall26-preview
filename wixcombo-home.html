@@ -9,6 +9,10 @@ html,body{margin:0;padding:0;overflow-x:hidden}
    clock wrote the days number INTO the desktop view and the minutes into the
    mobile view, erasing both. */
 #vd{display:block}
+/* the desktop body assumes a 980 canvas; full-bleed in the embed it had
+   no side margin at all. Centre it and keep a gutter on wide screens. */
+#vd > *{max-width:1200px;margin-left:auto;margin-right:auto}
+@media (min-width:1240px){#vd{padding:0 24px}}
 #vm{display:none}
 @media (max-width:760px){#vd{display:none}#vm{display:block}}
 #vd, #vd{margin:0;padding:0;overflow-x:hidden}#vd /* ==========================================================================
@@ -726,7 +730,7 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
    readable floor, #vm so small labels looked like they were fading out. On dark
    grounds only, #vm lift it to a tint that clears the floor. Blue on white is
    unchanged. */
-.hero .kicker, #vm .bar .home span{color:#8FA6FF}#vm .hero .facts b{color:#9DB2FF}#vm .bar{background:#0B1220}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
+.hero .kicker, #vm .bar .home span{color:#8FA6FF}#vm .hero .facts b{color:#9DB2FF}#vm .bar{background:#0B1220}#vm .host.noportrait{display:block;text-align:left}#vm .host.noportrait div{margin-left:0;text-align:left}#vm .fullsite{margin:0;padding:14px 0 78px;text-align:center;font-size:13px}#vm .fullsite a{color:var(--ink-3,#5a6478)}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}#vm .spon .tier-lab:first-of-type{margin-top:0}#vm .spon .pres{text-align:center}#vm /* Lauren, #vm 13 Aug: "The logos are terrible." Three separate faults, #vm not one.
    A rigid 2 and 3 column grid left the 5th gold logo and the 4th silver logo
    orphaned hard left. Crexendo's artwork has a white background, #vm so it showed
@@ -993,7 +997,7 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
     <span><b>Where</b>Sandy Springs Performing Arts Center, Atlanta</span>
     <span><b>Who</b>Curated by Jeff Pulver</span>
   </div>
-  <a class="cta" href="wixmobile-tickets.html">Get a ticket</a>
+  <a class="cta" href="https://fall26.pulver.com/wixmobile-tickets.html" target="_top">Get a ticket</a>
   <p class="urg"><b class="ebdays"></b>Early-bird pricing ends August 28. Save up to $475.</p>
 </div></section>
 
@@ -1016,17 +1020,17 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
     <h3>The main conference</h3>
     <p>Sessions across both days, a welcome reception on the 14th, and
     networking throughout.</p></div>
-  <p class="more"><a href="wixmobile-agenda.html">See what gets covered</a></p>
+  <p class="more"><a href="https://fall26.pulver.com/wixmobile-agenda.html" target="_top">See what gets covered</a></p>
 </div></section>
 
 <section><div class="w">
   <p class="eyebrow">Who is here</p>
-  <div class="host"><img src="m/jeff-pulver.jpg" alt="Jeff Pulver">
+  <div class="host noportrait">
     <div><b>Curated and hosted by Jeff Pulver</b>
     <span>Producing the conversations of this industry since 1996.</span></div></div>
   <h2>Speakers</h2>
   <div class="faces mini"><figure><img src="m/ken-adams.jpg" alt="Ken Adams" loading="lazy"><figcaption>Ken Adams</figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson" loading="lazy"><figcaption>Michael Anderson</figcaption></figure><figure><img src="m/derek-caneja.jpg" alt="Derek Caneja" loading="lazy"><figcaption>Derek Caneja</figcaption></figure><figure><img src="m/gerry-christensen.jpg" alt="Gerry Christensen" loading="lazy"><figcaption>Gerry Christensen</figcaption></figure><figure><img src="m/dave-erickson.jpg" alt="Dave Erickson" loading="lazy"><figcaption>Dave Erickson</figcaption></figure><figure><img src="m/chris-fine.jpg" alt="Chris Fine" loading="lazy"><figcaption>Chris Fine</figcaption></figure><figure><img src="m/matt-florell.jpg" alt="Matt Florell" loading="lazy"><figcaption>Matt Florell</figcaption></figure><figure><img src="m/audrey-hayn.jpg" alt="Audrey Hayn" loading="lazy"><figcaption>Audrey Hayn</figcaption></figure><figure><img src="m/sahil-jagtap.jpg" alt="Sahil Jagtap" loading="lazy"><figcaption>Sahil Jagtap</figcaption></figure><figure><img src="m/hari-kishan-kv.jpg" alt="Hari Kishan KV" loading="lazy"><figcaption>Hari Kishan KV</figcaption></figure><figure><img src="m/hippolyte-lapierre.jpg" alt="Hippolyte Lapierre" loading="lazy"><figcaption>Hippolyte Lapierre</figcaption></figure><figure><img src="m/randy-layman.jpg" alt="Randy Layman" loading="lazy"><figcaption>Randy Layman</figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe" loading="lazy"><figcaption>Thomas McCarthy-Howe</figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock" loading="lazy"><figcaption>Bradley Metrock</figcaption></figure><figure><img src="m/vin-micciche.jpg" alt="Vin Micciche" loading="lazy"><figcaption>Vin Micciche</figcaption></figure><figure><img src="m/mike-mills.jpg" alt="Mike Mills" loading="lazy"><figcaption>Mike Mills</figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak" loading="lazy"><figcaption>Dag Peak</figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson" loading="lazy"><figcaption>Brian Peterson</figcaption></figure><figure><img src="m/dan-petrie.jpg" alt="Dan Petrie" loading="lazy"><figcaption>Dan Petrie</figcaption></figure><figure><img src="m/alberto-gonzalez-trastoy.jpg" alt="Alberto Gonzalez Trastoy" loading="lazy"><figcaption>Alberto Gonzalez Trastoy</figcaption></figure><figure><img src="m/mark-vange.jpg" alt="Mark Vange" loading="lazy"><figcaption>Mark Vange</figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver" loading="lazy"><figcaption>Jeff Pulver</figcaption></figure></div>
-  <p class="more"><a href="wixmobile-speakers.html">See all speakers</a></p>
+  <p class="more"><a href="https://fall26.pulver.com/wixmobile-speakers.html" target="_top">See all speakers</a></p>
 </div></section>
 
 <section><div class="w">
@@ -1053,12 +1057,13 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
 <section class="end"><div class="w">
   <h2>Join us in Atlanta.</h2>
   <p>A working conference for people who want to build and deploy, not just observe.</p>
-  <a class="cta" href="wixmobile-tickets.html">Get a ticket</a>
+  <a class="cta" href="https://fall26.pulver.com/wixmobile-tickets.html" target="_top">Get a ticket</a>
   <a class="cta ghost" href="https://www.vonevolution.com/sponsor" target="_top">Sponsor</a>
 </div></section>
 
 <section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 
+<p class="fullsite"><a href="https://www.vonevolution.com/?nomobile=1" target="_top">View the full site</a></p>
 
 </div>
 <script>
@@ -1085,7 +1090,8 @@ document.body.classList.toggle("past-earlybird",Date.now()>EB);
 function post(){try{parent.postMessage({vonHeight:
   Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)},"*");}catch(e){}}
 post();addEventListener("load",post);addEventListener("resize",post);
-setInterval(post,1500);
+// no setInterval: Embed-a-site never bridges postMessage to Velo, so the
+// old 1.5s beacon was pure battery drain on a phone for zero effect.
 })();
 </script>
 </body></html>

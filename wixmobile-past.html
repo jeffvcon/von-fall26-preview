@@ -11,7 +11,11 @@
 html,body{margin:0;padding:0;background:#fff;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink)}
 .w{padding:0 var(--pad)}
-section{padding:34px 0}
+/* 31, not 34. The home page measured 4476px at the 320px Wix frame width and
+   the mobile section holds 4330, so it was losing the tab bar off the bottom.
+   3px an edge across seven sections is 42 of the 146, and is under the
+   threshold where the rhythm reads as different. */
+section{padding:31px 0}
 section+section{border-top:1px solid var(--line)}
 h1,h2,h3{margin:0;color:var(--navy);letter-spacing:-.02em;text-wrap:balance}
 h1{font-size:32px;line-height:1.1;font-weight:800}
@@ -32,7 +36,7 @@ a{color:var(--blue)}
 .bar a.buy{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;
   font-weight:700;padding:9px 14px;border-radius:2px}
 
-.hero{background:var(--navy);color:#fff;padding:28px 0 32px}
+.hero{background:var(--navy);color:#fff;padding:24px 0 28px}
 .hero h1,.hero h2{color:#fff}
 .hero .kicker{font-size:12px;line-height:1;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:#8FA2FF;margin:0 0 13px}
@@ -132,6 +136,11 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .hero .facts b{color:#9DB2FF}
 .bar{background:#0B1220}
 
+.host.noportrait{display:block;text-align:left}
+.host.noportrait div{margin-left:0;text-align:left}
+/* .fullsite is gone. It was a "View the full site" line with 78px of empty
+   padding under it, 112px in all, and inside the Wix page it was also wrong:
+   that page IS the full site. The tab bar carries the navigation. */
 .spon{background:var(--ice)}
 .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}
@@ -181,7 +190,7 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
 .spon img.lg-the-vcon-foundation{height:44px;max-height:76%}
 .spon img.lg-fornix{height:44px;max-height:76%}
 .spon img.lg-technology-reseller-news{height:44px;max-height:76%}</style></head><body>
-<div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
+<div class="bar"><a target="_top" class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a target="_top" class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
   <p class="kicker">Past events</p><h1>Fourteen events since 2023</h1>
@@ -191,11 +200,11 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
   <div class="brand"><h3>Voice and Conversations</h3><p class="n">Three events, 2025 to 2026</p><ul><li><i>2026</i><b>Spring &#x27;26 Voice and Conversations</b></li><li><i>2025</i><b>Fall &#x27;25 vCon</b></li><li><i>2025</i><b>Spring &#x27;25 vCon</b></li></ul></div><div class="brand"><h3>VON: Evolution</h3><p class="n">Eight events, 2023 to 2025</p><ul><li><i>2025</i><b>Spring &#x27;25 VON</b></li><li><i>2024</i><b>Fall &#x27;24 VON: Evolution</b></li><li><i>2024</i><b>vCon Workshop</b></li><li><i>2024</i><b>Spring &#x27;24</b></li><li><i>2024</i><b>DeVON</b></li><li><i>2024</i><b>VON London</b></li><li><i>2023</i><b>Fall &#x27;23 VON: Evolution</b></li><li><i>2023</i><b>VON: Builder</b></li></ul></div><div class="brand"><h3>AI/COMM</h3><p class="n">Three events, 2024 to 2025</p><ul><li><i>2025</i><b>Spring &#x27;25 AI/COMM</b></li><li><i>2024</i><b>Fall &#x27;24 AI/COMM</b></li><li><i>2024</i><b>AI/COMM</b></li></ul></div>
   <p class="more">From 1997 until 2008, Voice on the Net was the VoIP industry
   conference. More than 5,000 people twice a year in the US.</p>
-  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket for Fall &rsquo;26 Voice and Conversations</a>
+  <a target="_top" class="cta dark" href="wixmobile-tickets.html">Get a ticket for Fall &rsquo;26 Voice and Conversations</a>
 </div></section>
 
 <section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
-<nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html" aria-current="page">Past</a></nav>
+<nav class="tabs"><a target="_top" href="wixmobile-home.html">Home</a><a target="_top" href="wixmobile-speakers.html">Speakers</a><a target="_top" href="wixmobile-agenda.html">Agenda</a><a target="_top" href="wixmobile-tickets.html">Tickets</a><a target="_top" href="wixmobile-past.html" aria-current="page">Past</a></nav>
 <script>
 (function(){var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
 function paint(){var n=document.querySelectorAll(".ebdays");if(!n.length)return;

@@ -9,6 +9,10 @@ html,body{margin:0;padding:0;overflow-x:hidden}
    clock wrote the days number INTO the desktop view and the minutes into the
    mobile view, erasing both. */
 #vd{display:block}
+/* the desktop body assumes a 980 canvas; full-bleed in the embed it had
+   no side margin at all. Centre it and keep a gutter on wide screens. */
+#vd > *{max-width:1200px;margin-left:auto;margin-right:auto}
+@media (min-width:1240px){#vd{padding:0 24px}}
 #vm{display:none}
 @media (max-width:760px){#vd{display:none}#vm{display:block}}
 #vd, #vd{margin:0;padding:0;overflow-x:hidden}#vd /* ==========================================================================
@@ -746,7 +750,7 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
    readable floor, #vm so small labels looked like they were fading out. On dark
    grounds only, #vm lift it to a tint that clears the floor. Blue on white is
    unchanged. */
-.hero .kicker, #vm .bar .home span{color:#8FA6FF}#vm .hero .facts b{color:#9DB2FF}#vm .bar{background:#0B1220}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
+.hero .kicker, #vm .bar .home span{color:#8FA6FF}#vm .hero .facts b{color:#9DB2FF}#vm .bar{background:#0B1220}#vm .host.noportrait{display:block;text-align:left}#vm .host.noportrait div{margin-left:0;text-align:left}#vm .fullsite{margin:0;padding:14px 0 78px;text-align:center;font-size:13px}#vm .fullsite a{color:var(--ink-3,#5a6478)}#vm .spon{background:var(--ice)}#vm .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}#vm .spon .tier-lab:first-of-type{margin-top:0}#vm .spon .pres{text-align:center}#vm /* Lauren, #vm 13 Aug: "The logos are terrible." Three separate faults, #vm not one.
    A rigid 2 and 3 column grid left the 5th gold logo and the 4th silver logo
    orphaned hard left. Crexendo's artwork has a white background, #vm so it showed
@@ -885,11 +889,12 @@ footer .mono, #vd footer span, #vd footer .mono a{color:#fff!important}#vd foote
   <ul class="bul"><li>Conversation capture, structuring and governance</li><li>vCons, and the state of the standard at the IETF</li><li>AI communication inside enterprise deployments</li><li>Compliance and analytics built on conversational memory</li><li>Contact center deployments, including regulated industries</li><li>What changes after a conversation ends</li></ul>
   <p class="more">Building on Spring '26 in Dallas, where more than 40 speakers
   from across North America and Europe took part.</p>
-  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
+  <a class="cta dark" href="https://fall26.pulver.com/wixmobile-tickets.html" target="_top">Get a ticket</a>
 </div></section>
 
 <section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
 
+<p class="fullsite"><a href="https://www.vonevolution.com/?nomobile=1" target="_top">View the full site</a></p>
 
 </div>
 <script>
@@ -916,7 +921,8 @@ document.body.classList.toggle("past-earlybird",Date.now()>EB);
 function post(){try{parent.postMessage({vonHeight:
   Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)},"*");}catch(e){}}
 post();addEventListener("load",post);addEventListener("resize",post);
-setInterval(post,1500);
+// no setInterval: Embed-a-site never bridges postMessage to Velo, so the
+// old 1.5s beacon was pure battery drain on a phone for zero effect.
 })();
 </script>
 </body></html>

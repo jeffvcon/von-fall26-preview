@@ -11,7 +11,11 @@
 html,body{margin:0;padding:0;background:#fff;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink)}
 .w{padding:0 var(--pad)}
-section{padding:34px 0}
+/* 31, not 34. The home page measured 4476px at the 320px Wix frame width and
+   the mobile section holds 4330, so it was losing the tab bar off the bottom.
+   3px an edge across seven sections is 42 of the 146, and is under the
+   threshold where the rhythm reads as different. */
+section{padding:31px 0}
 section+section{border-top:1px solid var(--line)}
 h1,h2,h3{margin:0;color:var(--navy);letter-spacing:-.02em;text-wrap:balance}
 h1{font-size:32px;line-height:1.1;font-weight:800}
@@ -32,7 +36,7 @@ a{color:var(--blue)}
 .bar a.buy{background:var(--blue);color:#fff;text-decoration:none;font-size:13px;
   font-weight:700;padding:9px 14px;border-radius:2px}
 
-.hero{background:var(--navy);color:#fff;padding:28px 0 32px}
+.hero{background:var(--navy);color:#fff;padding:24px 0 28px}
 .hero h1,.hero h2{color:#fff}
 .hero .kicker{font-size:12px;line-height:1;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:#8FA2FF;margin:0 0 13px}
@@ -132,6 +136,11 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .hero .facts b{color:#9DB2FF}
 .bar{background:#0B1220}
 
+.host.noportrait{display:block;text-align:left}
+.host.noportrait div{margin-left:0;text-align:left}
+/* .fullsite is gone. It was a "View the full site" line with 78px of empty
+   padding under it, 112px in all, and inside the Wix page it was also wrong:
+   that page IS the full site. The tab bar carries the navigation. */
 .spon{background:var(--ice)}
 .spon .tier-lab{font-size:11px;font-weight:700;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink);margin:22px 0 12px;text-align:center}
@@ -181,7 +190,7 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
 .spon img.lg-the-vcon-foundation{height:44px;max-height:76%}
 .spon img.lg-fornix{height:44px;max-height:76%}
 .spon img.lg-technology-reseller-news{height:44px;max-height:76%}</style></head><body>
-<div class="bar"><a class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a class="buy" href="wixmobile-tickets.html">Tickets</a></div>
+<div class="bar"><a target="_top" class="home" href="wixmobile-home.html"><span>Fall &rsquo;26</span> Voice and Conversations</a><a target="_top" class="buy" href="wixmobile-tickets.html">Tickets</a></div>
 
 <section class="hero"><div class="w">
   <p class="kicker">The lineup</p><h1>Speakers</h1>
@@ -190,12 +199,12 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
 <section><div class="w">
   <div class="faces all"><figure><img src="m/ken-adams.jpg" alt="Ken Adams" loading="lazy"><figcaption>Ken Adams<em>P2P Labs</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson" loading="lazy"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/derek-caneja.jpg" alt="Derek Caneja" loading="lazy"><figcaption>Derek Caneja<em>VoiceRun</em></figcaption></figure><figure><img src="m/gerry-christensen.jpg" alt="Gerry Christensen" loading="lazy"><figcaption>Gerry Christensen<em>Wireless Waypoint</em></figcaption></figure><figure><img src="m/dave-erickson.jpg" alt="Dave Erickson" loading="lazy"><figcaption>Dave Erickson<em>CarrierX</em></figcaption></figure><figure><img src="m/chris-fine.jpg" alt="Chris Fine" loading="lazy"><figcaption>Chris Fine<em>Integrative Technologies</em></figcaption></figure><figure><img src="m/matt-florell.jpg" alt="Matt Florell" loading="lazy"><figcaption>Matt Florell<em>VICIdial Group</em></figcaption></figure><figure><img src="m/audrey-hayn.jpg" alt="Audrey Hayn" loading="lazy"><figcaption>Audrey Hayn<em>MindMaking</em></figcaption></figure><figure><img src="m/sahil-jagtap.jpg" alt="Sahil Jagtap" loading="lazy"><figcaption>Sahil Jagtap<em>Drum</em></figcaption></figure><figure><img src="m/hari-kishan-kv.jpg" alt="Hari Kishan KV" loading="lazy"><figcaption>Hari Kishan KV<em>BoundaryAI</em></figcaption></figure><figure><img src="m/hippolyte-lapierre.jpg" alt="Hippolyte Lapierre" loading="lazy"><figcaption>Hippolyte Lapierre<em>BoundaryAI</em></figcaption></figure><figure><img src="m/randy-layman.jpg" alt="Randy Layman" loading="lazy"><figcaption>Randy Layman<em>AVOXI</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe" loading="lazy"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock" loading="lazy"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure><figure><img src="m/vin-micciche.jpg" alt="Vin Micciche" loading="lazy"><figcaption>Vin Micciche<em>Strolid</em></figcaption></figure><figure><img src="m/mike-mills.jpg" alt="Mike Mills" loading="lazy"><figcaption>Mike Mills<em>Gamma</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak" loading="lazy"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson" loading="lazy"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/dan-petrie.jpg" alt="Dan Petrie" loading="lazy"><figcaption>Dan Petrie<em>SIPez</em></figcaption></figure><figure><img src="m/alberto-gonzalez-trastoy.jpg" alt="Alberto Gonzalez Trastoy" loading="lazy"><figcaption>Alberto Gonzalez Trastoy<em>WebRTC</em></figcaption></figure><figure><img src="m/mark-vange.jpg" alt="Mark Vange" loading="lazy"><figcaption>Mark Vange<em>Autom8ly</em></figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver" loading="lazy"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure></div>
   <p class="more">Session times are published closer to the event.
-  <a href="wixmobile-agenda.html">See the agenda</a>.</p>
-  <a class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
+  <a target="_top" href="wixmobile-agenda.html">See the agenda</a>.</p>
+  <a target="_top" class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
 </div></section>
 
 <section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
-<nav class="tabs"><a href="wixmobile-home.html">Home</a><a href="wixmobile-speakers.html" aria-current="page">Speakers</a><a href="wixmobile-agenda.html">Agenda</a><a href="wixmobile-tickets.html">Tickets</a><a href="wixmobile-past.html">Past</a></nav>
+<nav class="tabs"><a target="_top" href="wixmobile-home.html">Home</a><a target="_top" href="wixmobile-speakers.html" aria-current="page">Speakers</a><a target="_top" href="wixmobile-agenda.html">Agenda</a><a target="_top" href="wixmobile-tickets.html">Tickets</a><a target="_top" href="wixmobile-past.html">Past</a></nav>
 <script>
 (function(){var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
 function paint(){var n=document.querySelectorAll(".ebdays");if(!n.length)return;
