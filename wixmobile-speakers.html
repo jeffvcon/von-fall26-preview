@@ -71,16 +71,24 @@ a{color:var(--blue)}
 .host b{display:block;color:var(--navy);font-size:17px;font-weight:700;line-height:1.3}
 .host span{font-size:15px;line-height:1.4}
 .faces{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin:0 0 24px}
-/* Home carries every speaker at list density: four up, small, names only.
-   The speakers page keeps the large portraits with company. */
-.faces.mini{grid-template-columns:repeat(4,1fr);gap:14px 8px}
-.faces.mini figcaption{margin-top:6px;font-size:11px;line-height:1.2;font-weight:600}
+/* Jeff, 14 Aug: "it is important to list title, company for the speakers."
+   A name alone is not enough, so every face carries name, title and company,
+   the same three lines the live desktop page shows.
+   Four across gives a 66px column at the 320px width Wix hands a mobile embed,
+   and "EVP of AI for Enterprise (Amelia BU)" wraps to five lines in that. Two
+   across gives ~148px, which holds the longest title in two lines. The
+   portrait is capped rather than filling the column, or 11 rows of full-width
+   circles adds 1,700px to the page. */
+.faces.mini{grid-template-columns:repeat(2,1fr);gap:22px 14px}
+.faces.all{grid-template-columns:repeat(2,1fr)}
 .faces figure{margin:0;text-align:center}
 .faces img{width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;display:block}
+.faces.mini img,.faces.all img{width:96px;height:96px;margin:0 auto}
 .faces figcaption{margin-top:8px;font-size:13px;line-height:1.25;font-weight:700;
   color:var(--navy)}
 .faces em{display:block;font-size:12px;line-height:1.25;font-style:normal;
   font-weight:400;color:var(--ink);margin-top:2px}
+.faces em.role{color:var(--navy);margin-top:3px}
 .names{columns:2;column-gap:16px;margin:0;padding:0;list-style:none}
 .names li{break-inside:avoid;margin:0 0 11px;font-size:14px;line-height:1.25;
   font-weight:600;color:var(--navy)}
@@ -92,6 +100,26 @@ a{color:var(--blue)}
 .roster b{display:block;color:var(--navy);font-size:16px;font-weight:700;line-height:1.3}
 .roster span{font-size:14px;line-height:1.35;display:block;margin-top:2px}
 .more{margin:18px 0 0;font-size:15px;line-height:1.45}
+
+/* Jeff, 15 Aug: on the home page, speakers only in the slider -- the full
+   text roster belongs to the Speakers page, one tap away. A horizontal
+   scroller keeps every one of the 22 reachable without spending the
+   1,700px+ of vertical scroll a stacked list or grid costs. Bleeds full
+   width past the section's own padding (negative margin, padding put back
+   on the track) so the last visible card doesn't look clipped by the page
+   edge; the browser's native scrollbar is hidden since the cards
+   themselves are the only affordance a thumb needs. */
+.slider{display:flex;gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory;margin:0 calc(var(--pad) * -1);
+  padding:2px var(--pad) 6px;scrollbar-width:none}
+.slider::-webkit-scrollbar{display:none}
+.slider figure{flex:0 0 108px;margin:0;text-align:center;scroll-snap-align:start}
+.slider img{width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;margin:0 auto}
+.slider figcaption{margin-top:8px;font-size:13px;line-height:1.25;font-weight:700;
+  color:var(--navy)}
+.slider em{display:block;font-size:12px;line-height:1.25;font-style:normal;
+  font-weight:400;color:var(--ink);margin-top:2px}
+.slider em.role{color:var(--navy);margin-top:3px}
 
 ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .for li,.bul li{margin:0 0 11px;font-size:16px;line-height:1.45}
@@ -197,7 +225,7 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
   <p class="sub">More announced weekly.</p>
 </div></section>
 <section><div class="w">
-  <div class="faces all"><figure><img src="m/ken-adams.jpg" alt="Ken Adams" loading="lazy"><figcaption>Ken Adams<em>P2P Labs</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson" loading="lazy"><figcaption>Michael Anderson<em>SoundHound</em></figcaption></figure><figure><img src="m/derek-caneja.jpg" alt="Derek Caneja" loading="lazy"><figcaption>Derek Caneja<em>VoiceRun</em></figcaption></figure><figure><img src="m/gerry-christensen.jpg" alt="Gerry Christensen" loading="lazy"><figcaption>Gerry Christensen<em>Wireless Waypoint</em></figcaption></figure><figure><img src="m/dave-erickson.jpg" alt="Dave Erickson" loading="lazy"><figcaption>Dave Erickson<em>CarrierX</em></figcaption></figure><figure><img src="m/chris-fine.jpg" alt="Chris Fine" loading="lazy"><figcaption>Chris Fine<em>Integrative Technologies</em></figcaption></figure><figure><img src="m/matt-florell.jpg" alt="Matt Florell" loading="lazy"><figcaption>Matt Florell<em>VICIdial Group</em></figcaption></figure><figure><img src="m/audrey-hayn.jpg" alt="Audrey Hayn" loading="lazy"><figcaption>Audrey Hayn<em>MindMaking</em></figcaption></figure><figure><img src="m/sahil-jagtap.jpg" alt="Sahil Jagtap" loading="lazy"><figcaption>Sahil Jagtap<em>Drum</em></figcaption></figure><figure><img src="m/hari-kishan-kv.jpg" alt="Hari Kishan KV" loading="lazy"><figcaption>Hari Kishan KV<em>BoundaryAI</em></figcaption></figure><figure><img src="m/hippolyte-lapierre.jpg" alt="Hippolyte Lapierre" loading="lazy"><figcaption>Hippolyte Lapierre<em>BoundaryAI</em></figcaption></figure><figure><img src="m/randy-layman.jpg" alt="Randy Layman" loading="lazy"><figcaption>Randy Layman<em>AVOXI</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe" loading="lazy"><figcaption>Thomas McCarthy-Howe<em>vConic</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock" loading="lazy"><figcaption>Bradley Metrock<em>FlagStat</em></figcaption></figure><figure><img src="m/vin-micciche.jpg" alt="Vin Micciche" loading="lazy"><figcaption>Vin Micciche<em>Strolid</em></figcaption></figure><figure><img src="m/mike-mills.jpg" alt="Mike Mills" loading="lazy"><figcaption>Mike Mills<em>Gamma</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak" loading="lazy"><figcaption>Dag Peak<em>Alianza</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson" loading="lazy"><figcaption>Brian Peterson<em>Dialpad</em></figcaption></figure><figure><img src="m/dan-petrie.jpg" alt="Dan Petrie" loading="lazy"><figcaption>Dan Petrie<em>SIPez</em></figcaption></figure><figure><img src="m/alberto-gonzalez-trastoy.jpg" alt="Alberto Gonzalez Trastoy" loading="lazy"><figcaption>Alberto Gonzalez Trastoy<em>WebRTC</em></figcaption></figure><figure><img src="m/mark-vange.jpg" alt="Mark Vange" loading="lazy"><figcaption>Mark Vange<em>Autom8ly</em></figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver" loading="lazy"><figcaption>Jeff Pulver<em>The vCon Foundation</em></figcaption></figure></div>
+  <div class="faces all"><figure><img src="m/ken-adams.jpg" alt="Ken Adams" loading="lazy"><figcaption>Ken Adams<em class="role">President</em><em>P2P Labs</em></figcaption></figure><figure><img src="m/michael-anderson.jpg" alt="Michael Anderson" loading="lazy"><figcaption>Michael Anderson<em class="role">EVP of AI for Enterprise (Amelia BU)</em><em>SoundHound</em></figcaption></figure><figure><img src="m/derek-caneja.jpg" alt="Derek Caneja" loading="lazy"><figcaption>Derek Caneja<em class="role">Co-Founder &amp; CTO</em><em>VoiceRun</em></figcaption></figure><figure><img src="m/gerry-christensen.jpg" alt="Gerry Christensen" loading="lazy"><figcaption>Gerry Christensen<em class="role">Principal Consultant &amp; Analyst</em><em>Wireless Waypoint</em></figcaption></figure><figure><img src="m/dave-erickson.jpg" alt="Dave Erickson" loading="lazy"><figcaption>Dave Erickson<em class="role">CEO</em><em>CarrierX</em></figcaption></figure><figure><img src="m/chris-fine.jpg" alt="Chris Fine" loading="lazy"><figcaption>Chris Fine<em class="role">CEO</em><em>Integrative Technologies</em></figcaption></figure><figure><img src="m/matt-florell.jpg" alt="Matt Florell" loading="lazy"><figcaption>Matt Florell<em class="role">President</em><em>VICIdial Group</em></figcaption></figure><figure><img src="m/audrey-hayn.jpg" alt="Audrey Hayn" loading="lazy"><figcaption>Audrey Hayn<em class="role">Co-Founder &amp; COO</em><em>MindMaking</em></figcaption></figure><figure><img src="m/sahil-jagtap.jpg" alt="Sahil Jagtap" loading="lazy"><figcaption>Sahil Jagtap<em class="role">CEO &amp; Founder</em><em>Drum</em></figcaption></figure><figure><img src="m/hari-kishan-kv.jpg" alt="Hari Kishan KV" loading="lazy"><figcaption>Hari Kishan KV<em class="role">Director of Cloud Engineering</em><em>Manulife</em></figcaption></figure><figure><img src="m/hippolyte-lapierre.jpg" alt="Hippolyte Lapierre" loading="lazy"><figcaption>Hippolyte Lapierre<em class="role">CEO</em><em>BoundaryAI</em></figcaption></figure><figure><img src="m/randy-layman.jpg" alt="Randy Layman" loading="lazy"><figcaption>Randy Layman<em class="role">CTO</em><em>AVOXI</em></figcaption></figure><figure><img src="m/thomas-mccarthy-howe.jpg" alt="Thomas McCarthy-Howe" loading="lazy"><figcaption>Thomas McCarthy-Howe<em class="role">CTO</em><em>vConic</em></figcaption></figure><figure><img src="m/bradley-metrock.jpg" alt="Bradley Metrock" loading="lazy"><figcaption>Bradley Metrock<em class="role">CEO &amp; General Partner, Project Voice Capital Partner</em><em>FlagStat</em></figcaption></figure><figure><img src="m/vin-micciche.jpg" alt="Vin Micciche" loading="lazy"><figcaption>Vin Micciche<em class="role">CEO &amp; Founder</em><em>Strolid</em></figcaption></figure><figure><img src="m/mike-mills.jpg" alt="Mike Mills" loading="lazy"><figcaption>Mike Mills<em class="role">Managing Director, Service Provider</em><em>Gamma</em></figcaption></figure><figure><img src="m/dag-peak.jpg" alt="Dag Peak" loading="lazy"><figcaption>Dag Peak<em class="role">CPTO</em><em>Alianza</em></figcaption></figure><figure><img src="m/brian-peterson.jpg" alt="Brian Peterson" loading="lazy"><figcaption>Brian Peterson<em class="role">Co-Founder &amp; CTO</em><em>Dialpad</em></figcaption></figure><figure><img src="m/dan-petrie.jpg" alt="Dan Petrie" loading="lazy"><figcaption>Dan Petrie<em class="role">President</em><em>SIPez</em></figcaption></figure><figure><img src="m/alberto-gonzalez-trastoy.jpg" alt="Alberto Gonzalez Trastoy" loading="lazy"><figcaption>Alberto Gonzalez Trastoy<em class="role">CTO</em><em>WebRTC Ventures</em></figcaption></figure><figure><img src="m/mark-vange.jpg" alt="Mark Vange" loading="lazy"><figcaption>Mark Vange<em class="role">Founder &amp; CTO</em><em>Autom8ly</em></figcaption></figure><figure><img src="m/jeff-pulver.jpg" alt="Jeff Pulver" loading="lazy"><figcaption>Jeff Pulver<em class="role">CEO</em><em>The vCon Foundation</em></figcaption></figure></div>
   <p class="more">Session times are published closer to the event.
   <a target="_top" href="wixmobile-agenda.html">See the agenda</a>.</p>
   <a target="_top" class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>

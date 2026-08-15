@@ -82,7 +82,7 @@ h1.t small{display:block;font-size:.36em;color:var(--sky);letter-spacing:.02em;m
 /* ---------- embed placeholders (real iframes in Wix) ---------- */
 .embed{position:relative;width:100%;overflow:hidden;background:var(--blue)}
 .embed canvas{display:block;width:100%;height:100%}
-#bandWrap{height:150px}
+
 #cdWrap{height:104px;background:var(--blue);display:flex;align-items:center}
 .cd{max-width:var(--col);margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:26px;width:100%;flex-wrap:wrap}
 .cd .lab{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--sky);line-height:1.6}
@@ -158,7 +158,8 @@ body.showwix .note{display:block}
 .curated b{font-weight:800;letter-spacing:.06em}
 .curator{display:flex;gap:clamp(20px,3.4vw,44px);align-items:center}
 .curator img{width:clamp(110px,15vw,170px);height:clamp(110px,15vw,170px);border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--blue)}
-@media (max-width:680px){.curator{flex-direction:column;align-items:flex-start}}
+@media (max-width:680px){.curator{flex-direction:column;align-items:flex-start}
+  .curator img{width:110px!important;height:110px!important;border-width:3px!important}}
 .hook{margin:0 0 20px;font-size:clamp(15px,1.7vw,18.5px);line-height:1.45;font-weight:700;color:#fff;max-width:34ch;border-left:3px solid rgba(255,255,255,.55);padding-left:14px}
 .hook span{display:block;font-weight:500;color:var(--sky);margin-top:4px}
 .tracks{display:grid;grid-template-columns:1fr auto 1fr;gap:0 clamp(14px,2vw,26px);align-items:start;margin-top:26px}
@@ -688,7 +689,11 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 :root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
 
 /* doors-open banner is blue, not black */
-#cdWrap{background:var(--blue)!important}
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
+
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
 .cd .lab b{color:#fff!important;opacity:.92}
 .cd .u .n{color:#fff!important}
@@ -751,6 +756,10 @@ h2.sec{color:var(--blue)!important}
 /* community photos in colour */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
 @media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
 .gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
 
 /* speakers: colour photos, blue names, company in blue */
@@ -930,6 +939,7 @@ ul.exp li{color:#0E1320}
 .finale .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
 .finale .btn:hover,.finale .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
 footer{background:var(--blue-deep)!important;color:#DDE4FF!important}
+footer .ftlogo{height:34px;width:auto;display:block;margin-bottom:10px}
 footer a{color:#DDE4FF!important}
 footer a:hover{color:#fff!important}
 
@@ -954,25 +964,15 @@ footer a:hover{color:#fff!important}
 .codebox a:hover{color:var(--hover)!important}
 
 /* sponsor tiers: presenting > gold > silver */
-.tierlab{margin:22px 0 10px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
-.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:14px 22px}
+.tierlab{margin:30px 0 12px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:22px}
 .spo-gold .logo.gold{flex:0 1 calc(33.333% - 16px);min-width:250px;background:transparent;border:0;
-  aspect-ratio:auto;display:grid;place-items:center;padding:6px 18px}
-/* SIZE BY THE BOX, NOT BY A HEIGHT CAP. Jeff, 10 Aug: "all of the silver
-   sponsors should be as big as Phound. otherwise people will complain."
-   With only a max-height, a logo's rendered AREA depends on its aspect ratio,
-   so a wide mark filled its box and a square one used a fraction of it: Phound
-   is 460x133 and rendered 230x66 (15,180 sq px) while the three square silver
-   marks rendered 78x78 (6,084) -- less than half, for the same money. Every
-   logo now gets an identical box and object-fit:contain scales it UP to touch
-   the sides, so a square mark uses the full height and a wide one the full
-   width. Gold's box stays taller than silver's so the tiers still read in
-   order. */
-.spo-gold .logo.gold img{width:100%;height:130px;max-height:none;object-fit:contain}
-.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:14px 20px}
+  aspect-ratio:auto;display:grid;place-items:center;padding:18px}
+.spo-gold .logo.gold img{max-height:130px;max-width:100%;width:auto;object-fit:contain}
+.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
 .spo-silver .logo.silver{flex:0 1 calc(25% - 15px);min-width:190px;background:transparent;border:0;
-  aspect-ratio:auto;display:grid;place-items:center;padding:6px 14px}
-.spo-silver .logo.silver img{width:100%;height:104px;max-height:none;object-fit:contain}
+  aspect-ratio:auto;display:grid;place-items:center;padding:14px}
+.spo-silver .logo.silver img{max-height:78px;max-width:100%;width:auto;object-fit:contain}
 @media (max-width:820px){.spo-gold .logo.gold{flex:0 1 calc(50% - 11px)}.spo-silver .logo.silver{flex:0 1 calc(50% - 10px)}}
 /* mailing list block, styled like the Report but blue */
 .mailbox{margin-top:20px;padding:24px;background:var(--blue);border-radius:0;
@@ -984,44 +984,6 @@ footer a:hover{color:#fff!important}
 .mailbox input{width:100%;padding:16px;border-radius:3px;border:2px solid #fff;font-size:18px}
 .mailbox .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
 .mailbox .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
-
-/* ==========================================================================
-   AGENDA (#program) and the promoted thesis line , added 10 Aug 2026
-   The nav advertised "Agenda" pointing at #program for as long as the page has
-   existed and there was no such section, so the link did nothing at all. Track
-   A carries vCon purple; Track B is blue, NOT green, because green measures
-   3.36:1 and is fill-only in this system, never text.
-   ========================================================================== */
-.thesis-h{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.06;
-  color:var(--blue);margin:0 0 14px}
-.agenda{margin-top:30px;display:grid;gap:20px}
-.aday{background:var(--card,#fff);border:2px solid var(--line,#E3E4E8);padding:26px 28px}
-@media (max-width:620px){.aday{padding:20px 18px}}
-.aday.oct13{border-left:7px solid var(--purple)}
-.ahead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-  padding-bottom:14px;margin-bottom:16px;border-bottom:2px solid var(--line,#E3E4E8)}
-.an{font-size:17px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ink,#0E1320);white-space:nowrap}
-.ah{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.03em;color:var(--blue)}
-.atracks{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media (max-width:820px){.atracks{grid-template-columns:1fr;gap:20px}
-  .atracks .atrack+.atrack{border-top:2px dashed var(--line,#E3E4E8);padding-top:18px}}
-@media (min-width:821px){.atracks .atrack+.atrack{border-left:2px dashed var(--line,#E3E4E8);padding-left:24px}}
-.atname{margin:0 0 10px;font-size:17px;font-weight:800;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--purple)}
-.atname.live{color:var(--blue)}
-.agenda ul{margin:0;padding-left:20px}
-.agenda li{font-size:18px;line-height:1.55;color:var(--ink2,#47506B);margin:0 0 9px}
-.agenda li b{color:var(--blue)}
-.aflat{list-style:none;padding-left:0!important}
-.aflat li{display:grid;grid-template-columns:190px 1fr;gap:6px 18px;align-items:baseline;
-  padding:11px 0;margin:0;border-bottom:1px solid var(--rule,#E3E4E8)}
-.aflat li:last-child{border-bottom:0}
-@media (max-width:620px){.aflat li{grid-template-columns:1fr;gap:3px}}
-.aflat li b{font-size:16.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-  color:var(--blue);font-variant-numeric:tabular-nums}
-.anote{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--ink2,#47506B)}
-.anote b{color:var(--blue)}
 
 
 /* venue photo as an actual photograph, not a background wash */
@@ -1580,7 +1542,11 @@ footer a,footer .mono{font-weight:600;letter-spacing:.02em;text-transform:none}
 :root{ --purple:#6A0DAD; --green:#0A6E3D; --amberlbl:#8A5A00; }
 
 /* doors-open banner is blue, not black */
-#cdWrap{background:var(--blue)!important}
+#cdWrap{background:var(--blue)!important;padding:0}
+/* one clock on the page. This is a marker, not a timer. */
+#cdWrap .cd{min-height:0;height:auto;padding:6px 0;display:flex;justify-content:center;align-items:center}
+
+#cdWrap .cd .lab{font-size:clamp(17px,1.9vw,20px)}
 .cd .lab{color:#fff!important}
 .cd .lab b{color:#fff!important;opacity:.92}
 .cd .u .n{color:#fff!important}
@@ -1643,6 +1609,10 @@ h2.sec{color:var(--blue)!important}
 /* community photos in colour */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
 @media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr)}}
+/* twelve identical uncaptioned photos said nothing. Six, each saying something. */
+.cshot{margin:0}
+.cshot img{width:100%;height:100%;object-fit:cover;display:block}
+.cshot figcaption{margin-top:8px;font-size:16px;line-height:1.4;color:#3A4157}
 .gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border:3px solid var(--blue);border-radius:4px;filter:none}
 
 /* speakers: colour photos, blue names, company in blue */
@@ -1822,6 +1792,7 @@ ul.exp li{color:#0E1320}
 .finale .btn.solid{background:#fff!important;color:var(--blue)!important;border-color:#fff!important}
 .finale .btn:hover,.finale .btn.solid:hover{background:var(--hover)!important;color:#fff!important;border-color:var(--hover)!important}
 footer{background:var(--blue-deep)!important;color:#DDE4FF!important}
+footer .ftlogo{height:34px;width:auto;display:block;margin-bottom:10px}
 footer a{color:#DDE4FF!important}
 footer a:hover{color:#fff!important}
 
@@ -1846,25 +1817,15 @@ footer a:hover{color:#fff!important}
 .codebox a:hover{color:var(--hover)!important}
 
 /* sponsor tiers: presenting > gold > silver */
-.tierlab{margin:22px 0 10px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
-.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:14px 22px}
+.tierlab{margin:30px 0 12px;font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.spo-gold{display:flex!important;flex-wrap:wrap;justify-content:center;gap:22px}
 .spo-gold .logo.gold{flex:0 1 calc(33.333% - 16px);min-width:250px;background:transparent;border:0;
-  aspect-ratio:auto;display:grid;place-items:center;padding:6px 18px}
-/* SIZE BY THE BOX, NOT BY A HEIGHT CAP. Jeff, 10 Aug: "all of the silver
-   sponsors should be as big as Phound. otherwise people will complain."
-   With only a max-height, a logo's rendered AREA depends on its aspect ratio,
-   so a wide mark filled its box and a square one used a fraction of it: Phound
-   is 460x133 and rendered 230x66 (15,180 sq px) while the three square silver
-   marks rendered 78x78 (6,084) -- less than half, for the same money. Every
-   logo now gets an identical box and object-fit:contain scales it UP to touch
-   the sides, so a square mark uses the full height and a wide one the full
-   width. Gold's box stays taller than silver's so the tiers still read in
-   order. */
-.spo-gold .logo.gold img{width:100%;height:130px;max-height:none;object-fit:contain}
-.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:14px 20px}
+  aspect-ratio:auto;display:grid;place-items:center;padding:18px}
+.spo-gold .logo.gold img{max-height:130px;max-width:100%;width:auto;object-fit:contain}
+.spo-silver{display:flex!important;flex-wrap:wrap;justify-content:center;gap:20px}
 .spo-silver .logo.silver{flex:0 1 calc(25% - 15px);min-width:190px;background:transparent;border:0;
-  aspect-ratio:auto;display:grid;place-items:center;padding:6px 14px}
-.spo-silver .logo.silver img{width:100%;height:104px;max-height:none;object-fit:contain}
+  aspect-ratio:auto;display:grid;place-items:center;padding:14px}
+.spo-silver .logo.silver img{max-height:78px;max-width:100%;width:auto;object-fit:contain}
 @media (max-width:820px){.spo-gold .logo.gold{flex:0 1 calc(50% - 11px)}.spo-silver .logo.silver{flex:0 1 calc(50% - 10px)}}
 /* mailing list block, styled like the Report but blue */
 .mailbox{margin-top:20px;padding:24px;background:var(--blue);border-radius:0;
@@ -1939,6 +1900,36 @@ footer a:hover{color:#fff!important}
 .hero-side .venue img{width:100%;height:clamp(300px,34vw,430px);object-fit:cover}
 @media (max-width:820px){.hero-side .venue img{height:clamp(190px,44vw,280px)}}
 
+
+/* If the sale runs on thirty years of producing events, the track record
+   belongs in the hero, not 40% down the page. */
+.strip.hero .curated{margin:20px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;
+  letter-spacing:0;text-transform:none;color:#0E1320!important;line-height:1.35}
+.strip.hero .curated b{color:var(--blue)!important;font-weight:800}
+.strip.hero .curated span{display:block;font-weight:500;font-size:clamp(16px,1.7vw,18px);
+  color:#3A4157;margin-top:4px;letter-spacing:0;text-transform:none}
+
+/* The history ran 1997 to 2008 and then jumped to 2026, which read as a gap.
+   There was no gap. Jeff never stopped, and the past events prove it. */
+.curator .nostop{font-size:clamp(19px,2.1vw,22px);font-weight:700;line-height:1.4;color:#0E1320}
+.curator .nostop a{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.curator .nostop a:hover{color:var(--hover)!important}
+
+/* Six competing type voices in one block meant nothing receded. One lead, the
+   rest plain. Reviewer's fix, and he was right. */
+.curator .passion{font-size:clamp(20px,2.2vw,23px);font-weight:800;line-height:1.36;
+  letter-spacing:-.015em;color:#0E1320}
+.curator p:not(.passion),.curator p:not(.passion) strong{font-size:19px!important;
+  font-weight:500!important;line-height:1.62!important;letter-spacing:0!important;
+  color:#3A4157!important;margin-top:11px!important}
+.curator .promise{font-weight:700!important;color:#0E1320!important}
+.curator .wiki{color:var(--blue)!important;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.curator .wiki:hover{color:var(--hover)!important}
+
+/* what people actually buy, in Jeff's words */
+.curator .promise{font-size:clamp(20px,2.3vw,25px);font-weight:800;letter-spacing:-.02em;
+  line-height:1.3;color:var(--blue)!important;max-width:30ch}
+
 /* ==========================================================================
    HERO, LAUREN'S NOTES
    Title in brand blue, not grey. Nothing tiny. One action, not two. More room
@@ -1953,19 +1944,36 @@ footer a:hover{color:#fff!important}
 .strip.hero .herourge{font-size:clamp(19px,2.1vw,22px);font-weight:700}
 @media (max-width:820px){
   .col{padding:0 26px}
+  /* the header was taking 142px of the fold. Mark only, one row. */
+  .hdr .col{height:56px;min-height:56px;flex-wrap:nowrap;gap:10px;padding-top:0;padding-bottom:0}
+  .hdr .brand .nm{display:none}
+  .hdr .brand img{height:30px}
+  .hdr .btn.solid{padding:8px 14px;font-size:16px}
+  /* the hero was 1,024px on a phone. One thesis line, one chip. */
+  .strip.hero .herothesis{font-size:clamp(20px,5.2vw,24px)}
+  /* hide whole sentences, not the line breaks between them. Hiding the <br>s
+     ran the text together with no space and looked like a rendering fault. */
+  .strip.hero .herothesis span:not(:last-child){display:none}
+  .strip.hero .tags .tag:nth-child(2){display:none}
+  .strip.hero .curated span{display:none}
   .strip.hero h1.t{font-size:clamp(34px,8.4vw,52px)}
   .strip.hero .sub{font-size:clamp(19px,4.8vw,23px);max-width:none}
   .strip.hero .herothesis{font-size:clamp(20px,5.2vw,25px)}
 }
 
 /* the early-bird bar: tighter box, and the words that matter are the big ones */
-.ebird{padding:clamp(16px,2vw,22px) 0}
-.ebird .eb-in .eb-lab{font-size:clamp(23px,2.9vw,32px);line-height:1.18}
+.ebird{padding:clamp(11px,1.4vw,15px) 0}
+.ebird .eb-in .eb-lab{font-size:clamp(19px,2.1vw,23px);line-height:1.2}
 .ebird .eb-in .eb-lab .ebhead{display:block;font-weight:800;letter-spacing:-.03em}
 .ebird .eb-in .eb-lab b{font-weight:600;font-size:clamp(16px,1.7vw,18px);margin-top:5px}
-.ebclk .u{padding:7px 11px;min-width:66px}
-.ebclk .n{font-size:clamp(21px,2.5vw,28px)}
+.ebclk .u{padding:5px 9px;min-width:54px}
+.ebclk .n{font-size:clamp(17px,1.9vw,21px)}
 .ebclk .x{font-size:15px;margin-top:4px}
+.evt{color:var(--blue)!important;font-weight:800}
+/* the event name inherits whatever the surface needs. The register bar has a
+   WHITE button with blue text, so white-on-white was invisible there. */
+.finale .evt,footer .evt,.navy .evt{color:#fff!important}
+.regstrip .btn.solid .evt{color:var(--blue)!important}
 .herourge{margin:16px 0 0;font-size:clamp(17px,1.9vw,19px);font-weight:600;color:#0E1320}
 .hero .herourge b{font-weight:800;color:var(--blue)!important}
 
@@ -1973,6 +1981,8 @@ footer a:hover{color:#fff!important}
    sections down, below the fold on every device. */
 .herothesis{margin:18px 0 0;font-weight:800;letter-spacing:-.03em;
   line-height:1.16;font-size:clamp(21px,2.7vw,30px);color:#0E1320}
+.hero .herothesis{color:var(--blue)!important}
+.hero .herothesis span{display:block}
 .hero .herothesis b{font-weight:800;color:var(--blue)!important}
 @media (max-width:820px){.herothesis{font-size:clamp(20px,5.4vw,26px)}}
 
@@ -2014,18 +2024,22 @@ footer a:hover{color:#fff!important}
 .facerail::-webkit-scrollbar{height:9px}
 .facerail::-webkit-scrollbar-track{background:var(--rule);border-radius:5px}
 .facerail::-webkit-scrollbar-thumb{background:var(--blue);border-radius:5px}
-.face{flex:0 0 138px;scroll-snap-align:start;text-decoration:none;text-align:center}
+.face{flex:0 0 138px;scroll-snap-align:start;text-align:center}
 .face img{width:116px;height:116px;border-radius:50%;object-fit:cover;
   border:3px solid var(--blue);display:block;margin:0 auto 11px}
-.spkstrip .facerail .face b{display:block;font-size:16px;line-height:1.25;
-  font-weight:700;color:#0E1320!important}
+.spkstrip .facerail .face b{display:block;font-size:17px;line-height:1.24;
+  font-weight:800;color:#0E1320!important}
 .spkstrip .facerail .face span{display:block;font-size:16px;line-height:1.3;
-  color:#3A4157;margin-top:3px}
-.face:hover img{border-color:var(--hover)}
+  font-weight:500;color:#3A4157!important;margin-top:3px}
+.spkstrip .facerail .face em{display:block;font-size:14px;line-height:1.28;
+  font-style:normal;font-weight:500;color:#6B77A0!important;margin-top:2px}
+
 .railnote{margin:2px 0 0;font-size:16px;color:#3A4157}
+.railnote a{color:var(--blue)!important;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.railnote a:hover{color:var(--hover)!important}
 /* nothing below 16px, including speaker roles and companies */
 #speakers .pcard span,#speakers .pcard em{font-size:16px}
-@media (max-width:620px){.face{flex:0 0 116px}.face img{width:98px;height:98px}}
+@media (max-width:620px){.face{flex:0 0 116px}.face img{width:98px;height:98px}.face .ftitle{display:none}}
 
 /* ==========================================================================
    LEFTOVER FROM THE DARK-TO-LIGHT FLIP
@@ -2136,43 +2150,141 @@ footer a:hover{color:#fff!important}
   letter-spacing:-.02em;line-height:1.3;color:#0E1320}
 @media (max-width:620px){.constit span{font-size:16px;padding:10px 14px}}
 
-/* ==========================================================================
-   AGENDA (#program) and the promoted thesis line , added 10 Aug 2026
-   The nav advertised "Agenda" pointing at #program for as long as the page has
-   existed and there was no such section, so the link did nothing at all. Track
-   A carries vCon purple; Track B is blue, NOT green, because green measures
-   3.36:1 and is fill-only in this system, never text.
-   ========================================================================== */
-.thesis-h{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.035em;line-height:1.06;
-  color:var(--blue);margin:0 0 14px}
-.agenda{margin-top:30px;display:grid;gap:20px}
-.aday{background:var(--card,#fff);border:2px solid var(--line,#E3E4E8);padding:26px 28px}
-@media (max-width:620px){.aday{padding:20px 18px}}
-.aday.oct13{border-left:7px solid var(--purple)}
-.ahead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-  padding-bottom:14px;margin-bottom:16px;border-bottom:2px solid var(--line,#E3E4E8)}
-.an{font-size:17px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ink,#0E1320);white-space:nowrap}
-.ah{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.03em;color:var(--blue)}
-.atracks{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media (max-width:820px){.atracks{grid-template-columns:1fr;gap:20px}
-  .atracks .atrack+.atrack{border-top:2px dashed var(--line,#E3E4E8);padding-top:18px}}
-@media (min-width:821px){.atracks .atrack+.atrack{border-left:2px dashed var(--line,#E3E4E8);padding-left:24px}}
-.atname{margin:0 0 10px;font-size:17px;font-weight:800;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--purple)}
-.atname.live{color:var(--blue)}
-.agenda ul{margin:0;padding-left:20px}
-.agenda li{font-size:18px;line-height:1.55;color:var(--ink2,#47506B);margin:0 0 9px}
-.agenda li b{color:var(--blue)}
-.aflat{list-style:none;padding-left:0!important}
-.aflat li{display:grid;grid-template-columns:190px 1fr;gap:6px 18px;align-items:baseline;
-  padding:11px 0;margin:0;border-bottom:1px solid var(--rule,#E3E4E8)}
-.aflat li:last-child{border-bottom:0}
-@media (max-width:620px){.aflat li{grid-template-columns:1fr;gap:3px}}
-.aflat li b{font-size:16.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-  color:var(--blue);font-variant-numeric:tabular-nums}
-.anote{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--ink2,#47506B)}
-.anote b{color:var(--blue)}
+/* ---- review 4 fixes ---- */
+/* #join was 1209px on mobile: the three offer boxes repeat the lede verbatim.
+   Keep the grid on desktop, collapse to a plain list on mobile. */
+@media (max-width:820px){
+  #join .offer{display:block!important;margin-top:16px}
+  #join .obox{border:0!important;border-top:2px solid var(--purple)!important;
+    padding:10px 0 0!important;margin:0 0 10px!important;background:transparent!important}
+  #join .obox p{display:none!important}
+  #join .obox .on{display:inline;margin-right:8px}
+  #join .obox b{display:inline}
+}
+/* Eleven photographs one-per-row was 1394px. Two up. */
+@media (max-width:560px){.gal{column-count:2!important}}
+/* Five gold logos in one column, heights ranging 98px to 166px. */
+@media (max-width:860px){
+  .spo-gold .logo.gold{flex:0 1 calc(50% - 11px)!important;min-width:0!important}
+  .spo-gold .logo.gold img{max-height:96px!important}
+}
+/* #stayintouch sat below the finale in the same blue, reading as debris that
+   fell off it. Ground both cards on white with an outline instead. */
+#stayintouch .mailbox{background:#fff!important;border:3px solid var(--blue)}
+#stayintouch .mailbox .ch{color:var(--blue)!important}
+#stayintouch .mailbox p{color:#3A4157!important}
+#stayintouch .mailbox label{color:#0E1320!important}
+#stayintouch .mailbox .btn.solid{background:var(--blue)!important;color:#fff!important;border-color:var(--blue)!important}
+#stayintouch .mailbox .btn.solid:hover{background:var(--hover)!important;border-color:var(--hover)!important;color:#fff!important}
+
+/* a{color:inherit} would render these as plain text. They are the only inline
+   links in body copy on the page, so say so explicitly. */
+.curator .lede a{color:var(--blue);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:2px;font-weight:700}
+.curator .lede a:hover{color:var(--hover)}
+
+/* ---- review 5 ---- */
+/* The lede and the three rows state the same three facts. Rows are scannable,
+   the lede is prose; on a phone keep the rows. Both stay on desktop. */
+@media (max-width:820px){#join .lede{display:none!important}}
+/* The Substack card was left a solid purple slab beside a white outlined one,
+   which made Jeff's newsletter the heaviest block in the bottom third. */
+#stayintouch .reportbox{background:#fff!important;border:3px solid var(--blue)!important;
+  border-radius:0;padding:24px}
+#stayintouch .reportbox .ch{color:var(--blue)!important}
+#stayintouch .reportbox p{color:#3A4157!important}
+#stayintouch .reportbox .subnote{color:#3A4157!important}
+#stayintouch .reportbox .btn.solid{background:var(--blue)!important;color:#fff!important;
+  border-color:var(--blue)!important}
+#stayintouch .reportbox .btn.solid:hover{background:var(--hover)!important;
+  border-color:var(--hover)!important;color:#fff!important}
+/* Silver got the treatment gold got. */
+@media (max-width:860px){
+  .spo-silver .logo.silver{flex:0 1 calc(50% - 11px)!important;min-width:0!important}
+  .spo-silver .logo.silver img{max-height:64px!important}
+}
+
+/* One countdown at a time. #cdWrap (doors open) is hidden until the early-bird
+   deadline passes, then the script below swaps them. */
+#cdWrap{display:none}
+body.past-earlybird #cdWrap{display:block}
+body.past-earlybird .ebird{display:none!important}
+
+/* Review 6, two content bugs.
+   1. On 29 Aug the hero still read "Early-bird pricing ends August 28. Save up
+      to $475." A stalled clock looks broken; a stale price claim reads as true.
+      Same hook as the countdown swap. Replacement copy is Jeff's call; until
+      then the page says nothing false. */
+body.past-earlybird .herourge{display:none!important}
+body.past-earlybird .regstrip .ebtag{display:none!important}
+/* 2. Hiding the obox paragraphs AND the lede on mobile deleted four facts that
+      then survived in neither: the word "individuals", the "on October 13"
+      qualifier, and the names of both October 13 events. The rows alone never
+      named what they were selling. Put the paragraphs back. */
+@media (max-width:820px){#join .obox p{display:block!important;margin:4px 0 0}}
+
+/* Back on the home page at Jeff's request. a{color:inherit} would render the
+   address as plain text, and #join forces purple on headings, so say it here. */
+#join .codenote{margin:18px 0 0;font-size:17px;line-height:1.55;color:#3A4157}
+#join .codenote a{color:var(--purple);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:2px}
+#join .codenote a:hover{color:var(--hover)}
+
+/* ---- Lauren's desktop review, 11 Aug ---- */
+/* 1. Header is a white bar. Words blue, black on hover. */
+.hdr .nm{color:var(--blue)!important}
+.hdr nav a{color:var(--blue)!important}
+.hdr nav a:hover{color:#000!important}
+/* 6. ".btn" is inline-flex, and flex DISCARDS the whitespace between items, so
+   "Register for " + <span> rendered as "forVoice". Lauren reported it as a typo;
+   the space was in the markup all along. */
+.btn{gap:.34em}
+/* 9. keep the city and state together */
+.nb{white-space:nowrap}
+/* 10. the small line in the final box */
+.finale .lede{font-weight:700}
+/* 5. presenting sponsor, bigger and filling the bar */
+.sponsorbar .barlab{font-size:19px!important;letter-spacing:.06em}
+.sponsorbar .bar-in img{max-height:104px!important;height:auto;width:auto}
+.sponsorbar .bar-in{gap:26px}
+/* 7. silver logos all one height */
+.spo-silver .logo.silver{align-items:center;justify-content:center;min-height:96px}
+.spo-silver .logo.silver img{max-height:56px!important;height:56px;object-fit:contain;width:auto}
+/* 11. footer in brand blue with the logo reversed out */
+footer{background:var(--blue)!important;color:#fff!important}
+footer a{color:#fff!important}
+footer a:hover{color:var(--sky)!important}
+footer .ftlogo{filter:brightness(0) invert(1);height:34px;width:auto}
+
+/* The register bar now carries the long form, which no longer fits one line at
+   19px. Stack it deliberately rather than let it look like a wrap. */
+.regstrip .btn.solid{flex-direction:column;gap:2px;line-height:1.25;padding:16px 24px}
+.regstrip .btn.solid .evt{display:block}
+/* footer .mono was picking up its own grey; the footer is brand blue now. */
+footer .mono,footer span,footer .mono a{color:#fff!important}
+footer .mono a:hover{color:var(--sky)!important}
+
+/* ---- review 7 ---- */
+/* Lauren asked for the footer navigation off. On desktop the header carries it,
+   so that is right. Below 1180px ".hdr nav" is display:none and there is no
+   hamburger, so removing it left a phone with NO route from the home page to the
+   agenda, and made registration a dead end. Desktop keeps her change; mobile
+   gets navigation back. */
+.ftnav{display:none}
+@media (max-width:1180px){
+  .ftnav{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+  .ftnav a{color:#fff!important;font-weight:700}
+}
+/* ".nb" was unconditional nowrap to stop "Georgia" orphaning. The span is 350px,
+   so at 320 and 360 the whole PAGE scrolled sideways. Fixing an orphan is not
+   worth a horizontal scrollbar on the most common phone width. */
+@media (max-width:430px){.nb{white-space:normal}}
+/* The register button carries the long form now. On a phone it set in four
+   lines; shrink the type so it sets in two. */
+@media (max-width:600px){
+  .regstrip .btn.solid{font-size:15px;padding:14px 18px}
+  .regstrip .btn.solid .evt{font-size:15px}
+}
 
 
 /* ==========================================================================

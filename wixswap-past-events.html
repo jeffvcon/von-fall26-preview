@@ -12,17 +12,36 @@
 (function(){
   // One decision, taken before anything heavy loads. The body that is not
   // chosen is never requested at all.
+  //
+  // Jeff, 15 Aug: this went through two wrong signals before landing here.
+  // window.innerWidth inside the iframe reads Wix's own box (~816px),
+  // never the phone's real width. screen.width was supposed to fix that,
+  // but a real iPhone in Safari STILL loaded desktop even hitting this
+  // file directly outside any Wix wrapper -- so screen.width is not
+  // trustworthy here either (likely some combination of Safari's handling
+  // of screen dims pre-layout, or zoom/scale factors). A phone's
+  // User-Agent is not something any container, iframe box, or zoom level
+  // can distort, so it is now the ONLY signal for real phones. Width is
+  // kept solely for the desktop-window-resized-narrow case, which is not
+  // safety-critical the way "a phone must never get the 1.1MB desktop
+  // file" is.
   var MOBILE = "https://fall26.pulver.com/desktop/wixmobile-past.html", DESKTOP = "https://fall26.pulver.com/desktop/wixfull-past-events.html", BREAK = 760;
   var f = document.getElementById("f");
-  f.src = (window.innerWidth < BREAK ? MOBILE : DESKTOP);
+  var UA_MOBILE = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+  function isNarrow(){
+    return Math.min(window.innerWidth || 9999, window.screen && window.screen.width || 9999) < BREAK;
+  }
+  function decide(){ return UA_MOBILE || isNarrow(); }
+  f.src = (decide() ? MOBILE : DESKTOP);
 
   // If the viewport crosses the breakpoint (tablet rotation, desktop resize),
-  // swap once rather than on every resize event.
-  var isMobile = window.innerWidth < BREAK, t;
+  // swap once rather than on every resize event. UA never changes mid-session,
+  // so only the width half of the decision needs to be re-checked.
+  var isMobile = decide(), t;
   addEventListener("resize", function(){
     clearTimeout(t);
     t = setTimeout(function(){
-      var now = window.innerWidth < BREAK;
+      var now = decide();
       if (now !== isMobile) { isMobile = now; f.src = now ? MOBILE : DESKTOP; }
     }, 250);
   });
