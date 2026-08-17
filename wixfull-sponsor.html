@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>past-events</title><style>
+<title>sponsor</title><style>
 html,body{margin:0;padding:0;overflow-x:hidden}
 
 /* ==========================================================================
@@ -2291,46 +2291,87 @@ footer .mono a:hover{color:var(--sky)!important}
 
 
 /* ==========================================================================
-   /past-events , one page, every past event, 2023 to today.
-   Jeff, 10 Aug 2026: "thinking we should have a past events page and that is
-   where all of the past events are navigated to / from. at least those that we
-   have had since 2023."
-
-   This replaces THREE top-level dropdowns on the live site ("Past Events -
-   Voice and Conversations", "Past Events - VON: Evolution", "Past Events -
-   AICOMM") carrying 14 sub-items between them. Three of the live site's five
-   nav slots are spent on history; a visitor deciding whether to buy a ticket
-   has to read past all of it. Here the history is one nav item and the three
-   brands become headings on the page, which is what they always were.
-
-   The links go to the LIVE vonevolution.com pages, deliberately. These events
-   already have pages that work and rank; this page is a directory, not a
-   rebuild.
+   /registration - page-specific
+   Built from the same stylesheet as the home page so the two cannot drift.
    ========================================================================== */
-.pasthead{padding-top:clamp(30px,4vw,56px);padding-bottom:clamp(18px,2.6vw,30px)}
-.pasthead h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.04em;
+.reghead{padding-top:clamp(30px,4vw,56px);padding-bottom:clamp(26px,3.4vw,44px)}
+.reghead h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.04em;
   font-weight:800;margin:10px 0 0;color:var(--blue)}
-.pasthead .where{margin:16px 0 0;font-size:clamp(18px,2vw,21px);line-height:1.5;
-  font-weight:600;color:#0E1320;max-width:56ch}
+.reghead .where{margin:16px 0 0;font-size:clamp(18px,2vw,21px);line-height:1.5;
+  font-weight:600;color:#0E1320;max-width:44ch}
+.reghead .where b{font-weight:800;color:var(--blue)}
 
-.brandblock{padding-top:clamp(24px,3vw,40px)}
-.brandlab{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:.06em;
-  text-transform:uppercase;color:#0E1320}
-.brandblock h2{font-size:clamp(24px,2.8vw,34px);letter-spacing:-.03em;color:var(--blue);margin:0}
-.brandnote{margin:10px 0 0;font-size:18px;line-height:1.6;color:#47506B;max-width:64ch}
+/* ticket tiers */
+.tix{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px;align-items:stretch}
+@media (max-width:900px){.tix{grid-template-columns:1fr}}
+.tix .t{background:#fff;border:2px solid var(--rule);border-top:7px solid var(--blue);
+  padding:26px 24px 28px;display:flex;flex-direction:column}
+/* VIP is INK, not purple. Purple is reserved for the vCon Foundation. */
+.tix .t.vip{border-top-color:#0E1320}
+.tix .t h3{margin:0;font-size:25px;font-weight:800;letter-spacing:-.025em;
+  line-height:1.15;color:var(--blue)}
+.tix .t.vip h3{color:#0E1320}
+.tix .t .colo{margin:12px 0 0;font-size:16.5px;line-height:1.45;font-weight:600;color:#3A4157}
+.tix .t .when{margin:9px 0 0;font-size:17px;font-weight:700;letter-spacing:.03em;
+  text-transform:uppercase;color:#3A4157}
+.tix .t .inc{margin:18px 0 0;padding:0;list-style:none}
+.tix .t .inc li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:17.5px;
+  line-height:1.45;display:flex;gap:11px;align-items:flex-start;color:#0E1320}
+.tix .t .inc li:last-child{border-bottom:0}
+.tix .t .inc li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;
+  background:var(--blue);margin-top:.55em}
+.tix .t.vip .inc li::before{background:#0E1320}
+.tix .t .sp{flex:1;min-height:14px}
 
-.evgrid{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media (max-width:900px){.evgrid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:600px){.evgrid{grid-template-columns:1fr}}
-.evcard{display:block;text-decoration:none;background:#fff;border:2px solid #E3E4E8;
-  padding:20px 22px;transition:transform .2s,border-color .2s,box-shadow .2s}
-.evcard:hover,.evcard:focus-visible{transform:translateY(-3px);border-color:var(--blue);
-  box-shadow:0 16px 34px -22px rgba(6,16,52,.55)}
-.evcard .yr{display:block;font-size:16px;font-weight:800;letter-spacing:.06em;
-  text-transform:uppercase;color:#47506B;font-variant-numeric:tabular-nums}
-.evcard .nm2{display:block;margin-top:7px;font-size:21px;font-weight:800;
-  letter-spacing:-.025em;line-height:1.2;color:var(--blue)}
-.evcard .go{display:block;margin-top:12px;font-size:16px;font-weight:700;color:#47506B}
+/* prices. Base price is the headline because $700 vs $775 is scannable and
+   $754.25 vs $835.06 is not. The all-in figure sits under it so nobody meets a
+   surprise at the Eventbrite checkout. */
+.prow{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;
+  padding:13px 0 0;border-top:1px solid var(--rule);margin-top:13px}
+.prow .pn{grid-row:1;font-size:16px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:#3A4157}
+.prow .pv{grid-row:1;justify-self:end;font-size:31px;font-weight:800;
+  letter-spacing:-.035em;color:var(--blue)!important;font-variant-numeric:tabular-nums}
+.prow .pt{grid-column:1/-1;grid-row:2;font-size:15.5px;color:#3A4157;margin-top:3px}
+.paft{grid-column:1/-1;grid-row:3;font-size:15.5px;line-height:1.4;color:#3A4157;margin-top:5px}
+.paft b{color:#6B4600!important;font-weight:700}
+.prow.vipr .pv{color:#0E1320!important}
+.prow.vipr .pn{color:#0E1320}
+
+/* the three-day card is the one to take */
+.tix .t.best{border-color:var(--blue);border-width:3px;border-top-width:7px;position:relative}
+.tix .t.best .flag{position:absolute;top:-1px;right:16px;background:var(--blue);color:#fff;
+  font-size:15px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px}
+
+.ebnote{margin:14px 0 0;font-size:19px;line-height:1.55;color:#0E1320;max-width:60ch}
+.ebnote b{color:var(--blue)!important}
+.vipnote{margin:24px 0 0;font-size:17.5px;line-height:1.6;color:#0E1320;max-width:72ch}
+.vipnote b{color:var(--blue)!important}
+
+
+/* ==========================================================================
+   THE vCON FOUNDATION IS PURPLE, EVERYWHERE
+   #6A0DAD is the Foundation's colour and it was leaking to blue inside the
+   members block, which made membership look like part of the ticket ladder.
+   ========================================================================== */
+#members .lede strong,#members .obox b,#members .nextup b,#members .codebox b{color:var(--purple)!important}
+#members .codebox a{color:var(--purple)!important}
+#members .nextup .mono{color:var(--purple)!important}
+#members .btn.solid{background:var(--purple)!important;border-color:var(--purple)!important;color:#fff!important}
+#members .btn.solid:hover{background:#54098A!important;border-color:#54098A!important}
+#members .obox{border-top-color:var(--purple)!important}
+.reportbox .substk .btn.solid,#join .reportbox .substk .btn.solid{color:var(--purple)!important}
+
+/* who registers - compact constituency band on the conversion page */
+.delegates{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.delegates span{font-size:17px;font-weight:700;padding:11px 17px;background:#fff;
+  border:2px solid var(--blue);color:var(--blue);border-radius:2px;line-height:1.2}
+@media (max-width:620px){.delegates span{font-size:16px;padding:9px 13px}}
+
+.regnote{margin-top:24px;font-size:18px;line-height:1.6;color:#3A4157;max-width:60ch}
+.backlink{display:inline-block;margin-top:8px;font-size:17px;font-weight:700;
+  color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.backlink:hover{color:var(--hover)}
 
 /* 2. the event name is always bold and blue, wherever it appears */
 .evt,.evname{color:var(--blue)!important;font-weight:700!important}
@@ -2412,66 +2453,135 @@ footer .mono a:hover{color:var(--sky)!important}
 
 </style></head><body>
 
-<div class="strip ice pasthead">
+<div class="strip ice reghead">
   <div class="col">
-    
-    <h1>Past Events</h1>
-    <p class="where">Fourteen events since 2023, under three brands.</p>
-  </div>
-</div>
-
-
-
-
-<div class="strip ice pad brandblock">
-  <div class="col">
-    <h2>Voice and Conversations</h2>
-    <p class="brandnote">Three events, 2025 to 2026.</p>
-    <div class="evgrid">
-      <a class="evcard" href="https://www.vonevolution.com/spring26vcon" target="_top"><span class="yr">2026</span><span class="nm2">Spring '26 Voice and Conversations</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/fall25vcon" target="_top"><span class="yr">2025</span><span class="nm2">Fall '25 vCon</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/spring25-vcon" target="_top"><span class="yr">2025</span><span class="nm2">Spring '25 vCon</span><span class="go">View the event &rarr;</span></a>
-    </div>
-  </div>
-</div>
-
-<div class="strip blue pad brandblock">
-  <div class="col">
-    <h2>VON: Evolution</h2>
-    <p class="brandnote">Eight events, 2023 to 2025.</p>
-    <div class="evgrid">
-      <a class="evcard" href="https://www.vonevolution.com/spring25von" target="_top"><span class="yr">2025</span><span class="nm2">Spring '25 VON</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/fall24" target="_top"><span class="yr">2024</span><span class="nm2">Fall '24 VON: Evolution</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/vcon-comm" target="_top"><span class="yr">2024</span><span class="nm2">vCon Workshop</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/spring-24" target="_top"><span class="yr">2024</span><span class="nm2">Spring '24</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/devon" target="_top"><span class="yr">2024</span><span class="nm2">DeVON</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/london" target="_top"><span class="yr">2024</span><span class="nm2">VON London</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/fall-23" target="_top"><span class="yr">2023</span><span class="nm2">Fall '23 VON: Evolution</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/von-builder" target="_top"><span class="yr">2023</span><span class="nm2">VON: Builder</span><span class="go">View the event &rarr;</span></a>
-    </div>
-  </div>
-</div>
-
-<div class="strip ice pad brandblock">
-  <div class="col">
-    <h2>AI/COMM</h2>
-    <p class="brandnote">Three events, 2024 to 2025.</p>
-    <div class="evgrid">
-      <a class="evcard" href="https://www.vonevolution.com/spring25aicomm" target="_top"><span class="yr">2025</span><span class="nm2">Spring '25 AI/COMM</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/fall-24-ai-comm" target="_top"><span class="yr">2024</span><span class="nm2">Fall '24 AI/COMM</span><span class="go">View the event &rarr;</span></a>
-      <a class="evcard" href="https://www.vonevolution.com/ai-comm" target="_top"><span class="yr">2024</span><span class="nm2">AI/COMM</span><span class="go">View the event &rarr;</span></a>
+    <div class="eyebrow"><span class="mono">Sponsors</span></div>
+    <h1>Sponsors</h1>
+    <p class="where"><b>Fall '26 Voice and Conversations on the Net</b><br>October 13&ndash;15, 2026 &middot; Sandy Springs Performing Arts Center &middot; Atlanta, Georgia</p>
+    <div class="knows" style="margin-top:28px">
+      <p>Fall &#39;26 Voice and Conversations on the Net brings together the people shaping the AI Communication space &mdash; across telecom, enterprise, platforms, and policy.</p>
     </div>
   </div>
 </div>
 
 
-<div class="regstrip"><div class="col"><a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register for Voice and Conversations on the Net</a><span class="ebtag">Early-bird pricing ends August 28</span></div></div>
+
+<div class="ebird">
+  <div class="col">
+    <div class="eb-in">
+      <p class="eb-lab">Early Bird ends August 28<b>After that, prices go up.</b></p>
+      <div class="eb-right">
+        <div class="ebclk" aria-label="Time remaining until early-bird pricing ends">
+          <div class="u"><span class="n" id="ebd">--</span><span class="x">Days</span></div>
+          <div class="u"><span class="n" id="ebh">--</span><span class="x">Hrs</span></div>
+          <div class="u"><span class="n" id="ebm">--</span><span class="x">Min</span></div>
+      </div>
+        <a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Ticket prices</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="strip ice pad" id="pitch">
+  <div class="col">
+    <div class="eyebrow"><span class="mono">Why sponsor</span></div>
+    <h2 class="sec">Voice Is Back</h2>
+    <p class="lede" style="margin-top:14px;max-width:62ch">What&#39;s changing is what happens after a conversation ends. Fall &#39;26 Voice and Conversations on the Net brings together the people shaping the AI Communication space &mdash; across telecom, enterprise, platforms, and policy. If your company is building in this space, sponsorship is not about visibility. It&#39;s about being part of the conversation.</p>
+
+    <p class="lede" style="margin-top:26px"><b>This event brings together:</b></p>
+    <ul class="exp">
+      <li>Operators and platform builders</li>
+      <li>Enterprise decision-makers</li>
+      <li>Telecom and infrastructure leaders</li>
+      <li>Policy and regulatory voices</li>
+    </ul>
+
+    <p class="lede" style="margin-top:26px"><b>These are the people:</b></p>
+    <ul class="exp">
+      <li>Defining how communication systems evolve</li>
+      <li>Making decisions about deployment</li>
+      <li>Shaping what gets adopted</li>
+    </ul>
+  </div>
+</div>
+
+<div class="strip blue pad" id="room">
+  <div class="col">
+    <h2 class="sec">Sponsorship gives you direct access to this room.</h2>
+    <p class="lede" style="margin-top:14px;max-width:60ch"><b>This is not a trade show.</b> There are no booths. No aisles. No lead scanning. Tabletop placements are designed for conversations.</p>
+    <p class="lede" style="margin-top:22px"><b>The value comes from:</b></p>
+    <ul class="exp">
+      <li>Who is in the room</li>
+      <li>What is being discussed</li>
+      <li>The relationships that form</li>
+    </ul>
+  </div>
+</div>
+
+<div class="strip ice pad" id="benefits">
+  <div class="col">
+    <div class="eyebrow"><span class="mono">Sponsorships Support Authentic Engagement</span></div>
+    <h2 class="sec">Depending on the level, sponsors can expect:</h2>
+    <ul class="exp">
+      <li>Access to VIP and speaker-level conversations</li>
+      <li>Presence in the room through curated placements</li>
+      <li>Tabletop space for conversation and meetings (Gold and Diamond levels)</li>
+      <li>Opportunities to participate in sessions (moderation or introduction)</li>
+      <li>Time and space for private meetings</li>
+      <li>Inclusion across event materials and communications</li>
+    </ul>
+
+    <p class="lede" style="margin-top:26px"><b>There are also a small number of opportunities tied to specific moments during the event, including:</b></p>
+    <ul class="exp">
+      <li>Private dinners with speakers and invited guests</li>
+      <li>Evening reception hosting</li>
+      <li>Key networking moments throughout the event</li>
+    </ul>
+
+    <p class="lede" style="margin-top:26px"><b>All sponsorships are structured to help you:</b></p>
+    <ul class="exp">
+      <li>Build relationships</li>
+      <li>Start conversations</li>
+      <li>Stay close to how this space is developing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="strip blue pad" id="categories">
+  <div class="col">
+    <h2 class="sec">Our Sponsors Will Include:</h2>
+    <ul class="exp">
+      <li>Telecom and infrastructure providers</li>
+      <li>CPaaS, CCaaS, and platform companies</li>
+      <li>AI + communication technology companies</li>
+      <li>Enterprise vendors working in voice, messaging, and CX</li>
+      <li>Companies thinking about policy, trust, and compliance</li>
+    </ul>
+    <p class="lede" style="margin-top:24px"><b>Companies in the AI Communication Space Will Succeed Here!</b></p>
+    <p class="lede" style="margin-top:14px"><b>Sponsorship is limited.</b> We&#39;re selective about who participates to keep the room aligned.</p>
+  </div>
+</div>
+
+<div class="strip ice pad" id="story">
+  <div class="col">
+    <h2 class="sec">This event reflects a point of view and a moment.</h2>
+    <p class="lede" style="margin-top:14px;max-width:62ch">It brings together people who are shaping what comes next in AI Communication. It builds on the legacy of what VON Conference represented in an earlier era. Sponsors are part of that story.</p>
+    <p class="lede" style="margin-top:22px"><b>This is an opportunity to be associated with:</b></p>
+    <ul class="exp">
+      <li>The people driving the space forward</li>
+      <li>The conversations that matter</li>
+      <li>The direction this is heading</li>
+    </ul>
+    <p class="lede" style="margin-top:26px"><b>If this resonates, we should talk.</b></p>
+    <div class="cta" style="margin-top:14px"><a class="btn solid" href="https://forms.gle/pDWWzBvFrGedRwig7" target="_top">Request Sponsorship Information</a></div>
+  </div>
+</div>
 
 <div class="strip navy pad finale">
   <div class="col">
     <h2 class="sec"><span class="nb">Join us in <span class="nowrap">Atlanta, Georgia.</span></span> Help shape what comes next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
-    <div class="row"><a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com" target="_top">Back to the event</a></div>
+    <div class="row"><a class="btn solid" href="https://www.eventbrite.com/e/fall-26-voice-and-conversations-on-the-net-tickets-1986769647498?aff=oddtdtcreator" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com" target="_top">Back to the event</a></div>
   </div>
 </div>
 

@@ -65,6 +65,8 @@ a{color:var(--blue)}
 .day p{font-size:16px;margin:5px 0 0}
 .day.p{border-left-color:var(--purple)}
 .day.p .d{color:var(--purple)}
+.evtlist li{font-size:19px;font-weight:700;color:var(--navy)}
+.bigtitle{font-size:24px!important;line-height:1.2!important;font-weight:700!important;color:var(--blue)!important}
 
 .host{display:flex;gap:14px;align-items:center;margin:0 0 24px}
 .host img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px}
@@ -143,9 +145,10 @@ ul.for,ul.bul{margin:0;padding:0 0 0 18px}
 .brand h3{color:var(--blue);font-size:19px}
 .brand .n{font-size:13px;color:var(--ink);margin:2px 0 10px}
 .brand ul{margin:0;padding:0;list-style:none}
-.brand li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);
-  font-size:15px;line-height:1.3}
+.brand li{padding:0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.3}
 .brand li:last-child{border-bottom:0}
+.brand li a.pastev{display:flex;gap:12px;padding:8px 0;color:inherit;
+  text-decoration:none}
 .brand li i{font-style:normal;color:var(--ink);font-size:13px;flex:0 0 38px;
   font-weight:600;padding-top:1px}
 .brand li b{color:var(--navy);font-weight:600}
@@ -226,36 +229,27 @@ nav.tabs a[aria-current]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)
 </div></section>
 
 <section><div class="w">
-  <div class="callout"><b>The full schedule publishes around September 1.</b>
-  October 13 is set. The 14th and 15th are being curated session by session.</div>
-</div></section>
-
-<section><div class="w">
   <h2>The three days</h2>
   <div class="day p"><div class="d">Tuesday, October 13</div>
-    <h3>Pre-Conference</h3>
-    <p>Two co-located events, one ticket. The 2026 vCon Summit, a vCon
-    Foundation event, and 2026 VoiceAI LIVE! 9:00 AM to 4:00 PM.</p>
-    <p>To learn vCons specifically, this is the day. The Introduction to vCons
-    Primer runs once, on the 13th.</p></div>
-  <div class="day"><div class="d">Wednesday, October 14</div>
-    <h3>Main conference, day one</h3>
-    <p>Sessions through the day, then the Welcome Reception in the evening.</p></div>
-  <div class="day"><div class="d">Thursday, October 15</div>
-    <h3>Main conference, day two</h3>
-    <p>Sessions through the day, and networking throughout.</p></div>
+    <h3>Pre-Conference Events</h3>
+    <ul class="for evtlist">
+      <li>2026 vCon Summit (hosted by The vCon Foundation)</li>
+      <li>2026 VoiceAI LIVE! &mdash; live VoiceAI demos, given by 16 companies</li>
+    </ul></div>
+  <div class="day"><div class="d">Oct 14&ndash;15</div>
+    <h3 class="bigtitle">Fall '26 Voice and Conversations on the Net</h3></div>
 </div></section>
 
 <section><div class="w">
   <p class="eyebrow">What we cover</p>
-  <h2>Some of the topics</h2>
-  <ul class="bul"><li>Conversation capture, structuring and governance</li><li>vCons, and the state of the standard at the IETF</li><li>AI communication inside enterprise deployments</li><li>Compliance and analytics built on conversational memory</li><li>Contact center deployments, including regulated industries</li><li>What changes after a conversation ends</li></ul>
-  <p class="more">Building on Spring '26 in Dallas, where more than 40 speakers
-  from across North America and Europe took part.</p>
+  <h2>Topics we're working on include:</h2>
+  <ul class="bul"><li>How enterprises are putting conversational memory to work</li><li>The new Telecom Unicorns</li><li>Delivering Unified Communications</li><li>Servicing the Needs of the Enterprise</li><li>Software Developers and the future of Voice</li><li>The Renaissance of Telecom</li><li>VoiceAI and the HD Voice Paradox</li><li>Memory and trust — how vCons connect the future of voice</li><li>Compliance in a world of evolving regulations</li><li>Why most voice agents don&#x27;t survive contact with real customers</li><li>Fraud detection and compliance built on conversation data</li><li>Voice AI agents that learn from their own calls</li><li>The future of SIP and what it means for voice infrastructure</li></ul>
+  <p class="more"><b>Speakers confirmed from:</b> Alianza, Autom8ly, AVOXI, BoundaryAI, CarrierX, Dialpad, Drum, FlagStat, Gamma, Integrative Technologies, Manulife, MindMaking, P2P Labs, SIPez, SoundHound, Strolid, The vCon Foundation, vConic, VICIdial Group, VoiceRun, WebRTC Ventures, Wireless Waypoint</p>
+  <p class="more">Updates will be published around September 1st.</p>
   <a target="_top" class="cta dark" href="wixmobile-tickets.html">Get a ticket</a>
 </div></section>
 
-<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/sponsor" target="_top">Become a sponsor</a></p></div></section>
+<section class="spon"><div class="w"><h2 style="text-align:center">Our sponsors</h2><div class="tier-lab">Presenting sponsor</div><div class="pres"><span class="tile"><img class="lg-888voip" src="m/888voip.png" alt="888VoIP" loading="lazy"></span></div><div class="tier-lab">Gold sponsors</div><div class="g"><span class="tile"><img class="lg-grandstream" src="m/grandstream.png" alt="Grandstream" loading="lazy"></span><span class="tile"><img class="lg-alianza" src="m/alianza.png" alt="Alianza" loading="lazy"></span><span class="tile"><img class="lg-crexendo" src="m/crexendo.png" alt="Crexendo" loading="lazy"></span><span class="tile"><img class="lg-carrierx" src="m/carrierx.png" alt="CarrierX" loading="lazy"></span><span class="tile"><img class="lg-vconic" src="m/vconic.png" alt="vConic" loading="lazy"></span></div><div class="tier-lab">Silver sponsors</div><div class="s"><span class="tile"><img class="lg-phound" src="m/phound.png" alt="Phound" loading="lazy"></span><span class="tile"><img class="lg-the-vcon-foundation" src="m/the-vcon-foundation.png" alt="The vCon Foundation" loading="lazy"></span><span class="tile"><img class="lg-fornix" src="m/fornix.png" alt="Fornix" loading="lazy"></span><span class="tile"><img class="lg-technology-reseller-news" src="m/technology-reseller-news.png" alt="Technology Reseller News" loading="lazy"></span></div><p class="more" style="text-align:center"><a href="https://www.vonevolution.com/f26-sponsor" target="_top">Become a sponsor</a></p></div></section>
 <nav class="tabs"><a target="_top" href="wixmobile-home.html">Home</a><a target="_top" href="wixmobile-speakers.html">Speakers</a><a target="_top" href="wixmobile-agenda.html" aria-current="page">Agenda</a><a target="_top" href="wixmobile-tickets.html">Tickets</a><a target="_top" href="wixmobile-past.html">Past</a></nav>
 <script>
 (function(){var EB=new Date("2026-08-28T23:59:59-04:00").getTime();
