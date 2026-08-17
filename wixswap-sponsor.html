@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>sponsor</title>
+<style>
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#fff}
+  iframe{display:block;width:100%;height:100%;border:0}
+</style></head><body>
+<iframe id="f" title="sponsor" scrolling="no"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div id="seo-text" style="visibility:hidden;position:absolute;top:0;left:0">Sponsors Sponsors Fall &#x27;26 Voice and Conversations on the Net October 13–15, 2026 · Sandy Springs Performing Arts Center · Atlanta, Georgia Fall &#x27;26 Voice and Conversations on the Net brings together the people shaping the AI Communication space — across telecom, enterprise, platforms, and policy. Early Bird ends August 28 After that, prices go up. -- Days -- Hrs -- Min Ticket prices Why sponsor Voice Is Back What&#x27;s changing is what happens after a conversation ends. Fall &#x27;26 Voice and Conversations on the Net brings together the people shaping the AI Communication space — across telecom, enterprise, platforms, and policy. If your company is building in this space, sponsorship is not about visibility. It&#x27;s about being part of the conversation. This event brings together: Operators and platform builders Enterprise decision-makers Telecom and infrastructure leaders Policy and regulatory voices These are the people: Defining how communication systems evolve Making decisions about deployment Shaping what gets adopted Sponsorship gives you direct access to this room. This is not a trade show. There are no booths. No aisles. No lead scanning. Tabletop placements are designed for conversations. The value comes from: Who is in the room What is being discussed The relationships that form Sponsorships Support Authentic Engagement Depending on the level, sponsors can expect: Access to VIP and speaker-level conversations Presence in the room through curated placements Tabletop space for conversation and meetings (Gold and Diamond levels) Opportunities to participate in sessions (moderation or introduction) Time and space for private meetings Inclusion across event materials and communications There are also a small number of opportunities tied to specific moments during the event, including: Private dinners with speakers and invited guests Evening reception hosting Key networking moments throughout the event All sponsorships are structured to help you: Build relationships Start conversations Stay close to how this space is developing Our Sponsors Will Include: Telecom and infrastructure providers CPaaS, CCaaS, and platform companies AI + communication technology companies Enterprise vendors working in voice, messaging, and CX Companies thinking about policy, trust, and compliance Companies in the AI Communication Space Will Succeed Here! Sponsorship is limited. We&#x27;re selective about who participates to keep the room aligned. This event reflects a point of view and a moment. It brings together people who are shaping what comes next in AI Communication. It builds on the legacy of what VON Conference represented in an earlier era. Sponsors are part of that story. This is an opportunity to be associated with: The people driving the space forward The conversations that matter The direction this is heading If this resonates, we should talk. Request Sponsorship Information Join us in Atlanta, Georgia. Help shape what comes next. This is a working conference designed for people who want to build and deploy, not just observe. Register Back to the event Sponsors Presenting Sponsor Gold Sponsors Silver Sponsors</div>
+<script>
+(function(){
+  // One decision, taken before anything heavy loads. The body that is not
+  // chosen is never requested at all.
+  //
+  // Jeff, 15 Aug: this went through two wrong signals before landing here.
+  // window.innerWidth inside the iframe reads Wix's own box (~816px),
+  // never the phone's real width. screen.width was supposed to fix that,
+  // but a real iPhone in Safari STILL loaded desktop even hitting this
+  // file directly outside any Wix wrapper -- so screen.width is not
+  // trustworthy here either (likely some combination of Safari's handling
+  // of screen dims pre-layout, or zoom/scale factors). A phone's
+  // User-Agent is not something any container, iframe box, or zoom level
+  // can distort, so it is now the ONLY signal for real phones. Width is
+  // kept solely for the desktop-window-resized-narrow case, which is not
+  // safety-critical the way "a phone must never get the 1.1MB desktop
+  // file" is.
+  var MOBILE = "https://fall26.pulver.com/desktop/wixmobile-sponsor.html", DESKTOP = "https://fall26.pulver.com/desktop/wixfull-sponsor.html", BREAK = 760;
+  var f = document.getElementById("f");
+  var UA_MOBILE = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+  function isNarrow(){
+    return Math.min(window.innerWidth || 9999, window.screen && window.screen.width || 9999) < BREAK;
+  }
+  function decide(){ return UA_MOBILE || isNarrow(); }
+  f.src = (decide() ? MOBILE : DESKTOP);
+
+  // If the viewport crosses the breakpoint (tablet rotation, desktop resize),
+  // swap once rather than on every resize event. UA never changes mid-session,
+  // so only the width half of the decision needs to be re-checked.
+  var isMobile = decide(), t;
+  addEventListener("resize", function(){
+    clearTimeout(t);
+    t = setTimeout(function(){
+      var now = decide();
+      if (now !== isMobile) { isMobile = now; f.src = now ? MOBILE : DESKTOP; }
+    }, 250);
+  });
+})();
+</script>
+</body></html>
