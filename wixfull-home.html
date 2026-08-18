@@ -2026,7 +2026,7 @@ footer a:hover{color:#fff!important}
 .facerail::-webkit-scrollbar{height:9px}
 .facerail::-webkit-scrollbar-track{background:var(--rule);border-radius:5px}
 .facerail::-webkit-scrollbar-thumb{background:var(--blue);border-radius:5px}
-.face{flex:0 0 138px;scroll-snap-align:start;text-align:center}
+.face{flex:0 0 138px;min-width:0;scroll-snap-align:start;text-align:center}
 .face img{width:116px;height:116px;border-radius:50%;object-fit:cover;
   border:3px solid var(--blue);display:block;margin:0 auto 11px}
 .spkstrip .facerail .face b{display:block;font-size:17px;line-height:1.24;
@@ -2382,7 +2382,7 @@ footer .mono a:hover{color:var(--sky)!important}
         <p class="herothesis blueall"><span>Voice becomes memory.</span><span>Messaging becomes action.</span><span>vCons make conversations usable for AI.</span></p>
         <p class="curated novcase">Curated and hosted by <b>Jeff Pulver</b><span>Producing the conversations of this industry since 1996</span></p>
         <div class="cta">
-          <a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register &middot; ticket prices</a>
+          <a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register &middot; ticket prices</a>
         </div>
         <p class="herourge">Early-bird pricing ends <b>August 28</b>. Save up to <b>$475</b>.</p>
       </div>
@@ -2431,7 +2431,7 @@ footer .mono a:hover{color:var(--sky)!important}
         <h2 class="sec" style="max-width:20ch">The Community That Built This Industry</h2>
         <p class="lede passion" style="margin-top:14px">Curating events since 1996. It is one of my life&rsquo;s passions: looking at what is happening in tech, and building conferences to explore the future.</p>
         <p class="lede" style="margin-top:12px">From 1997 until 2008, Voice on the Net (&ldquo;VON&rdquo;) was the VoIP industry conference. More than 5,000 people twice a year in the US, with show floors that sold out in San Jose and Boston.</p>
-        <p class="lede nostop" style="margin-top:12px">I never stopped. <a href="https://www.vonevolution.com/past-events" target="_top">Fourteen events since 2023 alone</a>. This is not our first rodeo.</p>
+        <p class="lede nostop" style="margin-top:12px">I never stopped. Fourteen events since 2023 alone. This is not our first rodeo.</p>
         <p class="lede promise" style="margin-top:12px">In 2026 we keep it intimate. The community, the experience, helping people connect the dots, drive business, build and grow relationships.</p>
         <p class="lede" style="margin-top:10px">I helped grow the VoIP industry. Along the way I started a number of organizations, including Vonage, Vivox and VON Coalition. I am the person behind the Pulver Order, the FCC ruling that kept internet voice unregulated.</p>
         <p class="lede" style="margin-top:10px">We are living in the Renaissance of Voice. <strong>And you can't spell renaissance without AI.</strong></p>
@@ -2463,7 +2463,7 @@ footer .mono a:hover{color:var(--sky)!important}
           <div class="u"><span class="n" id="ebm">--</span><span class="x">Min</span></div>
           <div class="u"><span class="n" id="ebs">--</span><span class="x">Sec</span></div>
       </div>
-        <a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register now</a>
+        <a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register now</a>
       </div>
     </div>
   </div>
@@ -2558,7 +2558,7 @@ footer .mono a:hover{color:var(--sky)!important}
   </div>
 </div>
 
-<div class="regstrip"><div class="col"><a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register for <span class="evt">Fall '26 Voice and Conversations on the Net</span></a><span class="ebtag">Early Bird ends August 28</span></div></div>
+<div class="regstrip"><div class="col"><a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register for <span class="evt">Fall '26 Voice and Conversations on the Net</span></a><span class="ebtag">Early Bird ends August 28</span></div></div>
 
 <div class="strip ice" id="sponsors" style="padding-bottom:clamp(38px,5vw,72px)">
   <div class="col">
@@ -2602,7 +2602,7 @@ footer .mono a:hover{color:var(--sky)!important}
   <div class="col">
     <h2 class="sec"><span class="nb">Join us in <span class="nowrap">Atlanta, Georgia.</span></span> Help shape what comes next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
-    <div class="row"><a class="btn solid" href="https://www.vonevolution.com/registration" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com/f26-sponsor" target="_top">Sponsor</a></div>
+    <div class="row"><a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com/f26-sponsor" target="_top">Sponsor</a></div>
   </div>
 </div>
 
@@ -2611,13 +2611,12 @@ footer .mono a:hover{color:var(--sky)!important}
     <h2 class="sec">Stay In Touch</h2>
     <div class="mailbox">
       <div>
-        <h3 class="ch">Event mailing list</h3>
+        <h3 class="ch">Voice and Conversations on the Net</h3>
         <p>Program updates, speaker announcements and the full schedule when it goes live.</p>
       </div>
-      <form class="subform" action="https://voiceonthenet.substack.com/subscribe" method="get" target="_blank" rel="noopener">
-        <label for="evtemail">Email address</label>
-        <div class="subrow"><input id="evtemail" name="email" required type="email" placeholder="you@company.com" autocomplete="email"><button type="submit" class="btn solid">Join the list</button></div>
-      </form>
+      <div class="subform substk">
+        <a class="btn solid" href="https://voiceonthenet.substack.com/subscribe" target="_top">Subscribe on Substack</a>
+      </div>
     </div>
 
     <div class="reportbox">
