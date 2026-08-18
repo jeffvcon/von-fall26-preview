@@ -2332,6 +2332,12 @@ footer .mono a:hover{color:var(--sky)!important}
   letter-spacing:-.025em;line-height:1.2;color:var(--blue)}
 .evcard .go{display:block;margin-top:12px;font-size:16px;font-weight:700;color:#47506B}
 
+/* Jeff, 18 Aug: .finale h2's intended smaller size was getting clobbered by the last (biggest) of the file's 3 duplicated h2.sec rules -- same specificity, later wins. Restated here, in the last style block, so it actually applies. */
+.finale h2.sec{font-size:clamp(26px,4.4vw,44px)!important}
+
+/* Jeff, 18 Aug: general orphan-word control for headings/ledes. text-wrap:pretty is ignored by browsers that don't support it (no downside), and improves last-line breaks where it is supported. Does not replace the hand-picked &nbsp;/.nowrap fixes above for specific phrases -- those still matter for browsers without support. */
+h1,h2.sec,.lede{text-wrap:pretty}
+
 /* 2. the event name is always bold and blue, wherever it appears */
 .evt,.evname{color:var(--blue)!important;font-weight:700!important}
 /* 3. the paragraph beside Jeff's photo matches the others. The old selector
@@ -2469,7 +2475,7 @@ footer .mono a:hover{color:var(--sky)!important}
 
 <div class="strip navy pad finale">
   <div class="col">
-    <h2 class="sec"><span class="nb">Join us in <span class="nowrap">Atlanta, Georgia.</span></span> Help shape what comes next.</h2>
+    <h2 class="sec">Join us in <span class="nowrap">Atlanta, Georgia.</span> Help shape what comes&nbsp;next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
     <div class="row"><a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com" target="_top">Back to the event</a></div>
   </div>

@@ -2289,6 +2289,12 @@ footer .mono a:hover{color:var(--sky)!important}
   .regstrip .btn.solid .evt{font-size:15px}
 }
 
+/* Jeff, 18 Aug: .finale h2's intended smaller size was getting clobbered by the last (biggest) of the file's 3 duplicated h2.sec rules -- same specificity, later wins. Restated here, in the last style block, so it actually applies. */
+.finale h2.sec{font-size:clamp(26px,4.4vw,44px)!important}
+
+/* Jeff, 18 Aug: general orphan-word control for headings/ledes. text-wrap:pretty is ignored by browsers that don't support it (no downside), and improves last-line breaks where it is supported. Does not replace the hand-picked &nbsp;/.nowrap fixes above for specific phrases -- those still matter for browsers without support. */
+h1,h2.sec,.lede{text-wrap:pretty}
+
 /* 2. the event name is always bold and blue, wherever it appears */
 .evt,.evname{color:var(--blue)!important;font-weight:700!important}
 /* 3. the paragraph beside Jeff's photo matches the others. The old selector
@@ -2490,6 +2496,39 @@ footer .mono a:hover{color:var(--sky)!important}
 
 
 
+<div class="strip ice pad" id="who">
+  <div class="col">
+    <h2 class="sec">Who Should Attend</h2>
+    <p class="lede" style="margin-top:14px;max-width:62ch">A C-level gathering of the people who set the direction and sign the deals. These groups do not otherwise gather together. <strong>Unbounded opportunities.</strong></p>
+    <div class="aud-full">
+      <article>
+        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h16l8 8v28H12z"/><path d="M28 6v8h8"/><path d="M17 28v4M21 24v12M25 27v6M29 22v16"/></svg></span>
+        <h3 class="ch">The vCon Community</h3>
+        <p>Developers, standards contributors, platform builders, and enterprise teams deploying or evaluating vCon. Join us for the October 13 pre-conference day and stay for the main conference.</p>
+      </article>
+      <article>
+        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="4.5"/><path d="M15.5 15.5a12 12 0 000 17M32.5 15.5a12 12 0 010 17"/><path d="M9.5 9.5a20.5 20.5 0 000 29M38.5 9.5a20.5 20.5 0 010 29"/></svg></span>
+        <h3 class="ch">Carriers and Infrastructure Teams</h3>
+        <p>The network underneath AI voice matters more than most people realize. Join the conversation on HD Voice, low-latency infrastructure, and the decisions that determine whether AI agents work at scale.</p>
+      </article>
+      <article>
+        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h5l4-11 5 22 5-16 4 9h9"/><path d="M36 8l1.6 3.6L41 13l-3.4 1.4L36 18l-1.6-3.6L31 13l3.4-1.4z"/></svg></span>
+        <h3 class="ch">Voice AI Platforms and Builders</h3>
+        <p>From agent orchestration to real-time synthesis, the builders of AI voice are defining a new industry. This is where that community finds partners.</p>
+      </article>
+      <article>
+        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 41V15l11-6 11 6v26"/><path d="M13 22h3M13 29h3M22 22h3M22 29h3"/><path d="M29 41V23h12v12a6 6 0 01-6 6z"/></svg></span>
+        <h3 class="ch">Enterprise and CX Leaders</h3>
+        <p>Airlines, financial institutions, retailers, and healthcare systems are deploying AI agents in production. Hear from the people running those deployments, what works, what does not, and what is next.</p>
+      </article>
+      <article>
+        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 30v-6a13 13 0 0126 0v6"/><path d="M11 27h4v11h-4a3 3 0 01-3-3v-5a3 3 0 013-3zM37 27h-4v11h4a3 3 0 003-3v-5a3 3 0 00-3-3z"/><path d="M33 38v2a4 4 0 01-4 4h-5"/></svg></span>
+        <h3 class="ch">Contact Center and Outsourcing Leaders</h3>
+        <p>The contact center is the front line of AI transformation. <span class="evt">Fall '26 Voice and Conversations on the Net</span> brings together the operations and technology leaders navigating that shift in real time.</p>
+      </article>
+    </div>
+  </div>
+</div>
 <div class="strip ice pad" id="join">
   <div class="col">
     <div class="eyebrow"><span class="mono novcase">The vCon Foundation</span></div>
@@ -2528,39 +2567,6 @@ footer .mono a:hover{color:var(--sky)!important}
   </div>
 </div>
 
-<div class="strip ice pad" id="who">
-  <div class="col">
-    <h2 class="sec">Who Should Attend</h2>
-    <p class="lede" style="margin-top:14px;max-width:62ch">A C-level gathering of the people who set the direction and sign the deals. These groups do not otherwise gather together. <strong>Unbounded opportunities.</strong></p>
-    <div class="aud-full">
-      <article>
-        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h16l8 8v28H12z"/><path d="M28 6v8h8"/><path d="M17 28v4M21 24v12M25 27v6M29 22v16"/></svg></span>
-        <h3 class="ch">The vCon Community</h3>
-        <p>Developers, standards contributors, platform builders, and enterprise teams deploying or evaluating vCon. Join us for the October 13 pre-conference day and stay for the main conference.</p>
-      </article>
-      <article>
-        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="4.5"/><path d="M15.5 15.5a12 12 0 000 17M32.5 15.5a12 12 0 010 17"/><path d="M9.5 9.5a20.5 20.5 0 000 29M38.5 9.5a20.5 20.5 0 010 29"/></svg></span>
-        <h3 class="ch">Carriers and Infrastructure Teams</h3>
-        <p>The network underneath AI voice matters more than most people realize. Join the conversation on HD Voice, low-latency infrastructure, and the decisions that determine whether AI agents work at scale.</p>
-      </article>
-      <article>
-        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24h5l4-11 5 22 5-16 4 9h9"/><path d="M36 8l1.6 3.6L41 13l-3.4 1.4L36 18l-1.6-3.6L31 13l3.4-1.4z"/></svg></span>
-        <h3 class="ch">Voice AI Platforms and Builders</h3>
-        <p>From agent orchestration to real-time synthesis, the builders of AI voice are defining a new industry. This is where that community finds partners.</p>
-      </article>
-      <article>
-        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 41V15l11-6 11 6v26"/><path d="M13 22h3M13 29h3M22 22h3M22 29h3"/><path d="M29 41V23h12v12a6 6 0 01-6 6z"/></svg></span>
-        <h3 class="ch">Enterprise and CX Leaders</h3>
-        <p>Airlines, financial institutions, retailers, and healthcare systems are deploying AI agents in production. Hear from the people running those deployments, what works, what does not, and what is next.</p>
-      </article>
-      <article>
-        <span class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 30v-6a13 13 0 0126 0v6"/><path d="M11 27h4v11h-4a3 3 0 01-3-3v-5a3 3 0 013-3zM37 27h-4v11h4a3 3 0 003-3v-5a3 3 0 00-3-3z"/><path d="M33 38v2a4 4 0 01-4 4h-5"/></svg></span>
-        <h3 class="ch">Contact Center and Outsourcing Leaders</h3>
-        <p>The contact center is the front line of AI transformation. <span class="evt">Fall '26 Voice and Conversations on the Net</span> brings together the operations and technology leaders navigating that shift in real time.</p>
-      </article>
-    </div>
-  </div>
-</div>
 
 <div class="regstrip"><div class="col"><a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register for <span class="evt">Fall '26 Voice and Conversations on the Net</span></a><span class="ebtag">Early Bird ends August 28</span></div></div>
 
@@ -2604,7 +2610,7 @@ footer .mono a:hover{color:var(--sky)!important}
 
 <div class="strip navy pad finale">
   <div class="col">
-    <h2 class="sec"><span class="nb">Join us in <span class="nowrap">Atlanta, Georgia.</span></span> Help shape what comes next.</h2>
+    <h2 class="sec"><span class="nb">Join us in <span class="nowrap">Atlanta, Georgia.</span></span> Help shape what comes&nbsp;next.</h2>
     <p class="lede" style="color:var(--sky);margin:14px auto 0">This is a working conference designed for people who want to build and deploy, not just observe.</p>
     <div class="row"><a class="btn solid" href="https://www.vonevolution.com/f26-tickets" target="_top">Register</a><a class="btn" href="https://www.vonevolution.com/f26-sponsor" target="_top">Sponsor</a></div>
   </div>
